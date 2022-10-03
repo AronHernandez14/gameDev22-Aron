@@ -1,4 +1,4 @@
-<h5> Version 0.0.2</h5>
+<h5> Version 0.0.3</h5>
 
 <h1 align=center> T1A02-Lists-and-Tables-by-Aron</h1>
 
@@ -35,15 +35,13 @@ multiple items<br>
 
 <h2>Advanced</2>
 
+Load an  image and get it to move 10 pixels to the left using the button below<br>
 
+<image id="myImage01" src="" style="position:relative; left:0; top:0; width:50; height:50; "><br>
 
-
-
-
-
-
-
-
-
+<input type=button value="go left" onclick="{
+  document.getElementById('myImage01').style.left = '200px'
+  document.getElementById('myDive01').innerHTML = 'It went left'
+}">
 
   <div id="myDiv01">...</div>  
