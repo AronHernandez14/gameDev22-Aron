@@ -1,4 +1,4 @@
-Version 0.0.3
+Version 0.0.4
 
 <h2 align=center>t1a07-decision-by-aron.html</h2>
 
@@ -19,14 +19,14 @@ if (myhour < 18) {
 <input id="myNum01" type=number value="4" ><br>
 
 <input type=button value="Simple if Statement for Decision Making" onclick="{
-   let myIn01 = parsefloat(document.getElementById('myNum01').value)
+   let myIn01 = parseFloat(document.getElementById('myNum01').value)
    if (myIn01 >= 3){
        document.getElementById('myDiv01').innerHTML = myIn01 + ' is greater than 3'
    }
 }">
 
 <input type=button value="if...else" onclick="{
-   let myIn01 = parsefloat(document.getElementById('myNum01').value)
+   let myIn01 = parseFloat(document.getElementById('myNum01').value)
    if (myIn01 >= 3){
        document.getElementById('myDiv01').innerHTML = myIn01 + ' is greater than 3'
    } else {
@@ -34,7 +34,7 @@ if (myhour < 18) {
 }">
 
 <input type=button value="Complex if" onclick="{
-   let myIn01 = parsefloat(document.getElementById('myNum01').value)
+   let myIn01 = parseFloat(document.getElementById('myNum01').value)
    if ((myIn01 != 3 || myIn01 > -3) && myIn01 <=100 ){
        document.getElementById('myDiv01').innerHTML = myIn01 + ' is complex'
    } else {
