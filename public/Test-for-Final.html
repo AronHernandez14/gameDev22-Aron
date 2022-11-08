@@ -1,4 +1,4 @@
-Version 0.0.1
+Version 0.0.3
 <style>
  body {
   background: black;
@@ -9,6 +9,9 @@ Version 0.0.1
 <script>
 const canvas = document.querySelector('canvas')
 const c = canvas.getContext('2d)
+                            
+canvas.width = 64 * 16 // 1024
+canvas.height = 64 * 9 //576
 
 c.fillSyle = 'white'                            
 c.fillRect(0, 0, 200, 200)
