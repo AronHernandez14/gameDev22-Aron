@@ -1,4 +1,4 @@
-Version 0.0.4
+Version 0.0.5
 <style>
  body {
   background: black;
@@ -19,3 +19,70 @@ c.fillRect(0, 0, 200, 200)
 if <border> > 1024 fill border
 
 </script>
+
+<script>
+extends Control
+ 
+on/ready var bezel := $Bezel
+on/ready var border := $viewpointContainer/Border
+on/ready var crt_filter := $ViewpointContainer/CrtFilter
+on/ready var viewpoint := $VeiwpointContainer/Viewpoint
+on/ready var viewpoint_container := $ViewpointContainer
+ 
+
+func_ready() -> void:
+   var screen_resized_signal = get_tree().connect("screen_resized", self, "_on_screen_resized")
+   if screen_resized_signal != OK:
+        printerr(screen_resized_signal)
+ 
+    scale_rotate_viewport()
+ 
+ 
+func scale_rotate_viewport() -> void:
+  var window_size = OS.get_window_size()
+  
+  var scale_x = window_size.x / viewport_container.rect.size.z
+  var scale_y = window_size.y / viewport_container.rect_size.y
+  
+  var bezel_texture = Globals.RESOURCES.textures.bezel
+  var bezel_flip_v := false
+  var bezel_flip_h := false
+  
+  match Options.tate_mode:
+     0:
+         viewport_container.set_rotation(deg2rad(float0)))
+
+     1: 
+        viewport_container.set_rotation(deg2rad(float(90)))
+        scale_x = window_size.x / viewport_container.rect_size.x
+        scale_y = window_size.y / viewport_container.rect_size.y
+        bezel_texture = Globals.RESOURCES.textures.bezel_rotated
+     2:
+       viewport_container.set_rotation(deg2rad(float(180)))
+       bezel_flip_v = true
+     3:
+      viewport_container.set_rotation(deg2rad(float(270)))
+      scale_x = window_size.y / viewport_container.rect_size.x
+      scale_y = window_size.x / viewport_container.rect_size.y
+      bezel_texture = Globals.RESOURCES.textures.bezel_rotated
+      bezel_flip_v = true
+      bezel_flip_h = true
+ 
+   bezel.texture = bezel_texture
+   bezel.flip_v = bezel_flip_v
+   bezel.flip_h = bezel_flip_h
+ 
+   var scale = mini(scale_x, scale_y)
+ 
+   if Option.pixel_perfect == 1:
+       scale_x = floor(scale_x)
+       scale_y = floor(scale_y)
+       scale = max(1, mini(scale_x, scale_y))
+ 
+   viewport_container.rect_scale = Vector2.One * scale
+   viewport_container.rect_pivot_offset = viewport_container.rect_size / 2.0
+ 
+ 
+func _on_screen_resized() -> void:
+     scale_rotate_viewport()
+         
