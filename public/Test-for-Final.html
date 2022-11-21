@@ -1,4 +1,4 @@
-Version 0.0.8
+Version 0.0.9
 
 <body id="myBody" style="background-repeat:repeat; background-size: 200%" background="Waves Update.png">
       
@@ -158,7 +158,7 @@ if (parseInt(document.getElementById('myImg02').style.left) < 0 ) {
    if (myKey == 'd') {
       clearInterval(myInterval)
       myInterval = setInterval(function(){
-         document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 3
+         document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 1
                  myCheckHit()
          myIsOnScreen()
       } ,3)
@@ -166,7 +166,7 @@ if (parseInt(document.getElementById('myImg02').style.left) < 0 ) {
    if (myKey == 'a') {
       clearInterval(myInterval)
       myInterval = setInterval(function(){
-         document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 3
+         document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 1
                  myCheckHit()
          myIsOnScreen()
       } ,3)
@@ -174,7 +174,7 @@ if (parseInt(document.getElementById('myImg02').style.left) < 0 ) {
    if (myKey == 'w') {
       clearInterval(myInterval)
       myInterval = setInterval(function(){
-         document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 3
+         document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 1
                  myCheckHit()
          myIsOnScreen()
       } ,3)
@@ -182,7 +182,7 @@ if (parseInt(document.getElementById('myImg02').style.left) < 0 ) {
    if (myKey == 's') {
       clearInterval(myInterval)
       myInterval = setInterval(function(){
-         document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 3
+         document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 1
                  myCheckHit()
          myIsOnScreen()
       } ,3)
