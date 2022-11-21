@@ -1,4 +1,4 @@
-Version 0.0.3
+Version 0.0.4
 
 <body id="myBody" style="background-repeat:repeat; background-size: 200%" background="Waves Update.png">
       
@@ -114,7 +114,7 @@ if (parseInt(document.getElementById('myImg02').style.left) < 0 ) {
 <body onkeydown="{
      let myKey = event.key
  //  let myKey = String.toLowerCase(event.key)
-   if (myKeyDown == 'd') {
+   if (myKey == 'd') {
       clearInterval(myInterval)
       myInterval = setInterval(function(){
          document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 3
@@ -122,7 +122,7 @@ if (parseInt(document.getElementById('myImg02').style.left) < 0 ) {
          myIsOnScreen()
       } ,3)
    }
-   if (myKeyDown == 'a') {
+   if (myKey == 'a') {
       clearInterval(myInterval)
       myInterval = setInterval(function(){
          document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 3
@@ -130,7 +130,7 @@ if (parseInt(document.getElementById('myImg02').style.left) < 0 ) {
          myIsOnScreen()
       } ,3)
    }
-   if (myKeyDown == 'w') {
+   if (myKey == 'w') {
       clearInterval(myInterval)
       myInterval = setInterval(function(){
          document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 3
@@ -138,7 +138,7 @@ if (parseInt(document.getElementById('myImg02').style.left) < 0 ) {
          myIsOnScreen()
       } ,3)
    }
-   if (myKeyDown == 's') {
+   if (myKey == 's') {
       clearInterval(myInterval)
       myInterval = setInterval(function(){
          document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 3
@@ -147,8 +147,14 @@ if (parseInt(document.getElementById('myImg02').style.left) < 0 ) {
       } ,3)
    }  
    
-                 
-if (myKeyUp == 'd') {
+      
+</script>     
+
+</script>
+<body onkeyup="{
+     let myKey = event.key
+ //  let myKey = String.toLowerCase(event.key)
+   if (myKey == 'd') {
       clearInterval(myInterval)
       myInterval = setInterval(function(){
          document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 0
@@ -156,7 +162,7 @@ if (myKeyUp == 'd') {
          myIsOnScreen()
       } ,3)
    }
-   if (myKeyUp == 'a') {
+   if (myKey == 'a') {
       clearInterval(myInterval)
       myInterval = setInterval(function(){
          document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 0
@@ -164,7 +170,7 @@ if (myKeyUp == 'd') {
          myIsOnScreen()
       } ,3)
    }
-   if (myKeyUp == 'w') {
+   if (myKey == 'w') {
       clearInterval(myInterval)
       myInterval = setInterval(function(){
          document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 0
@@ -172,14 +178,15 @@ if (myKeyUp == 'd') {
          myIsOnScreen()
       } ,3)
    }
-   if (myKeyUp == 's') {
+   if (myKey == 's') {
       clearInterval(myInterval)
       myInterval = setInterval(function(){
          document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 0
                  myCheckHit()
          myIsOnScreen()
       } ,3)
-   }                   
-}">    
+   }  
+   
       
 </script>     
+                 
