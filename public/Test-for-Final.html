@@ -1,4 +1,4 @@
-Version 0.0.1
+Version 0.0.3
 
 <body id="myBody" style="background-repeat:repeat; background-size: 200%" background="Waves Update.png">
       
@@ -114,7 +114,7 @@ if (parseInt(document.getElementById('myImg02').style.left) < 0 ) {
 <body onkeydown="{
      let myKey = event.key
  //  let myKey = String.toLowerCase(event.key)
-   if (myKey == 'd') {
+   if (myKeyDown == 'd') {
       clearInterval(myInterval)
       myInterval = setInterval(function(){
          document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 3
@@ -122,7 +122,7 @@ if (parseInt(document.getElementById('myImg02').style.left) < 0 ) {
          myIsOnScreen()
       } ,3)
    }
-   if (myKey == 'a') {
+   if (myKeyDown == 'a') {
       clearInterval(myInterval)
       myInterval = setInterval(function(){
          document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 3
@@ -130,7 +130,7 @@ if (parseInt(document.getElementById('myImg02').style.left) < 0 ) {
          myIsOnScreen()
       } ,3)
    }
-   if (myKey == 'w') {
+   if (myKeyDown == 'w') {
       clearInterval(myInterval)
       myInterval = setInterval(function(){
          document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 3
@@ -138,7 +138,7 @@ if (parseInt(document.getElementById('myImg02').style.left) < 0 ) {
          myIsOnScreen()
       } ,3)
    }
-   if (myKey == 's') {
+   if (myKeyDown == 's') {
       clearInterval(myInterval)
       myInterval = setInterval(function(){
          document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 3
@@ -146,7 +146,40 @@ if (parseInt(document.getElementById('myImg02').style.left) < 0 ) {
          myIsOnScreen()
       } ,3)
    }  
+   
                  
+if (myKeyUp == 'd') {
+      clearInterval(myInterval)
+      myInterval = setInterval(function(){
+         document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 0
+                 myCheckHit()
+         myIsOnScreen()
+      } ,3)
+   }
+   if (myKeyUp == 'a') {
+      clearInterval(myInterval)
+      myInterval = setInterval(function(){
+         document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 0
+                 myCheckHit()
+         myIsOnScreen()
+      } ,3)
+   }
+   if (myKeyUp == 'w') {
+      clearInterval(myInterval)
+      myInterval = setInterval(function(){
+         document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 0
+                 myCheckHit()
+         myIsOnScreen()
+      } ,3)
+   }
+   if (myKeyUp == 's') {
+      clearInterval(myInterval)
+      myInterval = setInterval(function(){
+         document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 0
+                 myCheckHit()
+         myIsOnScreen()
+      } ,3)
+   }                   
 }">    
       
 </script>     
