@@ -1,4 +1,6 @@
-version 0.0.1
+version 0.0.2
+
+<script>
 
 const canvas = document.querySelector('canvas')
 const c = canvas.getContext('2d')
@@ -210,3 +212,5 @@ window.addEventListener('keyup', (event) => {
       break
   }
 })
+
+</script>
