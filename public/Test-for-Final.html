@@ -4,52 +4,7 @@ Version 0.1.7
       
 <h1 align=center></h1>
       
-<script>
-
-  (function($){
-    var wheight = 0;
-    var wwidth = 0;
-    var ratio = 0;
-
-    var img = new Image();
-    img.src = 'bioshock like game background-Sheet.jpeg';
-
-    $(img).one('load',function(e) {
-
-        ratio = img.width / img.height;
-        $('#background-wrap').html(img);       
-        lets_scale();
-
-    });
-
-    if(img.complete) img.trigger('load');
-
-    function lets_scale() {
-
-        wheight = $(window).height();
-        wwidth = $(window).width();
-
-        $('#background-wrap').width(wwidth).height(wheight);
-
-        if(wwidth/ratio &gt;= wheight) // If the browser is wider than the image
-        {
-            $('#background-wrap img').css({ 'width'         : wwidth,
-                                            'height'        : Math.ceil(wwidth/ratio),
-                                            'margin-top'    : Math.ceil((wheight - wwidth/ratio)/2)
-                                        });
-        }
-        else
-        {
-            $('#background-wrap img').css({ 'height'        : wheight,
-                                            'width'         : Math.ceil(wheight*ratio),
-                                            'margin-left'   : Math.ceil((wwidth - wheight*ratio)/2)
-                                        });
-        }
-    }
-
-    $(window).bind('resize',lets_scale);
-
-})(jQuery);       
+ <script>     
          
    // global variables here
    let myGlobalX = 0
