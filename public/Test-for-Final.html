@@ -1,4 +1,4 @@
-Version 0.1.2
+Version 0.1.5
 
 <body id="myBody" style="background; background-size: 200%" background="bioshock like game background-Sheet.jpeg">
       
@@ -27,7 +27,14 @@ Version 0.1.2
                                             'margin-left'   : Math.ceil((wwidth - wheight*ratio)/2)
                                         });
         }   
-      
+       }
+
+    $(window).bind('resize',lets_scale);
+    $(window).bind('orientationchange', lets_scale);
+
+})(jQuery);
+         
+         
    // global variables here
    let myGlobalX = 0
    let myClock
