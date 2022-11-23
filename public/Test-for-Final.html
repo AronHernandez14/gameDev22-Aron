@@ -1,8 +1,15 @@
-Version 0.2.0
+Version 0.2.1
 
-<body id="myBody" style="background slide: slide; background-size: 100%" background="bioshock like game background-Sheet.jpeg">
+<body id="myBody" style="background slide: slide; background-size: 100%" background="bioshock like game background-Sheet.jpeg" background onresize="myFunction()"> >
       
 <h1 align=center></h1>
+      
+ <script>
+ [0].onresize = function() {myFunction()};
+       
+var x = 0;
+function myFunction() {
+  var txt = x += 1;
       
  <script>       
        
