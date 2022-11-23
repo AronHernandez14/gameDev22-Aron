@@ -6,6 +6,28 @@ Version 0.1.2
 
 <script>
 
+   function lets_scale() {
+
+        wheight = $(window).height();
+        wwidth = $(window).width();
+
+        $('#background-wrap').width(wwidth).height(wheight);
+
+        if(wwidth/ratio &gt;= wheight) // If the browser is wider than the image
+        {
+            $('#bioshock like game background-Sheet.jpeg').css({ 'width'         : wwidth,
+                                            'height'        : Math.ceil(wwidth/ratio),
+                                            'margin-top'    : Math.ceil((wheight - wwidth/ratio)/2)
+                                        });
+        }
+        else
+        {
+            $('#bioshock like game background-Sheet.jpeg').css({ 'height'        : wheight,
+                                            'width'         : Math.ceil(wheight*ratio),
+                                            'margin-left'   : Math.ceil((wwidth - wheight*ratio)/2)
+                                        });
+        }   
+      
    // global variables here
    let myGlobalX = 0
    let myClock
