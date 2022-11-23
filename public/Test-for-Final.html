@@ -1,4 +1,4 @@
-Version 0.1.4
+Version 0.1.5
 
 <body id="myBody" style="background-repeat:repeat; background-size: 200%" background="red">
       
@@ -80,7 +80,7 @@ function myCheckHit(){
 }">
    
    
-<script>
+  <script>     
    let myInterval
  
 function myIsOnScreen(){
@@ -112,94 +112,33 @@ if (parseInt(document.getElementById('myImg02').style.left) < 0 ) {
      document.getElementById('myImg01').style.top = '349px'
    }                  
 }
-</script>
-<body onkeydown="{
-     let myKey = event.key
- //  let myKey = String.toLowerCase(event.key)
-   if (myKey == 'd') {
-      clearInterval(myInterval)
-      myInterval = setInterval(function(){
-         document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 3
-                 myCheckHit()
-         myIsOnScreen()
-      } ,3)
-   }
-   if (myKey == 'a') {
-      clearInterval(myInterval)
-      myInterval = setInterval(function(){
-         document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 3
-                 myCheckHit()
-         myIsOnScreen()
-      } ,3)
-   }
-   if (myKey == 'w') {
-      clearInterval(myInterval)
-      myInterval = setInterval(function(){
-         document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 3
-                 myCheckHit()
-         myIsOnScreen()
-      } ,3)
-   }
-   if (myKey == 's') {
-      clearInterval(myInterval)
-      myInterval = setInterval(function(){
-         document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 3
-                 myCheckHit()
-         myIsOnScreen()
-      } ,3)
-   }  
-                 
-}">    
-        
 
-<body onkeyup="{
-     let myKey = event.key
- //  let myKey = String.toLowerCase(event.key)
-   if (myKey == 'd') {
-      clearInterval(myInterval)
-      myInterval = setInterval(function(){
-         document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 0
-                 myCheckHit()
-         myIsOnScreen()
-      } ,3)
-   }
-   if (myKey == 'a') {
-      clearInterval(myInterval)
-      myInterval = setInterval(function(){
-         document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 0
-                 myCheckHit()
-         myIsOnScreen()
-      } ,3)
-   }
-   if (myKey == 'w') {
-      clearInterval(myInterval)
-      myInterval = setInterval(function(){
-         document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 0
-                 myCheckHit()
-         myIsOnScreen()
-      } ,3)
-   }
-   if (myKey == 's') {
-      clearInterval(myInterval)
-      myInterval = setInterval(function(){
-         document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 0
-                 myCheckHit()
-         myIsOnScreen()
-      } ,3)
-   }  
-                 
-}">    
-    
- </script>
+ player.velocity.x = 0
+  if (keys.d.pressed) {
+    player.switchSprite('Run')
+    player.velocity.x = 2
+    player.lastDirection = 'right'
+    player.shouldPanCameraToTheLeft({ canvas, camera })
+  } else if (keys.a.pressed) {
+    player.switchSprite('RunLeft')
+    player.velocity.x = -2
+    player.lastDirection = 'left'
+    player.shouldPanCameraToTheRight({ canvas, camera })
+  } else if (player.velocity.y === 0) {
+    if (player.lastDirection === 'right') player.switchSprite('Idle')
+    else player.switchSprite('IdleLeft')
+  }
 
-<script>
-this.camerabox = {
- position: {
-   x: this.position.x,
-   y: this.position.y,
- },
- width: 250,
- height: 100,
- 
- 
- </script>
+  if (player.velocity.y < 0) {
+    player.shouldPanCameraDown({ camera, canvas })
+    if (player.lastDirection === 'right') player.switchSprite('Jump')
+    else player.switchSprite('JumpLeft')
+  } else if (player.velocity.y > 0) {
+    player.shouldPanCameraUp({ camera, canvas })
+    if (player.lastDirection === 'right') player.switchSprite('Fall')
+    else player.switchSprite('FallLeft')
+  }
+
+  c.restore()
+}
+       </script>    
