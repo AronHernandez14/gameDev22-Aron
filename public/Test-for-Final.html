@@ -1,4 +1,4 @@
-Version 0.1.5
+Version 0.1.6
 
 <body id="myBody" style="background; background-size: 200%" background="bioshock like game background-Sheet.jpeg">
       
@@ -6,7 +6,25 @@ Version 0.1.5
 
 <script>
 
-   function lets_scale() {
+  (function($){
+    var wheight = 0;
+    var wwidth = 0;
+    var ratio = 0;
+
+    var img = new Image();
+    img.src = 'bioshock like game background-Sheet.jpeg';
+
+    $(img).one('load',function(e) {
+
+        ratio = img.width / img.height;
+        $('#background-wrap').html(img);       
+        lets_scale();
+
+    });
+
+    if(img.complete) img.trigger('load');
+
+    function lets_scale() {
 
         wheight = $(window).height();
         wwidth = $(window).width();
@@ -15,25 +33,23 @@ Version 0.1.5
 
         if(wwidth/ratio &gt;= wheight) // If the browser is wider than the image
         {
-            $('#bioshock like game background-Sheet.jpeg').css({ 'width'         : wwidth,
+            $('#background-wrap img').css({ 'width'         : wwidth,
                                             'height'        : Math.ceil(wwidth/ratio),
                                             'margin-top'    : Math.ceil((wheight - wwidth/ratio)/2)
                                         });
         }
         else
         {
-            $('#bioshock like game background-Sheet.jpeg').css({ 'height'        : wheight,
+            $('#background-wrap img').css({ 'height'        : wheight,
                                             'width'         : Math.ceil(wheight*ratio),
                                             'margin-left'   : Math.ceil((wwidth - wheight*ratio)/2)
                                         });
-        }   
-       }
+        }
+    }
 
     $(window).bind('resize',lets_scale);
-    $(window).bind('orientationchange', lets_scale);
 
-})(jQuery);
-         
+})(jQuery);       
          
    // global variables here
    let myGlobalX = 0
