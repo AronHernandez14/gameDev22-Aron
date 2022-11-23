@@ -1,4 +1,4 @@
-Version 0.1.6
+Version 0.1.7
 
 <body id="myBody" style="background-repeat:repeat; background-size: 200%" background="red">
       
@@ -80,7 +80,8 @@ function myCheckHit(){
 }">
    
    
-       </script>  
+ </script>  
+      
    let myInterval
  
 function myIsOnScreen(){
@@ -113,32 +114,82 @@ if (parseInt(document.getElementById('myImg02').style.left) < 0 ) {
    }                  
 }
 
- player.velocity.x = 0
-  if (keys.d.pressed) {
-    player.switchSprite('Run')
-    player.velocity.x = 2
-    player.lastDirection = 'right'
-    player.shouldPanCameraToTheLeft({ canvas, camera })
-  } else if (keys.a.pressed) {
-    player.switchSprite('RunLeft')
-    player.velocity.x = -2
-    player.lastDirection = 'left'
-    player.shouldPanCameraToTheRight({ canvas, camera })
-  } else if (player.velocity.y === 0) {
-    if (player.lastDirection === 'right') player.switchSprite('Idle')
-    else player.switchSprite('IdleLeft')
-  }
+</script>
+<body onkeydown="{
+     let myKey = event.key
+ //  let myKey = String.toLowerCase(event.key)
+   if (myKey == 'd') {
+      clearInterval(myInterval)
+      myInterval = setInterval(function(){
+         document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 3
+                 myCheckHit()
+         myIsOnScreen()
+      } ,3)
+   }
+   if (myKey == 'a') {
+      clearInterval(myInterval)
+      myInterval = setInterval(function(){
+         document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 3
+                 myCheckHit()
+         myIsOnScreen()
+      } ,3)
+   }
+   if (myKey == 'w') {
+      clearInterval(myInterval)
+      myInterval = setInterval(function(){
+         document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 3
+                 myCheckHit()
+         myIsOnScreen()
+      } ,3)
+   }
+   if (myKey == 's') {
+      clearInterval(myInterval)
+      myInterval = setInterval(function(){
+         document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 3
+                 myCheckHit()
+         myIsOnScreen()
+      } ,3)
+   }  
+                 
+}">    
+        
 
-  if (player.velocity.y < 0) {
-    player.shouldPanCameraDown({ camera, canvas })
-    if (player.lastDirection === 'right') player.switchSprite('Jump')
-    else player.switchSprite('JumpLeft')
-  } else if (player.velocity.y > 0) {
-    player.shouldPanCameraUp({ camera, canvas })
-    if (player.lastDirection === 'right') player.switchSprite('Fall')
-    else player.switchSprite('FallLeft')
-  }
-
-}
+<body onkeyup="{
+     let myKey = event.key
+ //  let myKey = String.toLowerCase(event.key)
+   if (myKey == 'd') {
+      clearInterval(myInterval)
+      myInterval = setInterval(function(){
+         document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 0
+                 myCheckHit()
+         myIsOnScreen()
+      } ,3)
+   }
+   if (myKey == 'a') {
+      clearInterval(myInterval)
+      myInterval = setInterval(function(){
+         document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 0
+                 myCheckHit()
+         myIsOnScreen()
+      } ,3)
+   }
+   if (myKey == 'w') {
+      clearInterval(myInterval)
+      myInterval = setInterval(function(){
+         document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 0
+                 myCheckHit()
+         myIsOnScreen()
+      } ,3)
+   }
+   if (myKey == 's') {
+      clearInterval(myInterval)
+      myInterval = setInterval(function(){
+         document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 0
+                 myCheckHit()
+         myIsOnScreen()
+      } ,3)
+   }  
+                 
+}">    
     
-      </script>
+ </script>
