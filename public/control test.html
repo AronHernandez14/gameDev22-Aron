@@ -7,102 +7,216 @@ Version 0.0.1
      </body>
 </html>
 
-<script>
-const SCALE = 2;
-const WIDTH = 16;
-const HEIGHT = 18;
-const SCALED_WIDTH = SCALE * WIDTH;
-const SCALED_HEIGHT = SCALE * HEIGHT;
-const CYCLE_LOOP = [0, 1, 0, 2];
-const FACING_DOWN = 0;
-const FACING_UP = 1;
-const FACING_LEFT = 2;
-const FACING_RIGHT = 3;
-const FRAME_LIMIT = 12;
-const MOVEMENT_SPEED = 1;
-
-let canvas = document.querySelector('canvas');
-let ctx = canvas.getContext('2d');
-let keyPresses = {};
-let currentDirection = FACING_DOWN;
-let currentLoopIndex = 0;
-let frameCount = 0;
-let positionX = 0;
-let positionY = 0;
-let img = new Image();
-
-window.addEventListener('keydown', keyDownListener);
-function keyDownListener(event) {
-    keyPresses[event.key] = true;
-}
-
-window.addEventListener('keyup', keyUpListener);
-function keyUpListener(event) {
-    keyPresses[event.key] = false;
-}
-
-function loadImage() {
-  img.src = 'FemaleTestPlaceholder sprite1-Sheet.png';
-  img.onload = function() {
-    window.requestAnimationFrame(gameLoop);
-  };
-}
-
-function drawFrame(frameX, frameY, canvasX, canvasY) {
-  ctx.drawImage(img,
-                frameX * WIDTH, frameY * HEIGHT, WIDTH, HEIGHT,
-                canvasX, canvasY, SCALED_WIDTH, SCALED_HEIGHT);
-}
-
-loadImage();
-
-function gameLoop() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-  let hasMoved = false;
-
-  if (keyPresses.w) {
-    moveCharacter(0, -MOVEMENT_SPEED, FACING_UP);
-    hasMoved = true;
-  } else if (keyPresses.s) {
-    moveCharacter(0, MOVEMENT_SPEED, FACING_DOWN);
-    hasMoved = true;
-  }
-
-  if (keyPresses.a) {
-    moveCharacter(-MOVEMENT_SPEED, 0, FACING_LEFT);
-    hasMoved = true;
-  } else if (keyPresses.d) {
-    moveCharacter(MOVEMENT_SPEED, 0, FACING_RIGHT);
-    hasMoved = true;
-  }
-
-  if (hasMoved) {
-    frameCount++;
-    if (frameCount >= FRAME_LIMIT) {
-      frameCount = 0;
-      currentLoopIndex++;
-      if (currentLoopIndex >= CYCLE_LOOP.length) {
-        currentLoopIndex = 0;
-      }
+var Sprite = (function() {
+    function Sprite(options) {
+        options = Object.assign({
+            spriteSheetURL: 'FemaleTestPlaceholder sprite1-Sheet.png',
+            spriteWidth: 13,
+            spriteHeight: 14,
+            nRows: 2,
+            nCols: 3,
+            borderWidth: 1,
+            spacingWidth: 1,
+            scale: 5,
+            x: 0,
+            y: 0,
+        }, options);
+        this.x = options.x;
+        this.y = options.y;
+        this.frames = [];
+        this.animations = {};
+        this.activeAnimationStep = 0;
+        this.spriteWidth = options.spriteWidth;
+        this.spriteHeight = options.spriteHeight;
+        this.nRows = options.nRows;
+        this.nCols = options.nCols;
+        this.borderWidth = options.borderWidth;
+        this.spacingWidth = options.spacingWidth;
+        this.scale = options.scale;
+        this.canvas = document.createElement('canvas');
+        this.canvas.width = this.spriteWidth * this.scale;
+        this.canvas.height = this.spriteHeight * this.scale;
+        this.canvas.style.display = 'none';
+        document.body.appendChild(this.canvas);
+        
+        this.context = this.canvas.getContext('2d');
+        this.context.imageSmoothingEnabled = false;
+        this.context.scale(this.scale, this.scale);
+        var spriteSheetImage = new Image();
+        spriteSheetImage.src = options.spriteSheetURL;
+        spriteSheetImage.crossOrigin = true;
+        spriteSheetImage.onload = (function() {
+            for (var row = 0; row < this.nRows; row++) {
+                for (var col = 0; col < this.nCols; col++) {
+                    var spriteWebImage = new WebImage('');
+                    spriteWebImage.width = this.spriteWidth * this.scale;
+                    spriteWebImage.height = this.spriteHeight * this.scale;
+                    spriteWebImage.setPosition(getWidth()/2, getHeight()/2);
+                    this.context.clearRect(
+                        0,
+                        0,
+                        this.canvas.width,
+                        this.canvas.height
+                    );
+                    var sourceImagePosition = 
+                        this.spritePositionToImagePosition(row, col);
+                    this.context.drawImage(
+                        spriteSheetImage,
+                        sourceImagePosition.x,
+                        sourceImagePosition.y,
+                        this.spriteWidth,
+                        this.spriteHeight,
+                        0,
+                        0,
+                        this.spriteWidth,
+                        this.spriteHeight
+                    );
+                    spriteWebImage.setImageData(this.context.getImageData(
+                        0,
+                        0,
+                        this.spriteWidth * this.scale,
+                        this.spriteHeight * this.scale
+                    ));
+                    this.frames.push(spriteWebImage);
+                }
+            }
+            this.activeFrame = this.frames[0];
+            this.ready();
+        }).bind(this);
+    };
+    
+    Sprite.prototype.ready = function() {
+        if (typeof this.ready === 'function') {
+            this.onReady(this);
+        }
+    };
+    
+    Sprite.prototype.onReady = function(handler) {
+        this.onReady = handler;   
+    };
+    
+    Sprite.prototype.spritePositionToImagePosition = function(row, col) {
+        return {
+            x: (
+                this.borderWidth +
+                col * (this.spacingWidth + this.spriteWidth)
+            ),
+            y: (
+                this.borderWidth +
+                row * (this.spacingWidth + this.spriteHeight)
+            )
+        }
+    };
+    
+    Sprite.prototype.draw = function() {
+        this.activeFrame.draw.apply(this.activeFrame, arguments);
+    };
+    Sprite.prototype.setPosition = function(x, y) {
+        this.x = x;
+        this.y = y;
+        this.activeFrame.setPosition.apply(this.activeFrame, arguments);
+    };
+    Sprite.prototype.move = function(dx, dy) {
+        this.x += dx;
+        this.y += dy;
+        this.activeFrame.move.apply(this.activeFrame, arguments);
+    };
+    Sprite.prototype.addAnimation = function(options) {
+        options = Object.assign({
+            name: 'idle',
+            frameIndices: [0],
+            timePerFrame: 250,
+            onEnd: 'repeat'
+        }, options);
+        this.animations[options.name] = {
+            frameIndices: options.frameIndices,
+            timePerFrame: options.timePerFrame,
+            onEnd: options.onEnd
+        };
+    };
+    Sprite.prototype.animate = function(animationName, smoothStep) {
+        var animation = this.animations[animationName];
+        if (animation === undefined) {
+            return;
+        }
+        this.activeAnimation = animation;
+        this.activeAnimationStep = (
+            smoothStep &&
+            this.activeAnimationStep < this.activeAnimation.frameIndices.length
+        ) ? this.activeAnimationStep : 0;
+        var frameIndex = animation.frameIndices[this.activeAnimationStep];
+        this.clearAnimation();
+        this.advanceFrame();
+        this.activeAnimationID = setInterval((function() {
+            this.advanceFrame();
+        }).bind(this), animation.timePerFrame);
+    };
+    Sprite.prototype.advanceFrame = function() {
+        if (this.activeAnimationStep >= this.activeAnimation.frameIndices.length) {
+            if (this.activeAnimation.onEnd === 'repeat') {
+                this.activeAnimationStep = 0;
+            } else {
+                this.clearAnimation();
+            }
+        }
+        var frameIndex = this.activeAnimation.frameIndices[
+            this.activeAnimationStep
+        ];
+        var frame = this.frames[frameIndex];
+        frame.x = this.x;
+        frame.y = this.y;
+        this.activeFrame = frame;
+        this.activeAnimationStep += 1;
     }
-  }
+    Sprite.prototype.clearAnimation = function() {
+        clearInterval(this.activeAnimationID);
+        this.activeAnimationID = -1;
+    }
+    
+    return Sprite;
+})();
 
-  if (!hasMoved) {
-    currentLoopIndex = 0;
-  }
+// EXAMPLE!
+var sprite = new Sprite({
+    spriteSheetURL: 'https://codehs.com/uploads/72e9b6f60ac412f32a2fd3a955990c3b',
+    nRows: 2,
+    nCols: 3,
+    spriteWidth: 13,
+    spriteHeight: 14,
+    borderWidth: 1,
+    spacingWidth: 1,
+    x: getWidth()/2,
+    y: getHeight()/2
+});
+sprite.onReady(function() {
+    add(sprite);
+    sprite.addAnimation({
+        name: 'walkright',
+        frameIndices: [0,1,2,1]
+    });
+    sprite.addAnimation({
+        name: 'walkleft',
+        frameIndices: [3,4,5,4]
+    });
+    
+    startLoop();
+});
 
-  drawFrame(CYCLE_LOOP[currentLoopIndex], currentDirection, positionX, positionY);
-  window.requestAnimationFrame(gameLoop);
-}
-
-function moveCharacter(deltaX, deltaY, direction) {
-  if (positionX + deltaX > 0 && positionX + SCALED_WIDTH + deltaX < canvas.width) {
-    positionX += deltaX;
-  }
-  if (positionY + deltaY > 0 && positionY + SCALED_HEIGHT + deltaY < canvas.height) {
-    positionY += deltaY;
-  }
-  currentDirection = direction;
-}
-  </script>
+function startLoop() {
+    var velocity = 1;
+    sprite.animate('walkright');
+    
+    setInterval(function() {
+        if (sprite.activeFrame.x +
+            sprite.activeFrame.width >= getWidth()
+        ) {
+            velocity = -1;
+            sprite.animate('walkleft', true);
+        }
+        if (sprite.activeFrame.x <= 0) {
+            velocity = 1;
+            sprite.animate('walkright', true);
+        }
+        sprite.move(velocity, 0);
+    }, 10);
+}          
