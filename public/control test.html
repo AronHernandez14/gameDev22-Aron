@@ -3,28 +3,4 @@ Version 0.0.7
 <script>
 <canvas width="1280" height="720"></canvas>
 
-canvas {
-  border: 10px solid black;
-}
-
-let img = new Image();
-img.src = 'FemaleTestPlaceholder sprite1-Sheet.png';
-img.onload = function() {
-  init();
-};
-
-let canvas = document.querySelector('canvas');
-let ctx = canvas.getContext('2d');
-
-const scale = 4;
-const width = 32;
-const height = 36;
-const scaledWidth = scale * width;
-const scaledHeight = scale * height;
-
-function init() {
-  ctx.drawImage(img, 0, 0, width, height, 0, 0, scaledWidth, scaledHeight);
-  ctx.drawImage(img, width, 0, width, height, scaledWidth, 0, scaledWidth, scaledHeight);
-  ctx.drawImage(img, width * 2, 0, width, height, scaledWidth * 2, 0, scaledWidth, scaledHeight);
-}
 </script>
