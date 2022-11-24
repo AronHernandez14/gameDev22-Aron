@@ -1,6 +1,13 @@
 Version 0.0.4
 
 <script>
+
+<canvas width="300" height="200"></canvas>
+
+canvas {
+  border: 1px solid black;
+}
+
 let img = new Image();
 img.src = 'FemaleTestPlaceholder sprite1-Sheet.png';
 img.onload = function() {
@@ -10,9 +17,9 @@ img.onload = function() {
 let canvas = document.querySelector('canvas');
 let ctx = canvas.getContext('2d');
 
-const scale = 2;
-const width = 16;
-const height = 18;
+const scale = 4;
+const width = 32;
+const height = 36;
 const scaledWidth = scale * width;
 const scaledHeight = scale * height;
 
