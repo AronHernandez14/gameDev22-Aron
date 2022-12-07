@@ -64,7 +64,7 @@ var player = {
 	speed: 5,
 	velX: 0,
 	velY: 0,
-	img: "Madeline walking-2t.gif",
+	img: "myImg01",
 	jumping: false,
 	grounded: false,
 	jumpStrength: 7,
@@ -188,7 +188,7 @@ function intro_screen(){
 	context.fillText("Avoid the lava", canvas.width/4, canvas.height/6 + 125);
   
   	context.font = "20px Arial";
-	context.fillText("Version 0.0.5", canvas.width/8, canvas.height/2 + 175);
+	context.fillText("Version 0.0.6", canvas.width/8, canvas.height/2 + 175);
 
 	context.font = "30px Impact";
 	context.fillText("Press Enter To Start", canvas.width/1.5, canvas.height/2 + 100);
@@ -340,5 +340,8 @@ function collisionCheck(character, platform){
 function clearCanvas(){
 	context.clearRect(0, 0, 640, 360);
 }
+		
+<img id="myImg01" src="Madeline walking-2t.gif">		
+		
 	</script>
 </html>
