@@ -135,18 +135,18 @@ if (parseInt(document.getElementById('myImg02').style.left) < 0 ) {
    if (myKey == 'a') {
       clearInterval(myInterval)
       myInterval = setInterval(function(){
-         document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 0.5
+         document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 1
                  myCheckHit()
          myIsOnScreen()
-      } ,0.5)
+      } ,1)
    }
    if (myKey == 'w') {
       clearInterval(myInterval)
       myInterval = setInterval(function(){
-         document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 0.5
+         document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 1
                  myCheckHit()
          myIsOnScreen()
-      } ,0.5)
+      } ,1)
    }
    if (myKey == 's') {
       clearInterval(myInterval)
