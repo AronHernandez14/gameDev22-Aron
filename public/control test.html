@@ -1,6 +1,7 @@
+
 <html>
 <head>
-	<title>control test</title>
+	<title>Platform Game</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <style>
@@ -58,13 +59,13 @@ var completed = false;
 
 var player = {
 	x: 5,
-	y: canvas.height - 40,
-	width: 17,
-	height: 48,
+	y: canvas.height - 25,
+	width: 20,
+	height: 20,
 	speed: 5,
 	velX: 0,
 	velY: 0,
-	color: "#f06292"
+	color: "#f06292",
 	jumping: false,
 	grounded: false,
 	jumpStrength: 7,
@@ -188,7 +189,7 @@ function intro_screen(){
 	context.fillText("Avoid the lava", canvas.width/4, canvas.height/6 + 125);
   
   	context.font = "20px Arial";
-	context.fillText("Version 0.0.8", canvas.width/8, canvas.height/2 + 175);
+	context.fillText("Version 0.1.0", canvas.width/8, canvas.height/2 + 175);
 
 	context.font = "30px Impact";
 	context.fillText("Press Enter To Start", canvas.width/1.5, canvas.height/2 + 100);
@@ -339,7 +340,6 @@ function collisionCheck(character, platform){
 
 function clearCanvas(){
 	context.clearRect(0, 0, 640, 360);
-}		
-		
+}
 	</script>
 </html>
