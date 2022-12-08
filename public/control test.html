@@ -53,8 +53,8 @@ body{
 var context = canvas.getContext('2d');
 var gameStarted = false;
 var keys = [];
-var friction = 0.8;
-var gravity = 1.2;
+var friction = 0.4;
+var gravity = 1.8;
 var completed = false;
 
 var player = {
@@ -189,7 +189,7 @@ function intro_screen(){
 	context.fillText("Avoid the lava", canvas.width/4, canvas.height/6 + 125);
   
   	context.font = "20px Arial";
-	context.fillText("Version 0.1.0", canvas.width/8, canvas.height/2 + 175);
+	context.fillText("Version 0.1.1", canvas.width/8, canvas.height/2 + 175);
 
 	context.font = "30px Impact";
 	context.fillText("Press Enter To Start", canvas.width/1.5, canvas.height/2 + 100);
