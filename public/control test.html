@@ -1,345 +1,216 @@
+Version 0.0.1
 
-<html>
-<head>
-	<title>Platform Game</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
-</head>
-<style>
-	html, body{
-	width:100%;
-	height:100%;
-}
+<body id="myBody" style="background repeat: no-repeat; background-size: cover" background="bioshock like game background-Sheet.jpeg">
+      
+<h1 align=center></h1>
+      
+ <script>
+ [0].onresize = function() {myFunction()};
+       
+var x = 0;
+function myFunction() {
+  var txt = x += 1;
+      
+      </script>     
+ <script>       
+       
+   // global variables here
+   let myGlobalX = 0
+   let myClock
 
-body{
-	margin:0px;
-	padding:0px;
-	background:#222222;
-	background-image: #;
-	background-size:cover;
-	background-position: center center;
-	background-repeat: no-repeat;
-}
+  function mygravity() {
+  if( parseInt(document.getElementById('myImg01').style.top)    <= 100){
+   objImage.style.top = parseInt(objImage.style.top) + 5 + "px";
+   }
+     }
 
-#background{
-	width:800px;
-	height:600px;
-	position:absolute;
-	top:50%;
-	left:50%;
-	margin-left:-400px;
-	margin-top:-300px;
-	background: black;
-	background-repeat: no-repeat;
-	z-index:9;
-}
-
-#game{
-	background: #f8bbd0;
-	position:absolute;
-	top:50%;
-	left:50%;
-	margin-left:-320px;
-	margin-top:-180px;
-}
-	</style>
-<body>
-
-	<canvas id="game" width="640" height="360"></canvas>
-	<script type="text/javascript" src="game.js"></script>
-
-</body>
-	<script>
-		var canvas = document.getElementById('game');
-var context = canvas.getContext('2d');
-var gameStarted = false;
-var keys = [];
-var friction = 0.8;
-var gravity = 0.6;
-var completed = false;
-
-var player = {
-	x: 5,
-	y: canvas.height - 25,
-	width: 20,
-	height: 20,
-	speed: 5,
-	velX: 0,
-	velY: 0,
-	color: "#f06292",
-	jumping: false,
-	grounded: false,
-	jumpStrength: 7,
-	draw: function(){
-		context.fillStyle = this.color;
-		context.fillRect(this.x, this.y, this.width, this.height);
-	}
-}
-
-var goal = {
-	x: canvas.width-80,
-	y: 5,
-	width:30,
-	height:35,
-	color: "#ec407a",
-	draw: function(){
-		context.fillStyle = this.color;
-		context.fillRect(this.x, this.y, this.width, this.height);
-	}
-}
-//platform variables
-var platforms = [];
-var platform_width = 120;
-var platform_height = 10;
-
-//platform creation for level 1
-platforms.push({
-    x: canvas.width-170,
-    y: 40,
-    width: platform_width,
-    height: platform_height,
-});
-platforms.push({
-    x: canvas.width-170,
-    y: canvas.height-50,
-    width: platform_width,
-    height: platform_height,
-});
-platforms.push({
-    x: canvas.width-380,
-    y: canvas.height-120,
-    width: platform_width,
-    height: platform_height,
-});
-platforms.push({
-    x: canvas.width-380,
-    y: canvas.height-240,
-    width: platform_width,
-    height: platform_height,
-});
-
-platforms.push({
-    x: canvas.width-590,
-    y: canvas.height-180,
-    width: platform_width,
-    height: platform_height,
-});
-
-// Floor
-platforms.push({
-	x: 0,
-	y: canvas.height-5,
-	width: canvas.width,
-	height: platform_height
-});
-
-// Left Wall
-platforms.push({
-	x: -10,
-	y: 0,
-	width: 10,
-	height: canvas.height
-});
-
-// Left Wall
-platforms.push({
-	x: canvas.width,
-	y: 0,
-	width: 10,
-	height: canvas.height
-});
-
-// Floor
-platforms.push({
-	x: 0,
-	y: -10,
-	width: canvas.width,
-	height: platform_height
-});
-
-document.body.addEventListener("keydown", function(event){
-
-	if(event.keyCode == 13 && !gameStarted){
-		startGame();
-	}
-	if(event.keyCode == 13 && completed){
-		reset();
-	}
-	keys[event.keyCode] = true;
-
-});
-
-document.body.addEventListener("keyup", function(event){
-	keys[event.keyCode] = false;
-});
-
-intro_screen();
-
-function intro_screen(){
-	context.font = "50px Impact";
-	context.fillStyle = "#e91e63";
-	context.textAlign = "center";
-	context.fillText("Control Test", canvas.width/4, canvas.height/6);
-    	context.font = "20px Arial";
   
-	context.fillText("Use the Arrow Keys to move", canvas.width/4, canvas.height/6 + 75);
-      	context.font = "20px Arial";
-  
-	context.fillText("You can use spacebar to jump", canvas.width/4, canvas.height/6 + 100);
-        	context.font = "20px Arial";
-	context.fillText("Avoid the lava", canvas.width/4, canvas.height/6 + 125);
-  
-  	context.font = "20px Arial";
-	context.fillText("Version 0.1.2", canvas.width/8, canvas.height/2 + 175);
 
-	context.font = "30px Impact";
-	context.fillText("Press Enter To Start", canvas.width/1.5, canvas.height/2 + 100);
+     setInterval(mygravity,100)
+   
+   
+   
+   // global functions here
+function myHitOther(my1,my2){
+   left1   = parseInt(document.getElementById(my1).style.left)
+   right1  = left1 + parseInt(document.getElementById(my1).style.width)
+   top1    = parseInt(document.getElementById(my1).style.top)   
+   bottom1 = top1   + parseInt(document.getElementById(my1).style.height)
+   left2   = parseInt(document.getElementById(my2).style.left)
+   right2  = left2 + parseInt(document.getElementById(my2).style.width)
+   top2    = parseInt(document.getElementById(my2).style.top)   
+   bottom2 = top2   + parseInt(document.getElementById(my2).style.height)
+   if ((right1  >=  left2  ) &&      	   
+       (bottom1 >=  top2   ) &&
+       (left1   <=  right2 ) &&
+       (top1    <=  bottom2) ){
+       return true
+   }
 }
 
-function startGame(){
-	gameStarted = true;
-	clearCanvas();
 
-	requestAnimationFrame(loop);
+function myCheckHit(){
+     console.log(document.getElementById('myImg01').style.left + " : " + document.getElementById('myImg01').style.top)
+   if ( myHitOther('myImg01','myImg02') ){
+       alert('you lose')
+      document.getElementById('myImg01').style.left = '0px'
+   }
+   if ( myHitOther('myImg01','myImg07') ){
+         alert('you lose')
+        document.getElementById('myImg01').style.left = '0px'
+   }
+      if ( myHitOther('myImg01','myImg09') ){
+          alert('next level')  
+          document.getElementById('myImg01').style.left = '0px'
+          location = 'Proof-level-2-draft-uploaded.html'  // go to your next level
+   }
 
+
+   // more if statements here like the above
+
+
+
+}  // end of myCheckHit()
+
+
+</script>
+
+<img id="myImg01" style="position:absolute; width:34px; height:96px; top:500px; left:200px;"  src="img/Madeline Walk.gif">
+<img id="myImg02" style="position:absolute; width:70px; height:90px; top:600px; left:1000px;" src="red-photos-1172010.jpg">
+<img id="myImg03" style="position:absolute; width:1920px; height:1px; top:899px; left:0px;" src="red-photos-1172010.jpg">
+<img id="myImg04" style="position:absolute; width:1px; height:900px; top:0px; left:0px;" src="red-photos-1172010.jpg">
+<img id="myImg05" style="position:absolute; width:1920px; height:1px; top:0px; left:0px;" src="red-photos-1172010.jpg">
+<img id="myImg06" style="position:absolute; width:1px; height:969px; top:0px; left:1919px;" src="red-photos-1172010.jpg">
+<img id="myImg07" style="position:absolute; width:70px; height:90px; top:500px; left:500px;"  src="red-photos-1172010.jpg">
+<img id="myImg09" style="position:absolute; width:80px; height:80px; top:600px; left:1600px;" src="red-photos-1172010.jpg">
+<img id="myImg10" style="position:absolute; width:1920px; height:1px; top:0px; left:0px;" src="red-photos-1172010.jpg">
+<img id="myImg11" style="position:absolute; width:80px; height:100px; top:700px; left:200px;" src="img/Invisible Wall.gif">
+      
+      
+ <input type=button value="Start Game" onclick="{
+  clearInterval(myClock)
+  let myTemp = '0px'
+  myClock = setInterval(function(){
+      myGlobalX -= 5
+      myTemp =  myGlobalX + 'px 0px'
+      document.getElementById('myBody').style.backgroundPosition = myTemp
+  },)                                            
+}">
+     
+ <script>  
+      
+   let myInterval
+ 
+function myIsOnScreen(){
+ if (parseInt(document.getElementById('myImg01').style.left)  > 1820 ) {    //1820
+     document.getElementById('myImg01').style.left = '1819px'
+   }   
+ if (parseInt(document.getElementById('myImg01').style.top) > 803 ) {    //803
+     document.getElementById('myImg01').style.top = '803px'
+   }  
+if (parseInt(document.getElementById('myImg01').style.left) < 0 ) {
+     document.getElementById('myImg01').style.left = '1px'
+   }   
+ if (parseInt(document.getElementById('myImg01').style.top) < 0 ) {
+     document.getElementById('myImg01').style.top = '1px'
+   } 
+  if (parseInt(document.getElementById('myImg02').style.left)  > 1820 ) {    //1820
+     document.getElementById('myImg02').style.left = '1px'
+   }   
+ if (parseInt(document.getElementById('myImg02').style.top) > 800 ) {    //800
+     document.getElementById('myImg02').style.top = '799px'
+   }  
+if (parseInt(document.getElementById('myImg02').style.left) < 0 ) {
+     document.getElementById('myImg02').style.left = '1819px'
+   }   
+ if (parseInt(document.getElementById('myImg02').style.top) < 0 ) {
+     document.getElementById('myImg02').style.top = '1px'
+   }   
+ if (parseInt(document.getElementById('myImg01').style.top) < 0 ) {  
+     document.getElementById('myImg01').style.top = '0px'
+   }                  
 }
+</script>
 
-function complete(){
-	clearCanvas();
-	completed = true;
+<body onkeydown="{
+     let myKey = event.key
+ //  let myKey = String.toLowerCase(event.key)
+   if (myKey == 'd') {
+      clearInterval(myInterval)
+      myInterval = setInterval(function(){
+         document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 1
+                 myCheckHit()
+         myIsOnScreen()
+      } ,1)
+   }
+   if (myKey == 'a') {
+      clearInterval(myInterval)
+      myInterval = setInterval(function(){
+         document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 1
+                 myCheckHit()
+         myIsOnScreen()
+      } ,1)
+   }
+   if (myKey == 'w') {
+      clearInterval(myInterval)
+      myInterval = setInterval(function(){
+         document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 1
+                 myCheckHit()
+         myIsOnScreen()
+      } ,1)
+   }
+   if (myKey == 's') {
+      clearInterval(myInterval)
+      myInterval = setInterval(function(){
+         document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 1
+                 myCheckHit()
+         myIsOnScreen()
+      } ,1)
+   }  
+                 
+}">    
+        
 
-	context.font = "50px Impact";
-	context.fillStyle = "#e91e63";
-	context.textAlign = "center";
-	context.fillText("You Beat Level 1!", canvas.width/2, canvas.height/2);
-
-	context.font = "20px Arial";
-	context.fillText("Press Enter to Play Again", canvas.width/2, canvas.height/2 + 100);
-}
-
-function reset(){
-	player.x = 5;
-	player.y = canvas.height-25;
-	player.grounded = true;
-	player.velY = 0;
-	player.velX = 0;
-	completed = false;
-
-	requestAnimationFrame(loop);
-}
-
-function draw_platforms(){
-	context.fillStyle = "#e91e63";
-
-	for(var i = 0; i < platforms.length; i++){
-		context.fillRect(platforms[i].x, platforms[i].y, platforms[i].width, platforms[i].height);
-	}
-}
-
-function loop(){
-
-	clearCanvas();
-	draw_platforms();
-	player.draw();
-	goal.draw();
-
-	if(keys[38] || keys[32]){
-		if(!player.jumping){
-			player.velY = -player.jumpStrength*2;
-			player.jumping = true;
-		}
-	}
-
-	if(keys[39]){
-		if(player.velX < player.speed){
-			player.velX++;
-		}
-	}
-
-	if(keys[37]){
-		if(player.velX > -player.speed){
-			player.velX--;
-		}
-	}
-
-	player.x += player.velX;
-	player.y += player.velY;
-
-	player.velX *= friction;
-	player.velY += gravity;
-
-	player.grounded = false;
-	for(var i = 0; i < platforms.length; i++){
-		var direction = collisionCheck(player, platforms[i]);
-
-		if(direction == "left" || direction == "right"){
-			player.velX = 0;
-		} else if(direction == "bottom"){
-			player.jumping = false;
-			player.grounded = true;
-		} else if(direction == "top"){
-			player.velY *= -1;
-		}
-
-	}
-
-	if(player.grounded){
-		player.velY = 0;
-	}
-
-	if(collisionCheck(player, goal)){
-		complete();
-	}
-
-	if(!completed){
-		requestAnimationFrame(loop);
-	}
-
-}
-//checks for collision
-function collisionCheck(character, platform){
-
-	var vectorX = (character.x + (character.width/2)) - (platform.x + (platform.width/2));
-	var vectorY = (character.y + (character.height/2)) - (platform.y + (platform.height/2));
-
-	var halfWidths = (character.width/2) + (platform.width/2);
-	var halfHeights = (character.height/2) + (platform.height/2);
-
-	var collisionDirection = null;
-
-	if(Math.abs(vectorX) < halfWidths && Math.abs(vectorY) < halfHeights){
-
-		var offsetX = halfWidths - Math.abs(vectorX);
-		var offsetY = halfHeights - Math.abs(vectorY);
-		if(offsetX < offsetY){
-
-			if (vectorX > 0){
-				collisionDirection = "left";
-				character.x += offsetX;
-			} else {
-				collisionDirection = "right";
-				character.x -= offsetX;
-			}
-
-		} else {
-
-			if (vectorY > 0){
-				collisionDirection = "top";
-				character.y += offsetY;
-			} else {
-				collisionDirection = "bottom";
-				character.y -= offsetY;
-			}
-
-		}
-
-	}
-
-	return collisionDirection;
-
-}
-
-function clearCanvas(){
-	context.clearRect(0, 0, 640, 360);
-}
-	</script>
-</html>
+<body onkeyup="{
+     let myKey = event.key
+ //  let myKey = String.toLowerCase(event.key)
+   if (myKey == 'd') {
+      clearInterval(myInterval)
+      myInterval = setInterval(function(){
+         document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 0
+                 myCheckHit()
+         myIsOnScreen()
+      } ,0)
+   }
+   if (myKey == 'a') {
+      clearInterval(myInterval)
+      myInterval = setInterval(function(){
+         document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 0
+                 myCheckHit()
+         myIsOnScreen()
+      } ,0)
+   }
+   if (myKey == 'w') {
+      clearInterval(myInterval)
+      myInterval = setInterval(function(){
+         document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 0
+                 myCheckHit()
+         myIsOnScreen()
+      } ,0)
+   }
+   if (myKey == 's') {
+      clearInterval(myInterval)
+      myInterval = setInterval(function(){
+         document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 0
+                 myCheckHit()
+         myIsOnScreen()
+      } ,0)
+   }  
+                 
+               
+}">    
+    
+ 
+      
+      
+ </script>
