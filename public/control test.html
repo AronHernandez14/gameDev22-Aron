@@ -1,4 +1,4 @@
-Version 0.0.4
+Version 0.0.5
 
 <body id="myBody" style="background repeat: no-repeat; background-size: cover" background="bioshock like game background-Sheet.jpeg">
       
@@ -20,18 +20,17 @@ function myFunction() {
    let myClock
    let myClock2 = 0
    let myInterval = 0;
-   let backgroundAuto = 'off'
    let gravityDirection = 'none'
 
   function mygravity() {
-  if( parseInt(document.getElementById('myImg01').style.top)    <= 100){
+  if( parseInt(document.getElementById('myImg01').style.top)    <= 500){
    objImage.style.top = parseInt(objImage.style.top) + 5 + "px";
    }
      }
 
   
 
-     setInterval(mygravity,100)
+     setInterval(mygravity,500)
    
    
    
