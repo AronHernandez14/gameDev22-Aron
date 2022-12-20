@@ -1,12 +1,17 @@
-Version 0.0.3
+Version 0.0.1
 
-<body id="myBody" style="background-repeat:repeat; background-size: 80%" background="myBackground01.jpg"     onkeydown="{
+
+<body id="myBody" style="background-repeat:repeat; background-size: 80%" background="myBackground01.jpg"
+onkeydown="{
    let myKey = event.key
    //let myKey = String.toLowerCase(event.key)
 
    if (myKey == 'd' || myKey == 'D' || myKey == 'ArrowRight') {
       if (gravityDirection == 'down' || gravityDirection == 'up') {
-    document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 5
+    document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 7
+    facingDirectionH = 'right'
+    checkFacingDirection()
+    console.log()
     myCheckHitFloor()
       myCheckHitRoof()
       checkGravityDown()
@@ -15,7 +20,9 @@ Version 0.0.3
    }
    if (myKey == 'a' || myKey == 'A' || myKey == 'ArrowLeft') {
       if (gravityDirection == 'down' || gravityDirection == 'up') {
-    document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 5
+    document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 7
+    facingDirectionH = 'left'
+    checkFacingDirection()
     myCheckHitFloor()
       myCheckHitRoof()
       checkGravityDown()
@@ -26,8 +33,10 @@ Version 0.0.3
       if ((myGravity == 0 ) &&
          (gravityDirection == 'down')) {
          gravityDirection = 'up'
-         document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 0.2
+         document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 1
          startupGravityUp()
+         facingDirectionV = 'up'
+         checkFacingDirection()
       }
     myCheckHitFloor()
       myCheckHitRoof()
@@ -36,8 +45,10 @@ Version 0.0.3
     if ((myGravity == 0) &&
        (gravityDirection == 'up')) {
       gravityDirection = 'down'
-      document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 0.2
+      document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 1
       startupGravityDown()
+      facingDirectionV = 'down'
+      checkFacingDirection()
     }
     myCheckHitFloor()
       myCheckHitRoof()
@@ -45,8 +56,9 @@ Version 0.0.3
 }">
 
 
-
 <script>
+
+src="https://jeremyckahn.github.io/keydrown/dist/keydrown.js"
 
    // global variables here
    let myGlobalX = 0
@@ -56,6 +68,8 @@ Version 0.0.3
    let myInterval = 0;
    let backgroundAuto = 'off'
    let gravityDirection = 'none'
+   let facingDirectionV = 'down'
+   let facingDirectionH = 'right'
 
    // global functions here
 function myHitOther(my1,my2){
@@ -81,7 +95,6 @@ function myCheckHitFloor(){
        myGravity = 0
   } 
 }
-
    function myCheckHitRoof(){
    if ( myHitOther('myImg01','myImg02') ){
        //document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 1 + 'px'
@@ -103,7 +116,6 @@ function myCheckHitFloor(){
       }
    }, 2)
    }
-
    function startupGravityUp(){
    clearInterval(myClock2)
    myClock2 = setInterval(function(){
@@ -118,7 +130,6 @@ function myCheckHitFloor(){
       }
    }, 2)
    }
-
 function gravity(){
    clearInterval(myClock2)
    myClock2 = setInterval(function(){
@@ -134,20 +145,40 @@ function checkGravityDown(){
          startupGravityDown()
    }
 }
-
 function checkGravityUp(){
    if ((myHitOther('myImg01','myImg02') != true) &&
       (gravityDirection == 'up')){
          startupGravityUp()
    }
 }
-
+function checkFacingDirection(){
+   if ((facingDirectionV == 'down') &&
+      (facingDirectionH == 'left')){
+      const scale = document.getElementById('myImg01')
+      scale.style.transform = 'scale(1, 1)'
+   }
+   if ((facingDirectionV == 'down') &&
+      (facingDirectionH == 'right')){
+      const scale = document.getElementById('myImg01')
+      scale.style.transform = 'scale(-1, 1)'
+   }
+   if ((facingDirectionV == 'up') &&
+      (facingDirectionH == 'left')){
+      const scale = document.getElementById('myImg01')
+      scale.style.transform = 'scale(1, -1)'
+   }
+   if ((facingDirectionV == 'up') &&
+      (facingDirectionH == 'right')){
+         const scale = document.getElementById('myImg01')
+      scale.style.transform = 'scale(-1, -1)'
+   }
+}
 </script>
 
 
-<img id="myImg01" style="position:absolute; width:34px; height:96px; top:250px; left:475px;"  src="img/Madeline Walk.gif">
-<img id="myImg02" style="position:absolute; width:750px; height:30px; top:100px; left:100px;" src="red-photos-1172010.jpg">
-<img id="myImg03" style="position:absolute; width:750px; height:30px; top:500px; left:100px;" src="red-photos-1172010.jpg">
+<img id="myImg01" style="position:absolute; width:100px; height:80px; top:250px; left:475px;"  src="img/Madeline Walk.gif">
+<img id="myImg02" style="position:absolute; width:750px; height:30px; top:100px; left:100px;" src="myImage01.jpg">
+<img id="myImg03" style="position:absolute; width:750px; height:30px; top:500px; left:100px;" src="myImage01.jpg">
 
 <input type=button value="Start/Stop Auto Background" onclick="{
    if (backgroundAuto == 'off') {
@@ -171,8 +202,9 @@ function checkGravityUp(){
    myGravity = 1
    gravity()
    this.style.display='none'
+   document.getElementById('myDescription').style.display='none'
    }"></h1>
-<textarea style="position:absolute; width:575px; height:150px; top:500px; left:600px;">
+<textarea readonly id='myDescription' style="position:absolute; width:575px; height:150px; top:250px; left:225px;">
 A and the Left Arrow move your character to the left.
 D and the Right Arrow move your character to the right.
 W and the Up Arrow swap the gravity to pull your character up.
