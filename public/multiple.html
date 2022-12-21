@@ -1,4 +1,4 @@
-Version 0.0.6
+Version 0.0.7
 
 
 <body id="myBody" style="background-repeat:repeat; background-size: 80%" background="myBackground01.jpg"
@@ -8,7 +8,7 @@ onkeydown="{
 
    if (myKey == 'd' || myKey == 'ArrowRight') {
       if (gravityDirection == 'down' || gravityDirection == 'up') {
-    document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 5
+    document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 2
     facingDirectionH = 'right'
     checkFacingDirection()
     console.log()
@@ -20,7 +20,7 @@ onkeydown="{
    }
    if (myKey == 'a' || myKey == 'A' || myKey == 'ArrowLeft') {
       if (gravityDirection == 'down' || gravityDirection == 'up') {
-    document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 5
+    document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 2
     facingDirectionH = 'left'
     checkFacingDirection()
     myCheckHitFloor()
@@ -56,7 +56,7 @@ onkeydown="{
            
  if (myKey == 'D' ) {
       if (gravityDirection == 'down' || gravityDirection == 'up') {
-    document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 9
+    document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 14
     facingDirectionH = 'right'
     checkFacingDirection()
     console.log()
@@ -68,7 +68,7 @@ onkeydown="{
    }
    if (myKey == 'A') {
       if (gravityDirection == 'down' || gravityDirection == 'up') {
-    document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 9
+    document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 14
     facingDirectionH = 'left'
     checkFacingDirection()
     myCheckHitFloor()
