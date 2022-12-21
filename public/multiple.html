@@ -1,4 +1,4 @@
-Version 0.0.9
+Version 0.1.0
 
 
 <body id="myBody" style="background-repeat:repeat; background-size: 80%" background="myBackground01.jpg"
@@ -10,6 +10,11 @@ onkeydown="{
       if (gravityDirection == 'down' || gravityDirection == 'up') {
     document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 7
     facingDirectionH = 'right'
+  if (event.shiftKey) {
+  alert("The SHIFT key was pressed!");
+} else {
+  alert("The SHIFT key was NOT pressed!");
+}         
     checkFacingDirection()
     console.log()
     myCheckHitFloor()
