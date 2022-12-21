@@ -1,4 +1,4 @@
-Version 0.1.0
+Version 0.1.1
 
 <body id="myBody" style="background repeat: no-repeat; background-size: cover" background="bioshock like game background-Sheet.jpeg">
       
@@ -144,15 +144,7 @@ function checkGravityDown(){
       document.getElementById('myBody').style.backgroundPosition = myTemp
   },)                                            
 }">
-      
-<h1 align=center><input type=button value="Start"onclick="{
-   gravityDirection = 'down'
-   myGravity = 1
-   gravity()
-   this.style.display='none'
-   document.getElementById('myDescription').style.display='none'
-   }"></h1>      
-     
+   
  <script>  
       
    let myInterval
@@ -255,11 +247,11 @@ if (parseInt(document.getElementById('myImg02').style.left) < 0 ) {
       myInterval = setInterval(function(){
                if (gravityDirection == 'down' || gravityDirection == 'up') {
          document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 0
-                 myCheckHit()
-         myIsOnScreen()
-      checkFacingDirection()
-    console.log()
-    myCheckHitFloor()
+            myCheckHit()
+          myIsOnScreen()
+  checkFacingDirection()
+           console.log()
+       myCheckHitFloor()
       checkGravityDown()             
       } ,0)
    }
@@ -268,11 +260,11 @@ if (parseInt(document.getElementById('myImg02').style.left) < 0 ) {
       myInterval = setInterval(function(){
                if (gravityDirection == 'down' || gravityDirection == 'up') {
          document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 0
-                 myCheckHit()
-         myIsOnScreen()
-       checkFacingDirection()
-    console.log()
-    myCheckHitFloor()
+            myCheckHit()
+          myIsOnScreen()
+  checkFacingDirection()
+           console.log()
+       myCheckHitFloor()
       checkGravityDown()            
       } ,0)
    }
@@ -281,11 +273,11 @@ if (parseInt(document.getElementById('myImg02').style.left) < 0 ) {
       myInterval = setInterval(function(){
                if (gravityDirection == 'down' || gravityDirection == 'up') {
          document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 0
-                 myCheckHit()
-         myIsOnScreen()
-         checkFacingDirection()
-    console.log()
-    myCheckHitFloor()
+             myCheckHit()
+          myIsOnScreen()
+  checkFacingDirection()
+           console.log()
+       myCheckHitFloor()
       checkGravityDown()          
       } ,0)
    }
@@ -295,9 +287,9 @@ if (parseInt(document.getElementById('myImg02').style.left) < 0 ) {
                if (gravityDirection == 'down' || gravityDirection == 'up') {
          document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 0
                  facingDirectionH = 'left'
-    checkFacingDirection()
-    myCheckHitFloor()
-      checkGravityDown()
+       checkFacingDirection()
+            myCheckHitFloor()
+           checkGravityDown()
                  myCheckHit()
          myIsOnScreen()        
       } ,0)
