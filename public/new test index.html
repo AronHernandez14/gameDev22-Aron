@@ -1,4 +1,4 @@
-Version 0.0.1
+Version 0.0.2
 
 
 <body id="myBody" style="background-repeat:repeat; background-size: 80%" background="myBackground01.jpg"
@@ -160,12 +160,12 @@ function checkFacingDirection(){
    if ((facingDirectionV == 'down') &&
       (facingDirectionH == 'right')){
       const scale = document.getElementById('myImg01')
-      scale.style.transform = 'scale(-1, 1)'
+      scale.style.transform = 'scale(1, -1)'
    }
    if ((facingDirectionV == 'up') &&
       (facingDirectionH == 'left')){
       const scale = document.getElementById('myImg01')
-      scale.style.transform = 'scale(1, -1)'
+      scale.style.transform = 'scale(-1, 1)'
    }
    if ((facingDirectionV == 'up') &&
       (facingDirectionH == 'right')){
