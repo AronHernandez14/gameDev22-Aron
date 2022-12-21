@@ -1,4 +1,4 @@
-Version 0.0.9
+Version 0.1.0
 
 <body id="myBody" style="background repeat: no-repeat; background-size: cover" background="bioshock like game background-Sheet.jpeg">
       
@@ -144,6 +144,14 @@ function checkGravityDown(){
       document.getElementById('myBody').style.backgroundPosition = myTemp
   },)                                            
 }">
+      
+<h1 align=center><input type=button value="Start"onclick="{
+   gravityDirection = 'down'
+   myGravity = 1
+   gravity()
+   this.style.display='none'
+   document.getElementById('myDescription').style.display='none'
+   }"></h1>      
      
  <script>  
       
@@ -186,33 +194,53 @@ if (parseInt(document.getElementById('myImg02').style.left) < 0 ) {
    if (myKey == 'd') {
       clearInterval(myInterval)
       myInterval = setInterval(function(){
+                 if (gravityDirection == 'down' || gravityDirection == 'up') {
          document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 1
                  myCheckHit()
          myIsOnScreen()
+           checkFacingDirection()
+    console.log()
+    myCheckHitFloor()
+      checkGravityDown()          
       } ,1)
    }
    if (myKey == 'a') {
       clearInterval(myInterval)
       myInterval = setInterval(function(){
+                 if (gravityDirection == 'down' || gravityDirection == 'up') {
          document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 1
                  myCheckHit()
          myIsOnScreen()
+   checkFacingDirection()
+    console.log()
+    myCheckHitFloor()
+      checkGravityDown()
       } ,1)
    }
    if (myKey == 'w') {
       clearInterval(myInterval)
       myInterval = setInterval(function(){
+                 if (gravityDirection == 'down' || gravityDirection == 'up') {
          document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 1
                  myCheckHit()
          myIsOnScreen()
+       checkFacingDirection()
+    console.log()
+    myCheckHitFloor()
+      checkGravityDown()              
       } ,1)
    }
    if (myKey == 's') {
       clearInterval(myInterval)
       myInterval = setInterval(function(){
+                 if (gravityDirection == 'down' || gravityDirection == 'up') {
          document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 1
                  myCheckHit()
          myIsOnScreen()
+        checkFacingDirection()
+    console.log()
+    myCheckHitFloor()
+      checkGravityDown()             
       } ,1)
    }  
                  
@@ -225,33 +253,53 @@ if (parseInt(document.getElementById('myImg02').style.left) < 0 ) {
    if (myKey == 'd') {
       clearInterval(myInterval)
       myInterval = setInterval(function(){
+               if (gravityDirection == 'down' || gravityDirection == 'up') {
          document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 0
                  myCheckHit()
          myIsOnScreen()
+      checkFacingDirection()
+    console.log()
+    myCheckHitFloor()
+      checkGravityDown()             
       } ,0)
    }
    if (myKey == 'a') {
       clearInterval(myInterval)
       myInterval = setInterval(function(){
+               if (gravityDirection == 'down' || gravityDirection == 'up') {
          document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 0
                  myCheckHit()
          myIsOnScreen()
+       checkFacingDirection()
+    console.log()
+    myCheckHitFloor()
+      checkGravityDown()            
       } ,0)
    }
    if (myKey == 'w') {
       clearInterval(myInterval)
       myInterval = setInterval(function(){
+               if (gravityDirection == 'down' || gravityDirection == 'up') {
          document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 0
                  myCheckHit()
          myIsOnScreen()
+         checkFacingDirection()
+    console.log()
+    myCheckHitFloor()
+      checkGravityDown()          
       } ,0)
    }
    if (myKey == 's') {
       clearInterval(myInterval)
       myInterval = setInterval(function(){
+               if (gravityDirection == 'down' || gravityDirection == 'up') {
          document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 0
+                 facingDirectionH = 'left'
+    checkFacingDirection()
+    myCheckHitFloor()
+      checkGravityDown()
                  myCheckHit()
-         myIsOnScreen()
+         myIsOnScreen()        
       } ,0)
    }  
                  
@@ -272,6 +320,9 @@ if (parseInt(document.getElementById('myImg02').style.left) < 0 ) {
    let myInterval = 0;
    let backgroundAuto = 'off'
    let gravityDirection = 'none'
+   let facingDirectionV = 'down'
+   let facingDirectionH = 'right' 
+   
 
    // global functions here
 function myHitOther(my1,my2){
@@ -291,7 +342,12 @@ function myHitOther(my1,my2){
    }
 }
 
-
+function myCheckHitFloor(){
+   if ( myHitOther('myImg01','myImg03') ){
+       //document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 1 + 'px'
+       myGravity = 0
+  } 
+}
 
    function startupGravityDown(){
    clearInterval(myClock2)
@@ -345,5 +401,28 @@ function checkGravityUp(){
          startupGravityUp()
    }
 }
-
+function checkFacingDirection(){
+   if ((facingDirectionV == 'down') &&
+      (facingDirectionH == 'left')){
+      const scale = document.getElementById('myImg01')
+      scale.style.transform = 'scale(1, 1)'
+   }
+   if ((facingDirectionV == 'down') &&
+      (facingDirectionH == 'right')){
+      const scale = document.getElementById('myImg01')
+      scale.style.transform = 'scale(-1, 1)'
+   }
+   if ((facingDirectionV == 'up') &&
+      (facingDirectionH == 'left')){
+      const scale = document.getElementById('myImg01')
+      scale.style.transform = 'scale(1, -1)'
+   }
+   if ((facingDirectionV == 'up') &&
+      (facingDirectionH == 'right')){
+         const scale = document.getElementById('myImg01')
+      scale.style.transform = 'scale(-1, -1)'
+   }
+}
+       
+       
 </script>     
