@@ -9,12 +9,7 @@ onkeydown="{
    if (myKey == 'd' || myKey == 'ArrowRight') {
       if (gravityDirection == 'down' || gravityDirection == 'up') {
     document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 7
-    facingDirectionH = 'right'
-  if (event.shiftKey) {
-  alert("The SHIFT key was pressed!");
-} else {
-  alert("The SHIFT key was NOT pressed!");
-}         
+    facingDirectionH = 'right'         
     checkFacingDirection()
     console.log()
     myCheckHitFloor()
