@@ -1,4 +1,4 @@
-Version 0.0.7
+Version 0.0.8
 
 
 <body id="myBody" style="background-repeat:repeat; background-size: 80%" background="myBackground01.jpg"
@@ -18,7 +18,7 @@ onkeydown="{
       checkGravityUp()
    }
    }
-   if (myKey == 'a' || myKey == 'A' || myKey == 'ArrowLeft') {
+   if (myKey == 'a' || myKey == 'ArrowLeft') {
       if (gravityDirection == 'down' || gravityDirection == 'up') {
     document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 2
     facingDirectionH = 'left'
@@ -29,7 +29,7 @@ onkeydown="{
       checkGravityUp()
    }
    }
-   if (myKey == 'w' || myKey == 'W' || myKey == 'ArrowUp') {
+   if (myKey == 'w' || myKey == 'ArrowUp') {
       if ((myGravity == 0 ) &&
          (gravityDirection == 'down')) {
          gravityDirection = 'up'
@@ -41,7 +41,7 @@ onkeydown="{
     myCheckHitFloor()
       myCheckHitRoof()
    }
-   if (myKey == 's' || myKey == 'S' || myKey == 'ArrowDown') {
+   if (myKey == 's' || myKey == 'ArrowDown') {
     if ((myGravity == 0) &&
        (gravityDirection == 'up')) {
       gravityDirection = 'down'
