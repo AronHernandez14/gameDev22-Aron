@@ -1,4 +1,4 @@
-Version 0.5.9
+Version 0.6.0
 
 <body id="myBody" style="background repeat: no-repeat; background-size: cover" background="bioshock like game background-Sheet.jpeg">
       
@@ -124,7 +124,7 @@ if (parseInt(document.getElementById('myImg02').style.left) < 0 ) {
 <body onkeydown="{
      let myKey = event.key
  //  let myKey = String.toLowerCase(event.key)
-   if (myKey == 'd') {
+   if (myKey == 'd' || myKey == 'ArrowRight') {
       clearInterval(myInterval)
       myInterval = setInterval(function(){
          document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 1
@@ -132,7 +132,7 @@ if (parseInt(document.getElementById('myImg02').style.left) < 0 ) {
          myIsOnScreen()
       } ,1)
    }
-   if (myKey == 'a') {
+   if (myKey == 'a' || myKey == 'ArrowLeft') {
       clearInterval(myInterval)
       myInterval = setInterval(function(){
          document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 1
@@ -140,7 +140,7 @@ if (parseInt(document.getElementById('myImg02').style.left) < 0 ) {
          myIsOnScreen()
       } ,1)
    }
-   if (myKey == 'w') {
+   if (myKey == 'w' || myKey == 'ArrowDown') {
       clearInterval(myInterval)
       myInterval = setInterval(function(){
          document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 1
@@ -148,7 +148,7 @@ if (parseInt(document.getElementById('myImg02').style.left) < 0 ) {
          myIsOnScreen()
       } ,1)
    }
-   if (myKey == 's') {
+   if (myKey == 's' || myKey == 'ArrowUp') {
       clearInterval(myInterval)
       myInterval = setInterval(function(){
          document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 1
