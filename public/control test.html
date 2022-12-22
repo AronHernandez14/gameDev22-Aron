@@ -1,308 +1,49 @@
-Version 0.1.1
-
-<body id="myBody" style="background repeat: no-repeat; background-size: cover" background="bioshock like game background-Sheet.jpeg">
-      
-<h1 align=center></h1>
-      
- <script>
- [0].onresize = function() {myFunction()};
-       
-var x = 0;
-function myFunction() {
-  var txt = x += 1;
-      
-      </script>     
- <script>       
-       
-   // global variables here
-   let myGlobalX = 0
-  let myGravity = 0
-   let myClock
-   let myInterval = 0;
-   let gravityDirection = 'none'
-
-  function mygravity() {
-  if( parseInt(document.getElementById('myImg01').style.top)    <= 100){
-   objImage.style.top = parseInt(objImage.style.top) + 5 + "px";
-   }
-     }
-
-  
-
-     setInterval(mygravity,100)
-   
-   
-   
-   // global functions here
-function myHitOther(my1,my2){
-   left1   = parseInt(document.getElementById(my1).style.left)
-   right1  = left1 + parseInt(document.getElementById(my1).style.width)
-   top1    = parseInt(document.getElementById(my1).style.top)   
-   bottom1 = top1   + parseInt(document.getElementById(my1).style.height)
-   left2   = parseInt(document.getElementById(my2).style.left)
-   right2  = left2 + parseInt(document.getElementById(my2).style.width)
-   top2    = parseInt(document.getElementById(my2).style.top)   
-   bottom2 = top2   + parseInt(document.getElementById(my2).style.height)
-   if ((right1  >=  left2  ) &&      	   
-       (bottom1 >=  top2   ) &&
-       (left1   <=  right2 ) &&
-       (top1    <=  bottom2) ){
-       return true
-   }
-}
+Version 0.1.2
 
 
-function myCheckHit(){
-     console.log(document.getElementById('myImg01').style.left + " : " + document.getElementById('myImg01').style.top)
-   if ( myHitOther('myImg01','myImg02') ){
-       alert('you lose')
-      document.getElementById('myImg01').style.left = '0px'
-   }
-   if ( myHitOther('myImg01','myImg07') ){
-         alert('you lose')
-        document.getElementById('myImg01').style.left = '0px'
-   }
-      if ( myHitOther('myImg01','myImg09') ){
-          alert('next level')  
-          document.getElementById('myImg01').style.left = '0px'
-          location = 'Proof-level-2-draft-uploaded.html'  // go to your next level
-   }
-   
+<body id="myBody" style="background-repeat:repeat; background-size: 80%" background="myBackground01.jpg"
+onkeydown="{
+   let myKey = event.key
+   //let myKey = String.toLowerCase(event.key)
 
-   function startupGravityDown(){
-   clearInterval(myClock2)
-   myClock2 = setInterval(function(){
-      myCheckHitFloor();
-      myCheckHitRoof();
-      myGravity += 0.07
-      document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + myGravity + 'px'
-      if (myGravity >= 1){
-         clearInterval(myClock2)
-         myGravity = 1
-         gravity()
-      }
-   }, 2)
-   }
-
-   function startupGravityUp(){
-   clearInterval(myClock2)
-   myClock2 = setInterval(function(){
-      myCheckHitFloor();
-      myCheckHitRoof();
-      myGravity -= 0.07
-      document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + myGravity + 'px'
-      if (myGravity <= -1){
-         clearInterval(myClock2)
-         myGravity = -1
-         gravity()
-      }
-   }, 2)
-   }
-
-function gravity(){
-   clearInterval(myClock2)
-   myClock2 = setInterval(function(){
-      myCheckHitFloor();
-      myCheckHitRoof();
-      document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + myGravity + 'px'
-  }, 2)
-}
-
-function checkGravityDown(){
-   if ((myHitOther('myImg01','myImg02') != true) &&
-      (gravityDirection == 'down')){
-         startupGravityDown()
-   }
-}
-
-      
-}  // end of myCheckHit()
-
-       
-       
-
-</script>
-
-<img id="myImg01" style="position:absolute; width:34px; height:96px; top:500px; left:200px;"  src="img/Madeline Walk.gif">
-<img id="myImg02" style="position:absolute; width:70px; height:90px; top:600px; left:1000px;" src="red-photos-1172010.jpg">
-<img id="myImg03" style="position:absolute; width:1920px; height:1px; top:899px; left:0px;" src="red-photos-1172010.jpg">
-<img id="myImg04" style="position:absolute; width:1px; height:900px; top:0px; left:0px;" src="red-photos-1172010.jpg">
-<img id="myImg05" style="position:absolute; width:1920px; height:1px; top:0px; left:0px;" src="red-photos-1172010.jpg">
-<img id="myImg06" style="position:absolute; width:1px; height:969px; top:0px; left:1919px;" src="red-photos-1172010.jpg">
-<img id="myImg07" style="position:absolute; width:70px; height:90px; top:500px; left:500px;"  src="red-photos-1172010.jpg">
-<img id="myImg09" style="position:absolute; width:80px; height:80px; top:600px; left:1600px;" src="red-photos-1172010.jpg">
-<img id="myImg10" style="position:absolute; width:1920px; height:1px; top:0px; left:0px;" src="red-photos-1172010.jpg">
-<img id="myImg11" style="position:absolute; width:80px; height:100px; top:700px; left:200px;" src="img/Invisible Wall.gif">
-      
-      
- <input type=button value="Start Game" onclick="{
-  clearInterval(myClock)
-  let myTemp = '0px'
-  myClock = setInterval(function(){
-      myGlobalX -= 5
-      myTemp =  myGlobalX + 'px 0px'
-      document.getElementById('myBody').style.backgroundPosition = myTemp
-  },)                                            
-}">
-   
- <script>  
-      
-   let myInterval
- 
-function myIsOnScreen(){
- if (parseInt(document.getElementById('myImg01').style.left)  > 1820 ) {    //1820
-     document.getElementById('myImg01').style.left = '1819px'
-   }   
- if (parseInt(document.getElementById('myImg01').style.top) > 803 ) {    //803
-     document.getElementById('myImg01').style.top = '803px'
-   }  
-if (parseInt(document.getElementById('myImg01').style.left) < 0 ) {
-     document.getElementById('myImg01').style.left = '1px'
-   }   
- if (parseInt(document.getElementById('myImg01').style.top) < 0 ) {
-     document.getElementById('myImg01').style.top = '1px'
-   } 
-  if (parseInt(document.getElementById('myImg02').style.left)  > 1820 ) {    //1820
-     document.getElementById('myImg02').style.left = '1px'
-   }   
- if (parseInt(document.getElementById('myImg02').style.top) > 800 ) {    //800
-     document.getElementById('myImg02').style.top = '799px'
-   }  
-if (parseInt(document.getElementById('myImg02').style.left) < 0 ) {
-     document.getElementById('myImg02').style.left = '1819px'
-   }   
- if (parseInt(document.getElementById('myImg02').style.top) < 0 ) {
-     document.getElementById('myImg02').style.top = '1px'
-   }   
- if (parseInt(document.getElementById('myImg01').style.top) < 0 ) {  
-     document.getElementById('myImg01').style.top = '0px'
-   }                  
-}
-</script>
-
-<body onkeydown="{
-     let myKey = event.key
- //  let myKey = String.toLowerCase(event.key)
-   if (myKey == 'd') {
-      clearInterval(myInterval)
-      myInterval = setInterval(function(){
-                 if (gravityDirection == 'down' || gravityDirection == 'up') {
-         document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 1
-                 myCheckHit()
-         myIsOnScreen()
-           checkFacingDirection()
-    console.log()
-    myCheckHitFloor()
-      checkGravityDown()          
-      } ,1)
-   }
-   if (myKey == 'a') {
-      clearInterval(myInterval)
-      myInterval = setInterval(function(){
-                 if (gravityDirection == 'down' || gravityDirection == 'up') {
-         document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 1
-                 myCheckHit()
-         myIsOnScreen()
-   checkFacingDirection()
+   if (myKey == 'd' || myKey == 'ArrowRight') {
+      if (gravityDirection == 'down' || gravityDirection == 'up') {
+    document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 7
+    facingDirectionH = 'right'         
+    checkFacingDirection()
     console.log()
     myCheckHitFloor()
       checkGravityDown()
-      } ,1)
    }
-   if (myKey == 'w') {
-      clearInterval(myInterval)
-      myInterval = setInterval(function(){
-                 if (gravityDirection == 'down' || gravityDirection == 'up') {
-         document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 1
-                 myCheckHit()
-         myIsOnScreen()
-       checkFacingDirection()
-    console.log()
+   }
+   if (myKey == 'a' || myKey == 'ArrowLeft') {
+      if (gravityDirection == 'down' || gravityDirection == 'up') {
+    document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 7
+    facingDirectionH = 'left'
+    checkFacingDirection()
     myCheckHitFloor()
-      checkGravityDown()              
-      } ,1)
+      checkGravityDown()
    }
-   if (myKey == 's') {
-      clearInterval(myInterval)
-      myInterval = setInterval(function(){
-                 if (gravityDirection == 'down' || gravityDirection == 'up') {
-         document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 1
-                 myCheckHit()
-         myIsOnScreen()
-        checkFacingDirection()
-    console.log()
+   }
+   if (myKey == 's' || myKey == 'ArrowDown') {
+    if ((myGravity == 0) &&
+       (gravityDirection == 'up')) {
+      gravityDirection = 'down'
+      document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 1
+      startupGravityDown()
+      facingDirectionV = 'down'
+      checkFacingDirection()
+    }
     myCheckHitFloor()
-      checkGravityDown()             
-      } ,1)
-   }  
-                 
-}">    
-        
+      myCheckHitRoof()
+   }
+           
+}">
 
-<body onkeyup="{
-     let myKey = event.key
- //  let myKey = String.toLowerCase(event.key)
-   if (myKey == 'd') {
-      clearInterval(myInterval)
-      myInterval = setInterval(function(){
-               if (gravityDirection == 'down' || gravityDirection == 'up') {
-         document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 0
-            myCheckHit()
-          myIsOnScreen()
-  checkFacingDirection()
-           console.log()
-       myCheckHitFloor()
-      checkGravityDown()             
-      } ,0)
-   }
-   if (myKey == 'a') {
-      clearInterval(myInterval)
-      myInterval = setInterval(function(){
-               if (gravityDirection == 'down' || gravityDirection == 'up') {
-         document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 0
-            myCheckHit()
-          myIsOnScreen()
-  checkFacingDirection()
-           console.log()
-       myCheckHitFloor()
-      checkGravityDown()            
-      } ,0)
-   }
-   if (myKey == 'w') {
-      clearInterval(myInterval)
-      myInterval = setInterval(function(){
-               if (gravityDirection == 'down' || gravityDirection == 'up') {
-         document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 0
-             myCheckHit()
-          myIsOnScreen()
-  checkFacingDirection()
-           console.log()
-       myCheckHitFloor()
-      checkGravityDown()          
-      } ,0)
-   }
-   if (myKey == 's') {
-      clearInterval(myInterval)
-      myInterval = setInterval(function(){
-               if (gravityDirection == 'down' || gravityDirection == 'up') {
-         document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 0
-                 facingDirectionH = 'left'
-       checkFacingDirection()
-            myCheckHitFloor()
-           checkGravityDown()
-                 myCheckHit()
-         myIsOnScreen()        
-      } ,0)
-   }  
-                 
-               
-}">    
-    
-      
- </script>
 
-      
- <script>
+<script>
+
+
 
    // global variables here
    let myGlobalX = 0
@@ -313,8 +54,7 @@ if (parseInt(document.getElementById('myImg02').style.left) < 0 ) {
    let backgroundAuto = 'off'
    let gravityDirection = 'none'
    let facingDirectionV = 'down'
-   let facingDirectionH = 'right' 
-   
+   let facingDirectionH = 'right'
 
    // global functions here
 function myHitOther(my1,my2){
@@ -340,6 +80,12 @@ function myCheckHitFloor(){
        myGravity = 0
   } 
 }
+   function myCheckHitRoof(){
+   if ( myHitOther('myImg01','myImg02') ){
+       //document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 1 + 'px'
+       myGravity = 0
+   }
+   }
 
    function startupGravityDown(){
    clearInterval(myClock2)
@@ -355,7 +101,6 @@ function myCheckHitFloor(){
       }
    }, 2)
    }
-
    function startupGravityUp(){
    clearInterval(myClock2)
    myClock2 = setInterval(function(){
@@ -370,7 +115,6 @@ function myCheckHitFloor(){
       }
    }, 2)
    }
-
 function gravity(){
    clearInterval(myClock2)
    myClock2 = setInterval(function(){
@@ -386,7 +130,6 @@ function checkGravityDown(){
          startupGravityDown()
    }
 }
-
 function checkGravityUp(){
    if ((myHitOther('myImg01','myImg02') != true) &&
       (gravityDirection == 'up')){
@@ -415,6 +158,44 @@ function checkFacingDirection(){
       scale.style.transform = 'scale(-1, -1)'
    }
 }
-       
-       
-</script>     
+</script>
+
+
+<img id="myImg01" style="position:absolute; width:34px; height:96px; top:250px; left:475px;"  src="img/Madeline Walk Left.gif">
+<img id="myImg02" style="position:absolute; width:750px; height:30px; top:100px; left:100px;" src="myImage01.jpg">
+<img id="myImg03" style="position:absolute; width:750px; height:30px; top:500px; left:100px;" src="myImage01.jpg">
+
+<input type=button value="Start/Stop Auto Background" onclick="{
+   if (backgroundAuto == 'off') {
+      backgroundAuto = 'on'
+  clearInterval(myClock)
+  let myTemp = '100px 0px'
+  myClock = setInterval(function(){
+      myGlobalX -= 1
+      myTemp =  myGlobalX + 'px 0px'
+      document.getElementById('myBody').style.backgroundPosition = myTemp
+  }, 10)
+ } else {
+      (backgroundAuto == 'on') 
+      backgroundAuto = 'off'
+      clearInterval(myClock)
+   }
+}"><br><br><br><br><br><br><br><br><br>
+
+<h1 align=center><input type=button value="Start"onclick="{
+   gravityDirection = 'down'
+   myGravity = 1
+   gravity()
+   this.style.display='none'
+   document.getElementById('myDescription').style.display='none'
+   }"></h1>
+<textarea readonly id='myDescription' style="position:absolute; width:575px; height:150px; top:250px; left:225px;">
+A and the Left Arrow move your character to the left.
+D and the Right Arrow move your character to the right.
+S and the Down Arrow swap the gravity to pull your character down.
+You can only swap the gravity if your character is on solid ground.
+Falling to the bottom or the top of the screen will result in a game over.
+Touching the spikes will also result in a game over.
+Get to the ? to win.
+</textarea>
+
