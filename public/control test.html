@@ -1,4 +1,4 @@
-Version 0.1.3
+Version 0.1.4
 
 
 <body id="myBody" style="background-repeat:repeat; background-size: 80%" background="myBackground01.jpg"
@@ -31,7 +31,7 @@ onkeydown="{
       gravityDirection = 'up'
       document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 1
       startupGravityDown()
-      facingDirectionV = 'down'
+      facingDirectionV = 'up'
       checkFacingDirection()
     }
     myCheckHitFloor()
@@ -203,7 +203,7 @@ function checkFacingDirection(){
    }"></h1>
 <textarea readonly id='myDescription' style="position:absolute; width:575px; height:150px; top:250px; left:225px;">
 A and the Left Arrow move your character to the left.
-D and the Right Arrow move your character to the right.
+D and the Right Arrow move your character to the right.  
 S and the Down Arrow swap the gravity to pull your character down.
 You can only swap the gravity if your character is on solid ground.
 Falling to the bottom or the top of the screen will result in a game over.
