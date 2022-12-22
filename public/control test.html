@@ -1,43 +1,47 @@
-Version 0.1.4
+Version 0.1.5
 
 
 <body id="myBody" style="background-repeat:repeat; background-size: 80%" background="myBackground01.jpg"
 onkeydown="{
    let myKey = event.key
    //let myKey = String.toLowerCase(event.key)
-
-   if (myKey == 'd' || myKey == 'ArrowRight') {
+           
+   if (myKey == 'd' || myKey == 'D' || myKey == 'ArrowRight') {
       if (gravityDirection == 'down' || gravityDirection == 'up') {
     document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 7
-    facingDirectionH = 'right'         
+    facingDirectionH = 'right'
     checkFacingDirection()
     console.log()
     myCheckHitFloor()
+      myCheckHitRoof()
       checkGravityDown()
+      checkGravityUp()
    }
    }
-   if (myKey == 'a' || myKey == 'ArrowLeft') {
+   if (myKey == 'a' || myKey == 'A' || myKey == 'ArrowLeft') {
       if (gravityDirection == 'down' || gravityDirection == 'up') {
     document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 7
     facingDirectionH = 'left'
     checkFacingDirection()
     myCheckHitFloor()
+      myCheckHitRoof()
       checkGravityDown()
+      checkGravityUp()
    }
-   }         
- if (myKey == 'w' || myKey == 'ArrowUp') {
-    if ((myGravity == 0) &&
-       (gravityDirection == 'down')) {
-      gravityDirection = 'up'
-      document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 1
-      startupGravityDown()
-      facingDirectionV = 'up'
-      checkFacingDirection()
-    }
+   }
+   if (myKey == 'w' || myKey == 'W' || myKey == 'ArrowUp') {
+      if ((myGravity == 0 ) &&
+         (gravityDirection == 'down')) {
+         gravityDirection = 'up'
+         document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 1
+         startupGravityUp()
+         facingDirectionV = 'up'
+         checkFacingDirection()
+      }
     myCheckHitFloor()
       myCheckHitRoof()
-   }          
-   if (myKey == 's' || myKey == 'ArrowDown') {
+   }
+   if (myKey == 's' || myKey == 'S' || myKey == 'ArrowDown') {
     if ((myGravity == 0) &&
        (gravityDirection == 'up')) {
       gravityDirection = 'down'
@@ -49,9 +53,7 @@ onkeydown="{
     myCheckHitFloor()
       myCheckHitRoof()
    }
-           
 }">
-
 
 <script>
 
