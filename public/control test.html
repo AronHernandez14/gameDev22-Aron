@@ -1,4 +1,4 @@
-Version 0.1.9
+Version 0.2.0
 
 
 <body id="myBody" style="background-repeat:repeat; background-size: cover" background="bioshock like game background-Sheet.jpeg"
@@ -95,7 +95,7 @@ function myCheckHitFloor(){
   } 
 }
    function myCheckHitRoof(){
-   if ( myHitOther('myImg01','myImg02') ){
+   if ( myHitOther('myImg01','myImg05') ){
        //document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 1 + 'px'
        myGravity = 0
    }
@@ -145,7 +145,7 @@ function checkGravityDown(){
    }
 }
 function checkGravityUp(){
-   if ((myHitOther('myImg01','myImg02') != true) &&
+   if ((myHitOther('myImg01','myImg05') != true) &&
       (gravityDirection == 'up')){
          startupGravityUp()
    }
