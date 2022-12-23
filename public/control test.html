@@ -1,4 +1,4 @@
-Version 0.4.5
+Version 0.4.6
 
 
 <body id="myBody" style="background-repeat:repeat; background-size: cover" background="bioshock like game background-Sheet.jpeg"
@@ -16,6 +16,7 @@ onkeydown="{
       myCheckHitRoof()
       checkGravityDown()
       checkGravityUp()
+      myIsOnScreen()
    }
    }
    if (myKey == 'a' || myKey == 'A') {
@@ -27,6 +28,7 @@ onkeydown="{
       myCheckHitRoof()
       checkGravityDown()
       checkGravityUp()
+      myIsOnScreen()     
    }
    }
    if (myKey == 'w' || myKey == 'W') {
@@ -40,6 +42,7 @@ onkeydown="{
       }
     myCheckHitFloor()
       myCheckHitRoof()
+      myIsOnScreen()     
    }
    if (myKey == 's' || myKey == 'S') {
     if ((myGravity == 0) &&
@@ -52,6 +55,7 @@ onkeydown="{
     }
     myCheckHitFloor()
       myCheckHitRoof()
+     myIsOnScreen()      
    }
 }">
 
