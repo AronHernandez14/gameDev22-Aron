@@ -1,4 +1,4 @@
-Version 0.4.6
+Version 0.4.7
 
 
 <body id="myBody" style="background-repeat:repeat; background-size: cover" background="bioshock like game background-Sheet.jpeg"
@@ -17,6 +17,7 @@ onkeydown="{
       checkGravityDown()
       checkGravityUp()
       myIsOnScreen()
+     myCheckHit()      
    }
    }
    if (myKey == 'a' || myKey == 'A') {
@@ -28,7 +29,8 @@ onkeydown="{
       myCheckHitRoof()
       checkGravityDown()
       checkGravityUp()
-      myIsOnScreen()     
+      myIsOnScreen()   
+     myCheckHit()      
    }
    }
    if (myKey == 'w' || myKey == 'W') {
@@ -42,7 +44,8 @@ onkeydown="{
       }
     myCheckHitFloor()
       myCheckHitRoof()
-      myIsOnScreen()     
+      myIsOnScreen()  
+     myCheckHit()      
    }
    if (myKey == 's' || myKey == 'S') {
     if ((myGravity == 0) &&
@@ -55,7 +58,8 @@ onkeydown="{
     }
     myCheckHitFloor()
       myCheckHitRoof()
-     myIsOnScreen()      
+     myIsOnScreen()     
+    myCheckHit()       
    }
 }">
 
@@ -91,7 +95,24 @@ function myHitOther(my1,my2){
        return true
    }
 }
- 
+
+   
+function myCheckHit(){
+     console.log(document.getElementById('myImg01').style.left + " : " + document.getElementById('myImg01').style.top)
+   if ( myHitOther('myImg01','myImg02') ){
+       alert('you lose')
+      document.getElementById('myImg01').style.left = '0px'
+   }
+   if ( myHitOther('myImg01','myImg07') ){
+         alert('you lose')
+        document.getElementById('myImg01').style.left = '0px'
+   }
+      if ( myHitOther('myImg01','myImg09') ){
+          alert('next level')  
+          document.getElementById('myImg01').style.left = '0px'
+          location = 'Proof-level-2-draft-uploaded.html'  // go to your next level   
+   
+   
 function myCheckHitFloor(){
  if ( myHitOther('myImg01','myImg03') ){
        //document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 1 + 'px'
