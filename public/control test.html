@@ -1,4 +1,4 @@
-Version 0.3.5
+Version 0.3.6
 
 
 <body id="myBody" style="background-repeat:repeat; background-size: cover" background="bioshock like game background-Sheet.jpeg"
@@ -87,19 +87,18 @@ function myHitOther(my1,my2){
        return true
    }
 }
-
+ 
 function myCheckHitFloor(){
-   if ( myHitOther('myImg01','myImg03') ){
-       //document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 1 + 'px'
-       myGravity = 0
-  } 
-}  
-function myCheckHitFloor(){
-   if ( myHitOther('myImg01','myImg11','myImg03') ){
+   if ( myHitOther('myImg01','myImg11') ){
        //document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 1 + 'px'
        myGravity = 0
   } 
    else myGravity = 1
+} 
+ if ( myHitOther('myImg01','myImg03') ){
+       //document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 1 + 'px'
+       myGravity = 0
+  } 
 }        
    function myCheckHitRoof(){
    if ( myHitOther('myImg01','myImg05') ){
