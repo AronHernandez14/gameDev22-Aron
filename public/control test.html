@@ -94,6 +94,11 @@ function myCheckHitFloor(){
        myGravity = 0
   } 
 }
+ if ( myHitOther('myImg01','myImg05') ){
+       //document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 1 + 'px'
+       myGravity = 0
+  } 
+}      
    function myCheckHitRoof(){
    if ( myHitOther('myImg01','myImg05') ){
        //document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 1 + 'px'
@@ -149,6 +154,12 @@ function checkGravityDown(){
          startupGravityDown()
    }
 }
+ function checkGravityDown(){
+   if ((myHitOther('myImg01','myImg05') != true) &&
+      (gravityDirection == 'down')){
+         startupGravityDown()
+   }
+}  
 function checkGravityUp(){
    if ((myHitOther('myImg01','myImg05') != true) &&
       (gravityDirection == 'up')){
