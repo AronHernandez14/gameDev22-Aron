@@ -1,4 +1,4 @@
-Version 0.4.1
+Version 0.4.2
 
 
 <body id="myBody" style="background-repeat:repeat; background-size: cover" background="bioshock like game background-Sheet.jpeg"
@@ -186,27 +186,7 @@ function checkFacingDirection(){
 <img id="myImg10" style="position:absolute; width:1920px; height:1px; top:0px; left:0px;" src="red-photos-1172010.jpg">
 <img id="myImg11" style="position:absolute; width:80px; height:100px; top:700px; left:200px;" src="">
       
-<input type=button value="Start/Stop Auto Background" onclick="{
-   if (backgroundAuto == 'off') {
-      backgroundAuto = 'on'
-  clearInterval(myClock)
-  let myTemp = '100px 0px'
-  myClock = setInterval(function(){
-      myGlobalX -= 1
-      myTemp =  myGlobalX + 'px 0px'
-      document.getElementById('myBody').style.backgroundPosition = myTemp
-  }, 100)
- } else {
-      (backgroundAuto == 'on') 
-      backgroundAuto = 'off'
-      clearInterval(myClock)
-   }
- gravityDirection = 'down'
-   myGravity = 1
-   gravity()                                                           
-}"><br><br><br><br><br><br><br><br><br>
-
-<h1 align=center><input type=button value="Start"onclick="{
+ <input type=button value="Start"onclick="{
    gravityDirection = 'down'
    myGravity = 1
    gravity()
