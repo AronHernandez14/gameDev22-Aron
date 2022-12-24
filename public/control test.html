@@ -106,10 +106,6 @@ function myCheckHit(){
          alert('you lose')
         document.getElementById('myImg01').style.left = '0px'
    }
-   if ( myHitOther('myImg01','myImg07') ){
-         alert('you lose')
-        document.getElementById('myImg01').style.top = '0px'
-   }
       if ( myHitOther('myImg01','myImg09') ){
           alert('next level')  
           document.getElementById('myImg01').style.left = '0px'
@@ -202,8 +198,8 @@ function checkFacingDirection(){
 }
    
 function myIsOnScreen(){
- if (parseInt(document.getElementById('myImg01').style.left)  > 1820 ) {    //1820
-     document.getElementById('myImg01').style.left = '1819px'
+ if (parseInt(document.getElementById('myImg01').style.left)  > 1830 ) {    //1830
+     document.getElementById('myImg01').style.left = '1829px'
    }   
  if (parseInt(document.getElementById('myImg01').style.top) > 803 ) {    //803
      document.getElementById('myImg01').style.top = '803px'
@@ -229,8 +225,7 @@ if (parseInt(document.getElementById('myImg02').style.left) < 0 ) {
  if (parseInt(document.getElementById('myImg01').style.top) < 0 ) {  
      document.getElementById('myImg01').style.top = '0px'
    }                  
-}   
-   
+}           
 </script>
 
 
