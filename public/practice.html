@@ -1,40 +1,32 @@
-  Version 0.0.2
-
+  Version 0.0.3
+<!DOCTYPE html>
 <html>
   <head>
     <title>Title of the document</title>
-    <style type="text/css">
-      body {
-        text-align: center;
-      }
-      .oldClassName {
-        background-color: green;
-      }
-      .newClassName {
-        background-color: blue;
-      }
-      .pId {
-        margin-top: 30px;
-      }
-      #buttonId {
-        padding: 15px;
+    <style>
+      img {
+        width: 300px;
+        height: 200px;
       }
     </style>
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js">
+    </script>
   </head>
   <body>
-    <h2>Chenge class name</h2>
-    <button class="oldClassName" id="buttonId">Click on Button</button>
-    <br>
-    <p id="pId">Old class name: oldClassName </p>
-    <script type="text/javascript">
-      function changeClass() {
-        document.getElementById('buttonId').className = "newClassName";
-        let button_class = document.getElementById('buttonId').className;
-        document.getElementById('pId').innerHTML = "New class name: " + button_class;
-      }
-      window.onload = function() {
-        document.getElementById("buttonId").addEventListener('click', changeClass);
-      }
+    <div class="imgDiv">
+      <img id="your-image" src='https://ru.w3docs.com/uploads/media/book_gallery/0001/02/c8d75681dcd87da6f7d8ebfa0cdb40cbb403bed8.png' alt="Image" />
+    </div>
+    <script>
+      $(document).ready(function() {
+          $('img').on({
+              'click': function() {
+                let src = ($(this).attr('src') === 'https://ru.w3docs.com/uploads/media/book_gallery/0001/02/c8d75681dcd87da6f7d8ebfa0cdb40cbb403bed8.png') ?
+                  'https://www.w3docs.com/uploads/media/book_gallery/0001/02/c4ba86c634f0f9c7ea055964c7f7436bab2bb698.png' :
+                  'https://ru.w3docs.com/uploads/media/book_gallery/0001/02/c8d75681dcd87da6f7d8ebfa0cdb40cbb403bed8.png';
+                $(this).attr('src', src);
+              }
+            });
+        });
     </script>
   </body>
 </html>
