@@ -1,6 +1,25 @@
-  Version 0.0.1
+  Version 0.0.2
 
-</style>
+<html>
+  <head>
+    <title>Title of the document</title>
+    <style type="text/css">
+      body {
+        text-align: center;
+      }
+      .oldClassName {
+        background-color: green;
+      }
+      .newClassName {
+        background-color: blue;
+      }
+      .pId {
+        margin-top: 30px;
+      }
+      #buttonId {
+        padding: 15px;
+      }
+    </style>
   </head>
   <body>
     <h2>Chenge class name</h2>
@@ -9,12 +28,13 @@
     <p id="pId">Old class name: oldClassName </p>
     <script type="text/javascript">
       function changeClass() {
-        document.getElementById('img/Madeline Left Running Ice.gif').className = "newClassName";
-        let button_class = document.getElementById('img/Madeline Left Running Ice.gif').className;
-        document.getElementById('img/Madeline Left Running Fire.gif').innerHTML = "New class name: " + button_class;
+        document.getElementById('buttonId').className = "newClassName";
+        let button_class = document.getElementById('buttonId').className;
+        document.getElementById('pId').innerHTML = "New class name: " + button_class;
       }
       window.onload = function() {
-        document.getElementById("img/Madeline Left Running Ice.gif").addEventListener('click', changeClass);
+        document.getElementById("buttonId").addEventListener('click', changeClass);
       }
     </script>
   </body>
+</html>
