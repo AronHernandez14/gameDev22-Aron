@@ -1,0 +1,18 @@
+   </style>
+  </head>
+  <body>
+    <h2>Chenge class name</h2>
+    <button class="oldClassName" id="buttonId">Click on Button</button>
+    <br>
+    <p id="pId">Old class name: oldClassName </p>
+    <script type="text/javascript">
+      function changeClass() {
+        document.getElementById('buttonId').className = "newClassName";
+        let button_class = document.getElementById('buttonId').className;
+        document.getElementById('pId').innerHTML = "New class name: " + button_class;
+      }
+      window.onload = function() {
+        document.getElementById("buttonId").addEventListener('click', changeClass);
+      }
+    </script>
+  </body>
