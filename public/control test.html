@@ -1,16 +1,20 @@
-Version 0.7.9
+Version 0.8.0
 
-<window onload="startgravitystart()">
-   
    <script>
-   function startgravitystart() {
+   
+ // Function to run the game
+   function run() {
    gravityDirection = 'down'
    myGravity = 1
    gravity()
    this.style.display='none'
    document.getElementById('myDescription').style.display='none'
    }"></h1>
-   </script>
+
+    // Initialize the game when the page is loaded
+    window.onload = run;
+  </script>
+   
 
 
 <body id="myBody" style="background-repeat:repeat; background-size: cover" background="img/Blank wall.png"
