@@ -1,4 +1,4 @@
-Version 0.9.7
+Version 0.9.8
    
 <head>
  
@@ -183,7 +183,7 @@ function gravity(){
       document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + myGravity + 'px'
   }, 2)
     myCan()
-      myCan2()
+    myCan2()
 }
 
 function checkGravityDown(){
@@ -207,21 +207,29 @@ function checkFacingDirection(){
       (facingDirectionH == 'left')){
       const scale = document.getElementById('myImg01')
       scale.style.transform = 'scale(1, 1)'
+       myCan()
+      myCan2()
    }
    if ((facingDirectionV == 'down') &&
       (facingDirectionH == 'right')){
       const scale = document.getElementById('myImg01')
       scale.style.transform = 'scale(-1, 1)'
+       myCan()
+      myCan2()
    }
    if ((facingDirectionV == 'up') &&
       (facingDirectionH == 'left')){
       const scale = document.getElementById('myImg01')
       scale.style.transform = 'scale(1, -1)'
+       myCan()
+      myCan2()
    }
    if ((facingDirectionV == 'up') &&
       (facingDirectionH == 'right')){
          const scale = document.getElementById('myImg01')
       scale.style.transform = 'scale(-1, -1)'
+       myCan()
+      myCan2()
    }
 }
    
