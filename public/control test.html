@@ -1,4 +1,4 @@
-Version 1.0.2
+Version 1.0.3
    
 <head>
  
@@ -126,6 +126,16 @@ function myCheckHit(){
           location = 'Proof-level-2-draft-uploaded.html'  // go to your next level   
     }
   }
+      if ( myHitOther('myImg01','myImg14') ){
+       document.getElementById('myImg14').style.left = '9000px'
+       document.getElementById('myCounter').innerHTML ++
+   }
+}
+    if ( myHitOther('myImg01','myImg15') ){
+       document.getElementById('myImg15').style.left = '9000px'
+       document.getElementById('myCounter').innerHTML ++
+   }
+}
 function myCheckHitFloor(){
  if ( myHitOther('myImg01','myImg03') ){
        //document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 1 + 'px'
@@ -238,21 +248,7 @@ if (parseInt(document.getElementById('myImg02').style.left) < 0 ) {
  if (parseInt(document.getElementById('myImg01').style.top) < 0 ) {  
      document.getElementById('myImg01').style.top = '0px'
    }                  
-}     
-function myCan(){
-   if ( myHitOther('myImg01','myImg14') ){
-       document.getElementById('myImg14').style.left = '9000px'
-       document.getElementById('myCounter').innerHTML ++
-   }
-}
- 
- function myCan2(){
-   if ( myHitOther('myImg01','myImg15') ){ 
-       document.getElementById('myImg015').style.left = '9000px'
-       document.getElementById('myCounter').innerHTML ++
-   }
-}   
-   
+}        
 </script>
 
 
@@ -270,5 +266,5 @@ function myCan(){
 <img id="myImg11" style="position:absolute; width:1920px; height:80px; top:820px; left:0px;" src="img/railguard long .png">
 <img id="myImg12" style="position:absolute; width:1920px; height:80px; top:520px; left:0px;" src="img/railguard long .png">
 <img id="myImg13" style="position:absolute; width:1920px; height:80px; top:220px; left:0px;" src="img/railguard long .png">   
-<img id="myImg14" style="position:absolute; width:12px; height:20px; top:550px; left:200px;" src="img/Can.png">      
-<img id="myImg15" style="position:absolute; width:12px; height:20px; top:800px; left:400px;" src="img/Can.png">           
+<img id="myImg14" style="position:absolute; width:12px; height:20px; top:820px; left:200px;" src="img/Can.png">      
+<img id="myImg15" style="position:absolute; width:12px; height:20px; top:820px; left:400px;" src="img/Can.png">           
