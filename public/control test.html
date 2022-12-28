@@ -1,4 +1,4 @@
-Version 0.9.9
+Version 1.0.0
    
 <head>
  
@@ -26,8 +26,6 @@ onkeydown="{
       checkGravityUp()
       myIsOnScreen()
      myCheckHit()  
-      myCan()
-      myCan2()
    }
    }
    if (myKey == 'a' || myKey == 'A') {
@@ -40,9 +38,7 @@ onkeydown="{
       checkGravityDown()
       checkGravityUp()
       myIsOnScreen()   
-     myCheckHit()   
-       myCan()
-      myCan2()     
+     myCheckHit()        
    }
    }
    if (myKey == 'w' || myKey == 'W') {
@@ -57,9 +53,7 @@ onkeydown="{
     myCheckHitFloor()
       myCheckHitRoof()
       myIsOnScreen()  
-     myCheckHit()     
-       myCan()
-      myCan2()     
+     myCheckHit()        
    }
    if (myKey == 's' || myKey == 'S') {
     if ((myGravity == 0) &&
@@ -73,9 +67,7 @@ onkeydown="{
     myCheckHitFloor()
       myCheckHitRoof()
      myIsOnScreen()     
-    myCheckHit()      
-     myCan()
-      myCan2()       
+    myCheckHit()             
    }
 }">
 
@@ -134,7 +126,17 @@ function myCheckHit(){
           location = 'Proof-level-2-draft-uploaded.html'  // go to your next level   
     }
   }
-   
+    if ( myHitOther('myImg01','myImg14') ){
+       document.getElementById('myImg14').style.left = '9000px'
+       document.getElementById('myCounter').innerHTML ++
+   }
+}
+function myCan2(){
+   if ( myHitOther('myImg01','myImg15') ){ 
+       document.getElementById('myImg015').style.left = '9000px'
+       document.getElementById('myCounter').innerHTML ++
+   }
+}   
 function myCheckHitFloor(){
  if ( myHitOther('myImg01','myImg03') ){
        //document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 1 + 'px'
@@ -182,24 +184,18 @@ function gravity(){
       myCheckHitRoof();
       document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + myGravity + 'px'
   }, 2)
-    myCan()
-    myCan2()
 }
 
 function checkGravityDown(){
    if ((myHitOther('myImg01','myImg03') != true) &&
       (gravityDirection == 'down')){
          startupGravityDown()
-       myCan()
-      myCan2()
    }
 }
 function checkGravityUp(){
    if ((myHitOther('myImg01','myImg05') != true) &&
       (gravityDirection == 'up')){
          startupGravityUp()
-       myCan()
-      myCan2()
    }
 }     
 function checkFacingDirection(){
@@ -207,29 +203,21 @@ function checkFacingDirection(){
       (facingDirectionH == 'left')){
       const scale = document.getElementById('myImg01')
       scale.style.transform = 'scale(1, 1)'
-       myCan()
-      myCan2()
    }
    if ((facingDirectionV == 'down') &&
       (facingDirectionH == 'right')){
       const scale = document.getElementById('myImg01')
       scale.style.transform = 'scale(-1, 1)'
-       myCan()
-      myCan2()
    }
    if ((facingDirectionV == 'up') &&
       (facingDirectionH == 'left')){
       const scale = document.getElementById('myImg01')
       scale.style.transform = 'scale(1, -1)'
-       myCan()
-      myCan2()
    }
    if ((facingDirectionV == 'up') &&
       (facingDirectionH == 'right')){
          const scale = document.getElementById('myImg01')
       scale.style.transform = 'scale(-1, -1)'
-       myCan()
-      myCan2()
    }
 }
    
