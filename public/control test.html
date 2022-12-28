@@ -1,4 +1,4 @@
-Version 0.9.6
+Version 0.9.7
    
 <head>
  
@@ -182,6 +182,8 @@ function gravity(){
       myCheckHitRoof();
       document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + myGravity + 'px'
   }, 2)
+    myCan()
+      myCan2()
 }
 
 function checkGravityDown(){
@@ -254,15 +256,13 @@ if (parseInt(document.getElementById('myImg02').style.left) < 0 ) {
 }     
 function myCan(){
    if ( myHitOther('myImg01','myImg14') ){
-        mySound4.play() 
        document.getElementById('myImg14').style.left = '9000px'
        document.getElementById('myCounter').innerHTML ++
    }
 }
  
  function myCan2(){
-   if ( myHitOther('myImg01','myImg15') ){
-        mySound4.play() 
+   if ( myHitOther('myImg01','myImg15') ){ 
        document.getElementById('myImg015').style.left = '9000px'
        document.getElementById('myCounter').innerHTML ++
    }
