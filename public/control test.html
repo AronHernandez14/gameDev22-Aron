@@ -1,4 +1,4 @@
-Version 1.0.5
+Version 1.0.6
    
 <head>
  
@@ -125,12 +125,8 @@ function myCheckHit(){
           document.getElementById('myImg01').style.left = '0px'
           location = 'Proof-level-2-draft-uploaded.html'  // go to your next level   
     }
-      if ( myHitOther('myImg01','myImg14') ){
-       document.getElementById('myImg14').style.left = '9000px'
-       document.getElementById('myCounter').innerHTML ++
-   }
-    if ( myHitOther('myImg01','myImg15') ){
-       document.getElementById('myImg15').style.left = '9000px'
+      if ( myHitOther('myImg01','myImg14','myImg15') ){
+       document.getElementById('myImg14','myImg15').style.left = '9000px'
        document.getElementById('myCounter').innerHTML ++
    }
 }
