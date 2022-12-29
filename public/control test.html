@@ -1,4 +1,4 @@
-Version 1.1.8
+Version 1.1.9
    
 <head> 
    <h4> sardine cans: 
@@ -87,6 +87,7 @@ if (myShooting == 2){
   myGun02 = setInterval(function(){
      document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) + 10 + 'px'
      myCheckHit() 
+      checkFacingDirection()      
      checkFacingDirectionBullet()      
   }, 1)   // speed of bullet faster lower number
 }
@@ -99,6 +100,7 @@ if (myShooting == 1){
   myGun01 = setInterval(function(){
      document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) + 10 + 'px'
      myCheckHit() 
+      checkFacingDirection()      
      checkFacingDirectionBullet()      
   }, 1)   // speed of bullet faster lower number
   }
