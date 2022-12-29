@@ -1,4 +1,4 @@
-Version 1.2.3
+Version 1.2.4
    
 <head> 
    <h4> sardine cans: 
@@ -252,24 +252,13 @@ function myCheckHitFloor(){
       myCheckHitRoof();
       myGravity += 0.07
       document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + myGravity + 'px'
+      document.getElementById('myImg17').style.top = parseInt(document.getElementById('myImg01').style.top) + myGravity + 'px'
       if (myGravity >= 1){
          clearInterval(myClock2)
          myGravity = 1
          gravity()
       }
-   }, 2)
-    clearInterval(myClock2)
-   myClock2 = setInterval(function(){
-      myCheckHitFloor();
-      myCheckHitRoof();
-      myGravity += 0.07
-      document.getElementById('myImg17').style.top = parseInt(document.getElementById('myImg17').style.top) + myGravity + 'px'
-      if (myGravity >= 1){
-         clearInterval(myClock2)
-         myGravity = 1
-         gravity()
-      }
-   }, 2)   
+   }, 2)  
    }
    function startupGravityUp(){
    clearInterval(myClock2)
@@ -278,17 +267,6 @@ function myCheckHitFloor(){
       myCheckHitRoof();
       myGravity -= 0.07
       document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + myGravity + 'px'
-      if (myGravity <= -1){
-         clearInterval(myClock2)
-         myGravity = -1
-         gravity()
-      }
-   }, 2)
-   clearInterval(myClock2)
-   myClock2 = setInterval(function(){
-      myCheckHitFloor();
-      myCheckHitRoof();
-      myGravity -= 0.07
       document.getElementById('myImg17').style.top = parseInt(document.getElementById('myImg17').style.top) + myGravity + 'px'
       if (myGravity <= -1){
          clearInterval(myClock2)
@@ -303,6 +281,7 @@ function gravity(){
       myCheckHitFloor();
       myCheckHitRoof();
       document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + myGravity + 'px'
+      document.getElementById('myImg17').style.top = parseInt(document.getElementById('myImg01').style.top) + myGravity + 'px'
   }, 2)
 }
 
@@ -395,6 +374,9 @@ if (parseInt(document.getElementById('myImg02').style.left) < 0 ) {
  if (parseInt(document.getElementById('myImg01').style.top) < 0 ) {  
      document.getElementById('myImg01').style.top = '0px'
    }   
+   
+   
+   
     if (parseInt(document.getElementById('myImg17').style.left)  > 1890 ) {    //1890
      document.getElementById('myImg17').style.left = '1889px'
    }   
