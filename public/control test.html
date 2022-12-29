@@ -1,4 +1,4 @@
-Version 1.3.5
+Version 1.3.6
    
 <head> 
    <h4> sardine cans: 
@@ -103,8 +103,6 @@ if (myShooting == 1){
      checkFacingDirectionBullet()      
   }, 1)   // speed of bullet faster lower number
   } 
-         document.getElementById('myImg01').style.visibility='visible';
-         document.getElementById('myImg17').style.visibility='visible';  
   }           
 }">
 
@@ -198,7 +196,6 @@ function myCheckHit(){
 function myCheckHitFloor(){
  if ( myHitOther('myImg01','myImg03') ){
        //document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 1 + 'px'
-       //document.getElementById('myImg17').style.top = parseInt(document.getElementById('myImg17').style.top) - 1 + 'px'
        myGravity = 0
   }
 }        
@@ -308,8 +305,7 @@ function checkFacingDirectionBullet(){
          const scale = document.getElementById('myBullet01')
       scale.style.transform = 'scale(-1, -1)'
    }
-}   
-   
+}     
 function myIsOnScreen(){
  if (parseInt(document.getElementById('myImg01').style.left)  > 1890 ) {    //1890
      document.getElementById('myImg01').style.left = '1889px'
@@ -348,8 +344,7 @@ if (parseInt(document.getElementById('myImg02').style.left) < 0 ) {
 <img id="myImg03" style="position:absolute; width:1920px; height:1px; top:899px; left:0px;" src="red-photos-1172010.jpg">
 <img id="myImg04" style="position:absolute; width:1px; height:900px; top:0px; left:0px;" src="red-photos-1172010.jpg">
 <img id="myImg05" style="position:absolute; width:1920px; height:1px; top:0px; left:0px;" src="red-photos-1172010.jpg">
-<img id="myImg06" style="position:absolute; width:1px; height:969px; top:0px; left:1919px;" src="red-photos-1172010.jpg">
-<img id="myImg17" style="position:absolute; width:34px; height:96px; top:50px; left:50px;"  src="img/Madeline Left Attack Start.gif">   
+<img id="myImg06" style="position:absolute; width:1px; height:969px; top:0px; left:1919px;" src="red-photos-1172010.jpg">   
 
 <img id="myImg08" style="position:absolute; width:50px; height:50px; top:700px; left:400px;"  src="">   
 <img id="myImg09" style="position:absolute; width:80px; height:80px; top:600px; left:1600px;" src="red-photos-1172010.jpg">
