@@ -1,4 +1,4 @@
-Version 1.1.7
+Version 1.1.8
    
 <head> 
    <h4> sardine cans: 
@@ -29,6 +29,7 @@ onkeydown="{
       checkGravityUp()
       myIsOnScreen()
      myCheckHit()  
+   checkFacingDirectionBullet()        
    }
    }
    if (myKey == 'a' || myKey == 'A') {
@@ -41,7 +42,8 @@ onkeydown="{
       checkGravityDown()
       checkGravityUp()
       myIsOnScreen()   
-     myCheckHit()        
+     myCheckHit()      
+    checkFacingDirectionBullet()       
    }
    }
    if (myKey == 'w' || myKey == 'W') {
@@ -56,7 +58,8 @@ onkeydown="{
     myCheckHitFloor()
       myCheckHitRoof()
       myIsOnScreen()  
-     myCheckHit()        
+     myCheckHit()   
+   checkFacingDirectionBullet()        
    }
    if (myKey == 's' || myKey == 'S') {
     if ((myGravity == 0) &&
@@ -70,7 +73,8 @@ onkeydown="{
     myCheckHitFloor()
       myCheckHitRoof()
      myIsOnScreen()     
-    myCheckHit()             
+    myCheckHit()    
+  checkFacingDirectionBullet()         
    }
      if (event.key == 'k'){
 if (myShooting > 2 ){myShooting = 1}
