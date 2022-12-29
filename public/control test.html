@@ -1,4 +1,4 @@
-Version 1.2.7
+Version 1.2.8
    
 <head> 
    <h4> sardine cans: 
@@ -280,13 +280,21 @@ function gravity(){
 }
 
 function checkGravityDown(){
-   if ((myHitOther('myImg01','myImg03')('myImg17','myImg03') != true) &&
+   if ((myHitOther('myImg01','myImg03') != true) &&
+      (gravityDirection == 'down')){
+         startupGravityDown()
+   }
+   if ((myHitOther('myImg17','myImg03') != true) &&
       (gravityDirection == 'down')){
          startupGravityDown()
    }
 }
 function checkGravityUp(){
-   if ((myHitOther('myImg01','myImg05')('myImg17','myImg05') != true) &&
+   if ((myHitOther('myImg01','myImg05') != true) &&
+      (gravityDirection == 'up')){
+         startupGravityUp()
+   }
+    if ((myHitOther('myImg17','myImg05') != true) &&
       (gravityDirection == 'up')){
          startupGravityUp()
    }
@@ -368,9 +376,6 @@ if (parseInt(document.getElementById('myImg02').style.left) < 0 ) {
  if (parseInt(document.getElementById('myImg01').style.top) < 0 ) {  
      document.getElementById('myImg01').style.top = '0px'
    }   
-   
-   
-   
     if (parseInt(document.getElementById('myImg17').style.left)  > 1890 ) {    //1890
      document.getElementById('myImg17').style.left = '1889px'
    }   
