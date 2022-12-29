@@ -1,4 +1,4 @@
-Version 1.3.6
+Version 1.3.7
    
 <head> 
    <h4> sardine cans: 
@@ -19,7 +19,8 @@ onkeydown="{
            
    if (myKey == 'd' || myKey == 'D') {
       if (gravityDirection == 'down' || gravityDirection == 'up') {
-    document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 7           
+    document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 7
+    document.getElementById('myImg17').style.left = parseInt(document.getElementById('myImg01').style.left) + 7        
     facingDirectionH = 'right'
     checkFacingDirection()
     console.log()
@@ -34,7 +35,8 @@ onkeydown="{
    }
    if (myKey == 'a' || myKey == 'A') {
       if (gravityDirection == 'down' || gravityDirection == 'up') {
-    document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 7                 
+    document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 7
+    document.getElementById('myImg17').style.left = parseInt(document.getElementById('myImg01').style.left) - 7       
     facingDirectionH = 'left'
     checkFacingDirection()
     myCheckHitFloor()
@@ -50,7 +52,8 @@ onkeydown="{
       if ((myGravity == 0 ) &&
          (gravityDirection == 'down')) {
          gravityDirection = 'up'
-         document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 1             
+         document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 1
+         document.getElementById('myImg17').style.top = parseInt(document.getElementById('myImg01').style.top) - 1  
          startupGravityUp()
          facingDirectionV = 'up'
          checkFacingDirection()
@@ -65,7 +68,9 @@ onkeydown="{
     if ((myGravity == 0) &&
        (gravityDirection == 'up')) {
       gravityDirection = 'down'
-      document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 1   
+      document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 1
+      document.getElementById('myImg17').style.top = parseInt(document.getElementById('myImg01').style.top) + 1     
+      startupGravityDown()
       facingDirectionV = 'down'
       checkFacingDirection()
     }
@@ -81,7 +86,7 @@ if (myShooting > 2 ){myShooting = 1}
 if (myShooting == 2){
   myShooting += 1
   document.getElementById('myBullet02').style.left = document.getElementById('myImg01').style.left
-  document.getElementById('myBullet02').style.top  = document.getElementById('myImg01').style.top           
+  document.getElementById('myBullet02').style.top  = document.getElementById('myImg01').style.top
   clearInterval(myGun02)
   myGun02 = setInterval(function(){
      document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) + 10 + 'px'
@@ -94,7 +99,7 @@ if (myShooting == 2){
 if (myShooting == 1){
   myShooting += 1
   document.getElementById('myBullet01').style.left = document.getElementById('myImg01').style.left
-  document.getElementById('myBullet01').style.top  = document.getElementById('myImg01').style.top            
+  document.getElementById('myBullet01').style.top  = document.getElementById('myImg01').style.top
   clearInterval(myGun01)
   myGun01 = setInterval(function(){
      document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) + 10 + 'px'
@@ -102,8 +107,9 @@ if (myShooting == 1){
       checkFacingDirection()      
      checkFacingDirectionBullet()      
   }, 1)   // speed of bullet faster lower number
-  } 
-  }           
+  }
+     document.getElementById('myImg01').style.visibility='visible'; 
+      }           
 }">
 
 <body onload="{
@@ -177,27 +183,39 @@ function myCheckHit(){
       clearInterval(myGun01)
       document.getElementById('myBullet01').style.left = '-200px'
       document.all.myText01.value = 'You shot myImg16'  
+      document.getElementById('myImg01').style.visibility='hidden';
+      document.getElementById('myImg17').style.visibility='visible';
+      myImg06.src = myImg06.src.replace(/\?.*$/,"")+"?x="+Math.random();
    }   
    
    if ( myHitOther('myBullet02','myImg16') ){
       clearInterval(myGun02)
       document.getElementById('myBullet02').style.left = '-200px'
       document.all.myText01.value = 'You shot myImg16' 
+      document.getElementById('myImg01').style.visibility='hidden';
+      document.getElementById('myImg17').style.visibility='visible';
+      myImg06.src = myImg06.src.replace(/\?.*$/,"")+"?x="+Math.random();
    }
    if ( myHitOther('myBullet01','myImg06') ){
       clearInterval(myGun01)
       document.getElementById('myBullet01').style.left = '-200px'     
+      document.getElementById('myImg01').style.visibility='hidden';
+      document.getElementById('myImg17').style.visibility='visible';
+      myImg06.src = myImg06.src.replace(/\?.*$/,"")+"?x="+Math.random();
    }   
    if ( myHitOther('myBullet02','myImg06') ){
       clearInterval(myGun02)
       document.getElementById('myBullet02').style.left = '-200px' 
+      document.getElementById('myImg01').style.visibility='hidden';
+      document.getElementById('myImg17').style.visibility='visible';
+      myImg06.src = myImg06.src.replace(/\?.*$/,"")+"?x="+Math.random();
    }
 }
 function myCheckHitFloor(){
  if ( myHitOther('myImg01','myImg03') ){
        //document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 1 + 'px'
        myGravity = 0
-  }
+  } 
 }        
    function myCheckHitRoof(){
    if ( myHitOther('myImg01','myImg05') ){
@@ -217,7 +235,7 @@ function myCheckHitFloor(){
          myGravity = 1
          gravity()
       }
-   }, 2)  
+   }, 2)
    }
    function startupGravityUp(){
    clearInterval(myClock2)
@@ -231,7 +249,7 @@ function myCheckHitFloor(){
          myGravity = -1
          gravity()
       }
-   }, 2)   
+   }, 2)
    }
 function gravity(){
    clearInterval(myClock2)
@@ -247,17 +265,9 @@ function checkGravityDown(){
       (gravityDirection == 'down')){
          startupGravityDown()
    }
-   if ((myHitOther('myImg17','myImg03') != true) &&
-      (gravityDirection == 'down')){
-         startupGravityDown()
-   }
 }
 function checkGravityUp(){
    if ((myHitOther('myImg01','myImg05') != true) &&
-      (gravityDirection == 'up')){
-         startupGravityUp()
-   }
-    if ((myHitOther('myImg17','myImg05') != true) &&
       (gravityDirection == 'up')){
          startupGravityUp()
    }
@@ -280,7 +290,7 @@ function checkFacingDirection(){
    }
    if ((facingDirectionV == 'up') &&
       (facingDirectionH == 'right')){
-      const scale = document.getElementById('myImg01')
+         const scale = document.getElementById('myImg01')
       scale.style.transform = 'scale(-1, -1)'
    }
 }
@@ -305,7 +315,8 @@ function checkFacingDirectionBullet(){
          const scale = document.getElementById('myBullet01')
       scale.style.transform = 'scale(-1, -1)'
    }
-}     
+}   
+   
 function myIsOnScreen(){
  if (parseInt(document.getElementById('myImg01').style.left)  > 1890 ) {    //1890
      document.getElementById('myImg01').style.left = '1889px'
@@ -333,7 +344,7 @@ if (parseInt(document.getElementById('myImg02').style.left) < 0 ) {
    }   
  if (parseInt(document.getElementById('myImg01').style.top) < 0 ) {  
      document.getElementById('myImg01').style.top = '0px'
-   }   
+   }                  
 }     
 </script>
 
@@ -344,7 +355,8 @@ if (parseInt(document.getElementById('myImg02').style.left) < 0 ) {
 <img id="myImg03" style="position:absolute; width:1920px; height:1px; top:899px; left:0px;" src="red-photos-1172010.jpg">
 <img id="myImg04" style="position:absolute; width:1px; height:900px; top:0px; left:0px;" src="red-photos-1172010.jpg">
 <img id="myImg05" style="position:absolute; width:1920px; height:1px; top:0px; left:0px;" src="red-photos-1172010.jpg">
-<img id="myImg06" style="position:absolute; width:1px; height:969px; top:0px; left:1919px;" src="red-photos-1172010.jpg">   
+<img id="myImg06" style="position:absolute; width:1px; height:969px; top:0px; left:1919px;" src="red-photos-1172010.jpg">
+<img id="myImg17" style="position:absolute; width:34px; height:96px; top:50px; left:50px;"  src="img/Madeline Left Attack Start.gif">   
 
 <img id="myImg08" style="position:absolute; width:50px; height:50px; top:700px; left:400px;"  src="">   
 <img id="myImg09" style="position:absolute; width:80px; height:80px; top:600px; left:1600px;" src="red-photos-1172010.jpg">
@@ -358,3 +370,4 @@ if (parseInt(document.getElementById('myImg02').style.left) < 0 ) {
 <img id="myImg16" style="position:absolute; width:34px; height:96px; top:800px; left:750px;" src="img/Female sprite4.png">    
 <img id="myBullet01" style="position:absolute; width:24px; height:40px; left: -30px; top:0px;" src="img/Can.png"> 
 <img id="myBullet02" style="position:absolute; width:24px; height:40px; left: -30px; top:0px;" src="img/Can.png">  
+
