@@ -1,4 +1,4 @@
-Version 1.4.6
+Version 1.4.7
    
 <head> 
    <h4> sardine cans: 
@@ -29,6 +29,7 @@ onkeydown="{
       checkGravityUp()
       myIsOnScreen()
      myCheckHit()  
+    checkBulletCounter(){
    checkFacingDirectionBullet()        
    }
    }
@@ -42,7 +43,8 @@ onkeydown="{
       checkGravityDown()
       checkGravityUp()
       myIsOnScreen()   
-     myCheckHit()      
+     myCheckHit()   
+     checkBulletCounter(){      
     checkFacingDirectionBullet()       
    }
    }
@@ -58,7 +60,8 @@ onkeydown="{
     myCheckHitFloor()
       myCheckHitRoof()
       myIsOnScreen()  
-     myCheckHit()   
+     myCheckHit()  
+    checkBulletCounter(){
    checkFacingDirectionBullet()        
    }
    if (myKey == 's' || myKey == 'S') {
@@ -74,6 +77,7 @@ onkeydown="{
       myCheckHitRoof()
      myIsOnScreen()     
     myCheckHit()    
+   checkBulletCounter(){
   checkFacingDirectionBullet()         
    }
      if (event.key == 'k'){
@@ -88,7 +92,8 @@ if (myShooting == 2){
   myGun02 = setInterval(function(){
      document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) + 10 + 'px'
      myCheckHit() 
-      checkFacingDirection()      
+      checkFacingDirection()    
+      checkBulletCounter(){
      checkFacingDirectionBullet()  
   }, 1)   // speed of bullet faster lower number
 }
@@ -104,7 +109,7 @@ if (myShooting == 1){
      myCheckHit() 
       checkFacingDirection()      
      checkFacingDirectionBullet()   
-     checkCounter()
+     checkBulletCounter()
   }, 1)   // speed of bullet faster lower number
   }
      document.getElementById('myImg01').style.visibility='visible'; 
@@ -337,6 +342,12 @@ if (parseInt(document.getElementById('myImg02').style.left) < 0 ) {
      document.getElementById('myImg01').style.top = '0px'
    }                  
 }     
+     
+function checkBulletCounter(){
+   if <div id="myCounter">0{
+          let myShooting = 0} 
+   else {
+         let myShooting = 1} 
 </script>
 
 
