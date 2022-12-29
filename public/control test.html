@@ -1,4 +1,4 @@
-Version 1.3.3
+Version 1.3.4
    
 <head> 
    <h4> sardine cans: 
@@ -20,7 +20,6 @@ onkeydown="{
    if (myKey == 'd' || myKey == 'D') {
       if (gravityDirection == 'down' || gravityDirection == 'up') {
     document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 7
-    document.getElementById('myImg17').style.left = parseInt(document.getElementById('myImg17').style.left) + 7
     document.getElementById('myImg01').style.visibility='visible';
     document.getElementById('myImg17').style.visibility='visible';             
     facingDirectionH = 'right'
@@ -38,7 +37,6 @@ onkeydown="{
    if (myKey == 'a' || myKey == 'A') {
       if (gravityDirection == 'down' || gravityDirection == 'up') {
     document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 7
-    document.getElementById('myImg17').style.left = parseInt(document.getElementById('myImg17').style.left) - 7 
      document.getElementById('myImg01').style.visibility='visible';
     document.getElementById('myImg17').style.visibility='visible';                    
     facingDirectionH = 'left'
@@ -57,7 +55,6 @@ onkeydown="{
          (gravityDirection == 'down')) {
          gravityDirection = 'up'
          document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 1
-         document.getElementById('myImg17').style.top = parseInt(document.getElementById('myImg17').style.top) - 1  
          document.getElementById('myImg01').style.visibility='visible';
          document.getElementById('myImg17').style.visibility='visible';               
          startupGravityUp()
@@ -74,8 +71,7 @@ onkeydown="{
     if ((myGravity == 0) &&
        (gravityDirection == 'up')) {
       gravityDirection = 'down'
-      document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 1
-      document.getElementById('myImg17').style.top = parseInt(document.getElementById('myImg17').style.top) + 1    
+      document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 1   
       document.getElementById('myImg01').style.visibility='visible';
       document.getElementById('myImg17').style.visibility='visible';       
       startupGravityDown()
@@ -192,27 +188,20 @@ function myCheckHit(){
       clearInterval(myGun01)
       document.getElementById('myBullet01').style.left = '-200px'
       document.all.myText01.value = 'You shot myImg16'  
-      document.getElementById('myImg01').style.visibility='hidden';
-      document.getElementById('myImg17').style.visibility='visible';
    }   
    
    if ( myHitOther('myBullet02','myImg16') ){
       clearInterval(myGun02)
       document.getElementById('myBullet02').style.left = '-200px'
       document.all.myText01.value = 'You shot myImg16' 
-      document.getElementById('myImg01').style.visibility='hidden';
-      document.getElementById('myImg17').style.visibility='visible';
    }
    if ( myHitOther('myBullet01','myImg06') ){
       clearInterval(myGun01)
       document.getElementById('myBullet01').style.left = '-200px'     
-      document.getElementById('myImg01').style.visibility='hidden';
    }   
    if ( myHitOther('myBullet02','myImg06') ){
       clearInterval(myGun02)
       document.getElementById('myBullet02').style.left = '-200px' 
-      document.getElementById('myImg01').style.visibility='hidden';
-      document.getElementById('myImg17').style.visibility='visible';
    }
 }
 function myCheckHitFloor(){
