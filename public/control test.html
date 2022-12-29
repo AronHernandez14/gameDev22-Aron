@@ -1,4 +1,4 @@
-Version 1.2.4
+Version 1.2.5
    
 <head> 
    <h4> sardine cans: 
@@ -225,25 +225,18 @@ function myCheckHit(){
    }
 }
 function myCheckHitFloor(){
- if ( myHitOther('myImg01','myImg03') ){
+ if ( myHitOther('myImg01','myImg03')('myImg17','myImg03' ){
        //document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 1 + 'px'
+       //document.getElementById('myImg17').style.top = parseInt(document.getElementById('myImg17').style.top) - 1 + 'px'
        myGravity = 0
   }
-  if ( myHitOther('myImg17','myImg03') ){
-       //document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 1 + 'px'
-       myGravity = 0   
-  } 
 }        
    function myCheckHitRoof(){
-   if ( myHitOther('myImg01','myImg05') ){
+   if ( myHitOther('myImg01','myImg05')('myImg17','myImg05') ){
+       //document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 1 + 'px'
        //document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 1 + 'px'
        myGravity = 0
    }
-   function myCheckHitRoof(){
-   if ( myHitOther('myImg17','myImg05') ){
-       //document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 1 + 'px'
-       myGravity = 0
-   }   
    }
    function startupGravityDown(){
    clearInterval(myClock2)
@@ -286,13 +279,13 @@ function gravity(){
 }
 
 function checkGravityDown(){
-   if ((myHitOther('myImg01','myImg03') != true) &&
+   if ((myHitOther('myImg01','myImg03')('myImg17','myImg03') != true) &&
       (gravityDirection == 'down')){
          startupGravityDown()
    }
 }
 function checkGravityUp(){
-   if ((myHitOther('myImg01','myImg05') != true) &&
+   if ((myHitOther('myImg01','myImg05')('myImg17','myImg05') != true) &&
       (gravityDirection == 'up')){
          startupGravityUp()
    }
