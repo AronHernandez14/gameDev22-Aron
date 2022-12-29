@@ -1,4 +1,4 @@
-Version 1.6.0
+Version 1.6.3
    
 <head> 
    <h4> sardine cans: 
@@ -90,6 +90,9 @@ if (myShooting == 2){
      myCheckHit() 
       checkFacingDirection()    
      checkFacingDirectionBullet()  
+ {if document.getElementById('myCounter').innerHTML = 0 {
+           let myShooting = 0}
+ else  let myShooting = 1}          
   }, 1)   // speed of bullet faster lower number
 }
   // Bullet Number 1
@@ -133,7 +136,7 @@ if (myShooting == 1){
    let myGun02
    let myGun03
    let myGun04
-   let myShooting = 0
+   let myShooting = 1
 
    // global functions here
 function myHitOther(my1,my2){
