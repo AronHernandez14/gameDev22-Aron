@@ -1,4 +1,4 @@
-Version 1.6.3
+Version 1.6.4
    
 <head> 
    <h4> sardine cans: 
@@ -85,14 +85,14 @@ if (myShooting == 2){
   document.getElementById('myBullet02').style.left = document.getElementById('myImg01').style.left
   document.getElementById('myBullet02').style.top  = document.getElementById('myImg01').style.top
   clearInterval(myGun02)
-  myGun02 = setInterval(function(){
-     document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) + 10 + 'px'
-     myCheckHit() 
-      checkFacingDirection()    
+     checkFacingDirection()    
      checkFacingDirectionBullet()  
  {if document.getElementById('myCounter').innerHTML = 0 {
            let myShooting = 0}
- else  let myShooting = 1}          
+ else  let myShooting = 1}             
+  myGun02 = setInterval(function(){
+     document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) + 10 + 'px'
+     myCheckHit()       
   }, 1)   // speed of bullet faster lower number
 }
   // Bullet Number 1
