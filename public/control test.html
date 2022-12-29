@@ -1,4 +1,4 @@
-Version 1.3.1
+Version 1.3.2
    
 <head> 
    <h4> sardine cans: 
@@ -166,7 +166,6 @@ function myHitOther(my1,my2){
    
 function myCheckHit(){
      console.log(document.getElementById('myImg01').style.left + " : " + document.getElementById('myImg01').style.top)
-  
    if ( myHitOther('myImg01','myImg02') ){
        alert('you lose')
       document.getElementById('myImg01').style.left = '0px'
@@ -195,7 +194,7 @@ function myCheckHit(){
       document.all.myText01.value = 'You shot myImg16'  
       document.getElementById('myImg01').style.visibility='hidden';
       document.getElementById('myImg17').style.visibility='visible';
-      myImg06.src = myImg06.src.replace(/\?.*$/,"")+"?x="+Math.random();
+      myImg17.src = myImg17.src.replace(/\?.*$/,"")+"?x="+Math.random();
    }   
    
    if ( myHitOther('myBullet02','myImg16') ){
@@ -204,21 +203,21 @@ function myCheckHit(){
       document.all.myText01.value = 'You shot myImg16' 
       document.getElementById('myImg01').style.visibility='hidden';
       document.getElementById('myImg17').style.visibility='visible';
-      myImg06.src = myImg06.src.replace(/\?.*$/,"")+"?x="+Math.random();
+      myImg17.src = myImg17.src.replace(/\?.*$/,"")+"?x="+Math.random();
    }
    if ( myHitOther('myBullet01','myImg06') ){
       clearInterval(myGun01)
       document.getElementById('myBullet01').style.left = '-200px'     
       document.getElementById('myImg01').style.visibility='hidden';
       document.getElementById('myImg17').style.visibility='visible';
-      myImg06.src = myImg06.src.replace(/\?.*$/,"")+"?x="+Math.random();
+      myImg17.src = myImg17.src.replace(/\?.*$/,"")+"?x="+Math.random();
    }   
    if ( myHitOther('myBullet02','myImg06') ){
       clearInterval(myGun02)
       document.getElementById('myBullet02').style.left = '-200px' 
       document.getElementById('myImg01').style.visibility='hidden';
       document.getElementById('myImg17').style.visibility='visible';
-      myImg06.src = myImg06.src.replace(/\?.*$/,"")+"?x="+Math.random();
+      myImg17.src = myImg17.src.replace(/\?.*$/,"")+"?x="+Math.random();
    }
 }
 function myCheckHitFloor(){
