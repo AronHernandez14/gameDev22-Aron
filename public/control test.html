@@ -1,4 +1,4 @@
-Version 1.5.9
+Version 1.6.0
    
 <head> 
    <h4> sardine cans: 
@@ -80,7 +80,7 @@ onkeydown="{
 if (myShooting > 2 ){myShooting = 1}
   // Bullet Number 2
 if (myShooting == 2){
-  myShooting += 0
+  myShooting += 1
    document.getElementById('myCounter').innerHTML -- 
   document.getElementById('myBullet02').style.left = document.getElementById('myImg01').style.left
   document.getElementById('myBullet02').style.top  = document.getElementById('myImg01').style.top
@@ -94,7 +94,7 @@ if (myShooting == 2){
 }
   // Bullet Number 1
 if (myShooting == 1){
-  myShooting += 0
+  myShooting += 1
    document.getElementById('myCounter').innerHTML --        
   document.getElementById('myBullet01').style.left = document.getElementById('myImg01').style.left
   document.getElementById('myBullet01').style.top  = document.getElementById('myImg01').style.top
@@ -133,7 +133,7 @@ if (myShooting == 1){
    let myGun02
    let myGun03
    let myGun04
-   let myShooting = 1
+   let myShooting = 0
 
    // global functions here
 function myHitOther(my1,my2){
