@@ -1,4 +1,4 @@
-Version 1.5.1
+Version 1.5.2
    
 <head> 
    <h4> sardine cans: 
@@ -29,7 +29,7 @@ onkeydown="{
       checkGravityUp()
       myIsOnScreen()
      myCheckHit()  
-    checkBulletCounter(){
+    checkBulletCounter()
    checkFacingDirectionBullet()        
    }
    }
@@ -44,7 +44,7 @@ onkeydown="{
       checkGravityUp()
       myIsOnScreen()   
      myCheckHit()   
-     checkBulletCounter(){      
+     checkBulletCounter() 
     checkFacingDirectionBullet()       
    }
    }
@@ -61,7 +61,7 @@ onkeydown="{
       myCheckHitRoof()
       myIsOnScreen()  
      myCheckHit()  
-    checkBulletCounter(){
+    checkBulletCounter()
    checkFacingDirectionBullet()        
    }
    if (myKey == 's' || myKey == 'S') {
@@ -77,7 +77,7 @@ onkeydown="{
       myCheckHitRoof()
      myIsOnScreen()     
     myCheckHit()    
-   checkBulletCounter(){
+   checkBulletCounter()
   checkFacingDirectionBullet()         
    }
      if (event.key == 'k'){
@@ -93,7 +93,7 @@ if (myShooting == 2){
      document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) + 10 + 'px'
      myCheckHit() 
       checkFacingDirection()    
-      checkBulletCounter(){
+      checkBulletCounter()
      checkFacingDirectionBullet()  
   }, 1)   // speed of bullet faster lower number
 }
@@ -139,7 +139,7 @@ if (myShooting == 1){
    let myGun02
    let myGun03
    let myGun04
-   let myShooting = 2
+   let myShooting = 1
 
    // global functions here
 function myHitOther(my1,my2){
@@ -342,6 +342,13 @@ if (parseInt(document.getElementById('myImg02').style.left) < 0 ) {
      document.getElementById('myImg01').style.top = '0px'
    }                    
 }
+   
+function checkBulletCounter(){
+     if  <div id="myCounter">0< {
+     let myShooting = 0}
+    else let myShooting = 1
+    }
+   
 </script>
 
 
