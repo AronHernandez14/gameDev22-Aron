@@ -1,4 +1,4 @@
-Version 1.8.9
+Version 1.9.0
    
 <head> 
    <h4> sardine cans: 
@@ -86,6 +86,7 @@ if (myShooting == 2){
   clearInterval(myGun02)
    myGun02 = setInterval(function(){
      document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) + 10 + 'px'
+     document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) - 10 + 'px'        
      myCheckHit()         
      checkFacingDirection()    
      checkFacingDirectionBullet()  
@@ -101,6 +102,7 @@ if (myShooting == 1){
   clearInterval(myGun01)
   myGun01 = setInterval(function(){
      document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) + 10 + 'px'
+     document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) - 10 + 'px'
      myCheckHit() 
       checkFacingDirection()      
      checkFacingDirectionBullet()   
@@ -189,11 +191,11 @@ function myCheckHit(){
    }
    if ( myHitOther('myBullet01','myImg06') ){
       clearInterval(myGun01)
-      document.getElementById('myBullet01').style.left = '-200px'     
+      document.getElementById('myBullet01').style.left = '-2000px'     
    }   
    if ( myHitOther('myBullet02','myImg06') ){
       clearInterval(myGun02)
-      document.getElementById('myBullet02').style.left = '-200px' 
+      document.getElementById('myBullet02').style.left = '-2000px' 
    }
 }
 function myCheckHitFloor(){
@@ -283,51 +285,22 @@ function checkFacingDirectionBullet(){
   if ((facingDirectionV == 'down') &&
       (facingDirectionH == 'left')){
       const scale = document.getElementById('myBullet01')
-           document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) - 10 + 'px'
       scale.style.transform = 'scale(1, 1)'
    }
    if ((facingDirectionV == 'down') &&
       (facingDirectionH == 'right')){
       const scale = document.getElementById('myBullet01')
-           document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) + 10 + 'px'
       scale.style.transform = 'scale(-1, 1)'
    }
    if ((facingDirectionV == 'up') &&
       (facingDirectionH == 'left')){
       const scale = document.getElementById('myBullet01')
-            document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) + 10 + 'px'
       scale.style.transform = 'scale(1, -1)'
    }
    if ((facingDirectionV == 'up') &&
       (facingDirectionH == 'right')){
          const scale = document.getElementById('myBullet01')
-         document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) + 10 + 'px'
       scale.style.transform = 'scale(-1, -1)'
-      
-      if ((facingDirectionV == 'down') &&
-      (facingDirectionH == 'left')){
-      const scale = document.getElementById('myBullet02')
-           document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) - 10 + 'px'
-      scale.style.transform = 'scale(1, 1)'
-   }
-   if ((facingDirectionV == 'down') &&
-      (facingDirectionH == 'right')){
-      const scale = document.getElementById('myBullet02')
-           document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) + 10 + 'px'
-      scale.style.transform = 'scale(-1, 1)'
-   }
-   if ((facingDirectionV == 'up') &&
-      (facingDirectionH == 'left')){
-      const scale = document.getElementById('myBullet02')
-            document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) + 10 + 'px'
-      scale.style.transform = 'scale(1, -1)'
-   }
-   if ((facingDirectionV == 'up') &&
-      (facingDirectionH == 'right')){
-         const scale = document.getElementById('myBullet02')
-         document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) + 10 + 'px'
-      scale.style.transform = 'scale(-1, -1)'
-   }
    }
 }   
    
