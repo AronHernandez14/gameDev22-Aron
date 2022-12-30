@@ -1,4 +1,4 @@
-Version 2.0.1
+Version 2.0.2
    
 <head> 
    <h4> sardine cans: 
@@ -90,7 +90,7 @@ if (myShooting == 2){
      facingDirectionH = 'left'
   if (gravityDirection == 'down' || gravityDirection == 'up')
      document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) + 0
-     facingDirectionH = 'right'           
+     facingDirectionH = 'left'           
      myCheckHit()         
      checkFacingDirection()    
      checkFacingDirectionBullet()  
@@ -107,7 +107,7 @@ if (myShooting == 1){
   myGun01 = setInterval(function(){
   if (gravityDirection == 'down' || gravityDirection == 'up')
      document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) - 0
-     facingDirectionH = 'left'
+     facingDirectionH = 'right'
   if (gravityDirection == 'down' || gravityDirection == 'up')
      document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) + 2
      facingDirectionH = 'right'                   
