@@ -1,4 +1,4 @@
-Version 2.0.8
+Version 2.0.9
    
 <head> 
    <h4> sardine cans: 
@@ -31,7 +31,7 @@ onkeydown="{
      myCheckHit()  
    checkFacingDirectionBullet()        
    }
-   }
+   }                                                                                                             // right movement
    if (myKey == 'a' || myKey == 'A') {
       if (gravityDirection == 'down' || gravityDirection == 'up') {
     document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 7  
@@ -45,7 +45,7 @@ onkeydown="{
      myCheckHit()   
     checkFacingDirectionBullet()       
    }
-   }
+   }                                                                                                             //left movement
    if (myKey == 'w' || myKey == 'W') {
       if ((myGravity == 0 ) &&
          (gravityDirection == 'down')) {
@@ -60,7 +60,7 @@ onkeydown="{
       myIsOnScreen()  
      myCheckHit()  
    checkFacingDirectionBullet()        
-   }
+   }                                                                                                        //up movement
    if (myKey == 's' || myKey == 'S') {
     if ((myGravity == 0) &&
        (gravityDirection == 'up')) {
@@ -75,7 +75,7 @@ onkeydown="{
      myIsOnScreen()     
     myCheckHit()    
   checkFacingDirectionBullet()         
-   }
+   }                                                                                                         //down movement
      if (event.key == 'k'){
 if (myShooting > 2 ){myShooting = 1}
 if (myShooting == 2){
@@ -84,15 +84,19 @@ if (myShooting == 2){
   document.getElementById('myBullet02').style.top  = document.getElementById('myImg01').style.top
   clearInterval(myGun02)
   myGun02 = setInterval(function(){
-  if (facingDirectionH = 'left')
+  if ((facingDirectionV == 'down') &&
+      (facingDirectionH == 'left')){
+      const scale = document.getElementById('myImg01')
+      scale.style.transform = 'scale(1, 1)'
+      })
      document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) - 2   
   if (facingDirectionH = 'right')
-     document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) + 2     
+     document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) - 2     
      myCheckHit()         
      checkFacingDirection()    
      checkFacingDirectionBullet()      
   }, 1)
-}
+}                                                                                                                         //second bullet
   // Bullet Number 1
 if (myShooting == 1){
   myShooting += 1
@@ -109,9 +113,9 @@ if (myShooting == 1){
       checkFacingDirection()      
      checkFacingDirectionBullet()   
   }, 1) 
-  }
+  }                                                                                                                   //first bullet
 }          
-}">
+}">       
 
 <body onload="{
    gravityDirection = 'down'
