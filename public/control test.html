@@ -1,4 +1,4 @@
-Version 2.3.2
+Version 2.3.4
    
 <head> 
    <h4> sardine cans: 
@@ -72,36 +72,36 @@ onkeydown="{
      myIsOnScreen()     
     myCheckHit()           
    }                                                                                                         //down movement
-     if (event.key == 'k'){
+      if (event.key == 'k'){
 if (myShooting > 2 ){myShooting = 1}
+  // Bullet Number 2
 if (myShooting == 2){
-  myShooting += 1 
-  document.getElementById('myBullet02').style.left = document.getElementById('myImg01').style.left 
-  document.getElementById('myBullet02').style.top  = document.getElementById('myImg01').style.top 
+  myShooting += 1
+  document.getElementById('myBullet02').style.left = document.getElementById('myImg01').style.left
+  document.getElementById('myBullet02').style.top  = document.getElementById('myImg01').style.top           
   clearInterval(myGun02)
   myGun02 = setInterval(function(){
-     document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) - 2    
-     myCheckHit()               
-     checkFacingDirection()    
-     checkFacingDirectionBullet()           
-  }, 1)
-}                                                                                                                         //second bullet
+     document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) + 2
+     myCheckHit() 
+      checkFacingDirection()      
+     checkFacingDirectionBullet()      
+  }, 1) 
+}
   // Bullet Number 1
 if (myShooting == 1){
   myShooting += 1
-   document.getElementById('myCounter').innerHTML --        
-  document.getElementById('myBullet01').style.left = document.getElementById('myImg01').style.left 
-  document.getElementById('myBullet01').style.top  = document.getElementById('myImg01').style.top 
+  document.getElementById('myBullet01').style.left = document.getElementById('myImg01').style.left
+  document.getElementById('myBullet01').style.top  = document.getElementById('myImg01').style.top            
   clearInterval(myGun01)
   myGun01 = setInterval(function(){
-     document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) + 2              
-     myCheckHit()      
-     checkFacingDirection()  
-     checkFacingDirectionBullet()            
-  }, 1) 
-  }                                                                                                                   //first bullet
-}          
-}">       
+     document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) + 2 
+     myCheckHit() 
+      checkFacingDirection()      
+     checkFacingDirectionBullet()      
+  }, 1)  
+  } 
+  }           
+}">    
 
 <body onload="{
    gravityDirection = 'down'
