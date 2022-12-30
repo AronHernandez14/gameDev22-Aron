@@ -1,4 +1,4 @@
-Version 2.0.6
+Version 2.0.7
    
 <head> 
    <h4> sardine cans: 
@@ -87,7 +87,7 @@ if (myShooting == 2){
   if (facingDirectionH = 'left')
      document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) - 2   
   if (facingDirectionH = 'right')
-     document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) + 2      
+     document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) + 0     
      myCheckHit()         
      checkFacingDirection()    
      checkFacingDirectionBullet()      
@@ -102,9 +102,9 @@ if (myShooting == 1){
   clearInterval(myGun01)
   myGun01 = setInterval(function(){
   if ( facingDirectionH = 'left')
-     document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) - 2
+     document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) + 0
   if (facingDirectionH = 'right')
-     document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) + 2                  
+     document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) - 2                  
      myCheckHit() 
       checkFacingDirection()      
      checkFacingDirectionBullet()   
