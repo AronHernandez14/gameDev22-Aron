@@ -1,4 +1,4 @@
-Version 1.9.6
+Version 1.9.8
    
 <head> 
    <h4> sardine cans: 
@@ -19,7 +19,7 @@ onkeydown="{
            
    if (myKey == 'd' || myKey == 'D') {
       if (gravityDirection == 'down' || gravityDirection == 'up') {
-    document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 7    // left    
+    document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 7   
     facingDirectionH = 'right'
     checkFacingDirection()
     console.log()
@@ -122,7 +122,7 @@ if (myShooting == 2){
   clearInterval(myGun02)
    myGun02 = setInterval(function(){
   if (gravityDirection == 'down' || gravityDirection == 'up') 
-     document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) - 10  
+     document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) + 10  
      facingDirectionH = 'right' 
      myCheckHit()         
      checkFacingDirection()    
@@ -139,7 +139,7 @@ if (myShooting == 1){
   clearInterval(myGun01)
   myGun01 = setInterval(function(){
   if (gravityDirection == 'down' || gravityDirection == 'up') 
-     document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) - 10 
+     document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) + 10 
      facingDirectionH = 'right' 
      myCheckHit() 
       checkFacingDirection()      
