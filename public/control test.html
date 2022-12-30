@@ -1,4 +1,4 @@
-Version 2.1.1
+Version 2.1.2
    
 <head> 
    <h4> sardine cans: 
@@ -89,7 +89,8 @@ if (myShooting == 2){
   if (facingDirectionH = 'right')
      document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) - 2     
      myCheckHit()             
-     checkFacingDirectionBullet()      
+     checkFacingDirectionBullet()   
+     checkFacingDirection()      
   }, 1)
 }                                                                                                                         //second bullet
   // Bullet Number 1
@@ -109,7 +110,8 @@ if ((facingDirectionV == 'down') &&
   if (facingDirectionH = 'right')
      document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) + 2                  
      myCheckHit()     
-     checkFacingDirectionBullet()   
+     checkFacingDirectionBullet()  
+     checkFacingDirection()      
   }, 1) 
   }                                                                                                                   //first bullet
 }          
