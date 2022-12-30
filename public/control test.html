@@ -1,4 +1,4 @@
-Version 2.2.4
+Version 2.2.5
    
 <head> 
    <h4> sardine cans: 
@@ -276,22 +276,22 @@ function checkFacingDirection(){
 function checkFacingDirectionBullet(){
   if ((facingDirectionV == 'down') &&
       (facingDirectionH == 'left')){
-      const scale = document.getElementById('myBullet01')
+      const scale = document.getElementById('myBullet01','myImg01')
       scale.style.transform = 'scale(1, 1)'
    }
    if ((facingDirectionV == 'down') &&
       (facingDirectionH == 'right')){
-      const scale = document.getElementById('myBullet01')
+      const scale = document.getElementById('myBullet01','myImg01')
       scale.style.transform = 'scale(-1, 1)'
    }
    if ((facingDirectionV == 'up') &&
       (facingDirectionH == 'left')){
-      const scale = document.getElementById('myBullet01')
+      const scale = document.getElementById('myBullet01','myImg01')
       scale.style.transform = 'scale(1, -1)'
    }
    if ((facingDirectionV == 'up') &&
       (facingDirectionH == 'right')){
-         const scale = document.getElementById('myBullet01')
+         const scale = document.getElementById('myBullet01','myImg01')
       scale.style.transform = 'scale(-1, -1)'
    }
 }   
