@@ -1,4 +1,4 @@
-Version 1.8.0
+Version 1.8.1
    
 <head> 
    <h4> sardine cans: 
@@ -300,13 +300,13 @@ function checkFacingDirectionBullet(){
       (facingDirectionH == 'left')){
       const scale = document.getElementById('myBullet01')
             document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) + 10 + 'px'
-      scale.style.transform = 'scale(1, 1)'
+      scale.style.transform = 'scale(1, -1)'
    }
    if ((facingDirectionV == 'up') &&
       (facingDirectionH == 'right')){
          const scale = document.getElementById('myBullet01')
          document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) + 10 + 'px'
-      scale.style.transform = 'scale(-1, 1)'
+      scale.style.transform = 'scale(-1, -1)'
       
       if ((facingDirectionV == 'down') &&
       (facingDirectionH == 'left')){
@@ -324,13 +324,13 @@ function checkFacingDirectionBullet(){
       (facingDirectionH == 'left')){
       const scale = document.getElementById('myBullet02')
             document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) + 10 + 'px'
-      scale.style.transform = 'scale(1, 1)'
+      scale.style.transform = 'scale(1, -1)'
    }
    if ((facingDirectionV == 'up') &&
       (facingDirectionH == 'right')){
          const scale = document.getElementById('myBullet02')
          document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) + 10 + 'px'
-      scale.style.transform = 'scale(-1, 1)'
+      scale.style.transform = 'scale(-1, -1)'
    }
    }
 }   
