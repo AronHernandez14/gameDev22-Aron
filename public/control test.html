@@ -1,4 +1,4 @@
-Version 1.9.5
+Version 1.9.6
    
 <head> 
    <h4> sardine cans: 
@@ -7,7 +7,7 @@ Version 1.9.5
 </head>
 
 <style>
-body{
+body{ 
   color: white;
 }
 </style>
@@ -19,13 +19,13 @@ onkeydown="{
            
    if (myKey == 'd' || myKey == 'D') {
       if (gravityDirection == 'down' || gravityDirection == 'up') {
-    document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 7       
+    document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 7    // left    
     facingDirectionH = 'right'
     checkFacingDirection()
     console.log()
     myCheckHitFloor()
       myCheckHitRoof()
-      checkGravityDown()
+      checkGravityDown()                                
       checkGravityUp()
       myIsOnScreen()
      myCheckHit()  
@@ -84,8 +84,10 @@ if (myShooting == 2){
   document.getElementById('myBullet02').style.left = document.getElementById('myImg01').style.left
   document.getElementById('myBullet02').style.top  = document.getElementById('myImg01').style.top
   clearInterval(myGun02)
-   myGun02 = setInterval(function(){
-     document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) - 10        
+  myGun02 = setInterval(function(){
+  if (gravityDirection == 'down' || gravityDirection == 'up')
+     document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) - 10    
+     facingDirectionH = 'left'
      myCheckHit()         
      checkFacingDirection()    
      checkFacingDirectionBullet()  
@@ -100,13 +102,52 @@ if (myShooting == 1){
   document.getElementById('myBullet01').style.top  = document.getElementById('myImg01').style.top
   clearInterval(myGun01)
   myGun01 = setInterval(function(){
+  if (gravityDirection == 'down' || gravityDirection == 'up')
      document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) - 10 
+     facingDirectionH = 'left'
      myCheckHit() 
       checkFacingDirection()      
      checkFacingDirectionBullet()   
   }, 1)   // speed of bullet faster lower number
   }
-}           
+}   
+           
+     if (event.key == 'k'){
+if (myShooting > 2 ){myShooting = 1}        
+  // Bullet Number 2
+if (myShooting == 2){
+  myShooting += 1 
+  document.getElementById('myBullet02').style.left = document.getElementById('myImg01').style.left
+  document.getElementById('myBullet02').style.top  = document.getElementById('myImg01').style.top
+  clearInterval(myGun02)
+   myGun02 = setInterval(function(){
+  if (gravityDirection == 'down' || gravityDirection == 'up') 
+     document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) - 10  
+     facingDirectionH = 'right' 
+     myCheckHit()         
+     checkFacingDirection()    
+     checkFacingDirectionBullet()  
+     myCheckHit()     
+  }, 1)   // speed of bullet faster lower number
+}
+  // Bullet Number 1
+if (myShooting == 1){
+  myShooting += 1
+   document.getElementById('myCounter').innerHTML --        
+  document.getElementById('myBullet01').style.left = document.getElementById('myImg01').style.left
+  document.getElementById('myBullet01').style.top  = document.getElementById('myImg01').style.top
+  clearInterval(myGun01)
+  myGun01 = setInterval(function(){
+  if (gravityDirection == 'down' || gravityDirection == 'up') 
+     document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) - 10 
+     facingDirectionH = 'right' 
+     myCheckHit() 
+      checkFacingDirection()      
+     checkFacingDirectionBullet()   
+  }, 1)   // speed of bullet faster lower number
+  }
+}                      
+           
 }">
 
 <body onload="{
