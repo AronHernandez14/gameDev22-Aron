@@ -1,4 +1,4 @@
-Version 1.8.1
+Version 1.8.2
    
 <head> 
    <h4> sardine cans: 
@@ -180,24 +180,20 @@ function myCheckHit(){
       clearInterval(myGun01)
       document.getElementById('myBullet01').style.left = '-2000px'
       document.all.myText01.value = 'You shot myImg16'  
-      myImg06.src = myImg06.src.replace(/\?.*$/,"")+"?x="+Math.random();
    }   
    
    if ( myHitOther('myBullet02','myImg16') ){
       clearInterval(myGun02)
       document.getElementById('myBullet02').style.left = '-2000px'
       document.all.myText01.value = 'You shot myImg16' 
-      myImg06.src = myImg06.src.replace(/\?.*$/,"")+"?x="+Math.random();
    }
    if ( myHitOther('myBullet01','myImg06') ){
       clearInterval(myGun01)
       document.getElementById('myBullet01').style.left = '-200px'     
-      myImg06.src = myImg06.src.replace(/\?.*$/,"")+"?x="+Math.random();
    }   
    if ( myHitOther('myBullet02','myImg06') ){
       clearInterval(myGun02)
       document.getElementById('myBullet02').style.left = '-200px' 
-      myImg06.src = myImg06.src.replace(/\?.*$/,"")+"?x="+Math.random();
    }
 }
 function myCheckHitFloor(){
