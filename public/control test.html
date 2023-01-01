@@ -1,4 +1,4 @@
-Version 2.3.9
+Version 2.4.0
    
 <head> 
    <h4> sardine cans: 
@@ -81,7 +81,7 @@ if (myShooting == 2){
   document.getElementById('myBullet02').style.top  = document.getElementById('myImg01').style.top           
   clearInterval(myGun02)
   myGun02 = setInterval(function(){
-     document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) + 2
+     document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) + 10
      myCheckHit() 
       checkFacingDirection()      
      checkFacingDirectionBullet()      
@@ -94,7 +94,7 @@ if (myShooting == 1){
   document.getElementById('myBullet01').style.top  = document.getElementById('myImg01').style.top            
   clearInterval(myGun01)
   myGun01 = setInterval(function(){
-     document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) + 2 
+     document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) + 10 
      myCheckHit() 
       checkFacingDirection()      
      checkFacingDirectionBullet()      
@@ -111,7 +111,7 @@ if (myShooting == 2){
   document.getElementById('myBullet02').style.top  = document.getElementById('myImg01').style.top           
   clearInterval(myGun02)
   myGun02 = setInterval(function(){
-     document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) - 2
+     document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) - 10
      myCheckHit() 
       checkFacingDirection()      
      checkFacingDirectionBullet()      
@@ -124,7 +124,7 @@ if (myShooting == 1){
   document.getElementById('myBullet01').style.top  = document.getElementById('myImg01').style.top            
   clearInterval(myGun01)
   myGun01 = setInterval(function(){
-     document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) - 2 
+     document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) - 10
      myCheckHit() 
       checkFacingDirection()      
      checkFacingDirectionBullet()      
