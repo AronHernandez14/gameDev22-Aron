@@ -1,4 +1,4 @@
-Version 2.5.2
+Version 2.5.3
    
 <head> 
    <h4> sardine cans: 
@@ -19,7 +19,7 @@ onkeydown="{
            
    if (myKey == 'd' || myKey == 'D') {
       if (gravityDirection == 'down' || gravityDirection == 'up') {
-    document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 7   
+    document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 9   
     facingDirectionH = 'right'
     checkFacingDirection()
     console.log()
@@ -33,7 +33,7 @@ onkeydown="{
    }                                                                                                             // right movement
    if (myKey == 'a' || myKey == 'A') {
       if (gravityDirection == 'down' || gravityDirection == 'up') {
-    document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 7  
+    document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 9  
     facingDirectionH = 'left'
     checkFacingDirection()
     myCheckHitFloor()
@@ -48,7 +48,7 @@ onkeydown="{
       if ((myGravity == 0 ) &&
          (gravityDirection == 'down')) {
          gravityDirection = 'up'
-         document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 1
+         document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 3
          startupGravityUp()
          facingDirectionV = 'up'
          checkFacingDirection()
@@ -62,7 +62,7 @@ onkeydown="{
     if ((myGravity == 0) &&
        (gravityDirection == 'up')) {
       gravityDirection = 'down'
-      document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 1 
+      document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 3 
       startupGravityDown()
       facingDirectionV = 'down'
       checkFacingDirection()
@@ -81,7 +81,7 @@ if (myShooting == 2){
   document.getElementById('myBullet02').style.top  = document.getElementById('myImg01').style.top           
   clearInterval(myGun02)
   myGun02 = setInterval(function(){
-     document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) + 2
+     document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) + 3
      myCheckHit() 
       checkFacingDirection()      
      checkFacingDirectionBullet()      
@@ -94,7 +94,7 @@ if (myShooting == 1){
   document.getElementById('myBullet01').style.top  = document.getElementById('myImg01').style.top            
   clearInterval(myGun01)
   myGun01 = setInterval(function(){
-     document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) + 2
+     document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) + 3
      myCheckHit() 
       checkFacingDirection()      
      checkFacingDirectionBullet()      
