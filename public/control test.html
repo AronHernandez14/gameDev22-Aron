@@ -1,4 +1,4 @@
-Version 2.7.8
+Version 2.7.9
   
 
 <head> 
@@ -233,12 +233,12 @@ function myCheckHit(){
       if ( myHitOther('myImg01','myImg14') ){
        document.getElementById('myImg14').style.left = '-90px' 
        document.getElementById('myCounter').innerHTML ++ 
-       document.getElementById('myCounterP').innerHTML == 100
+       document.getElementById('myCounterP').innerHTML =+ 100
     }
       if ( myHitOther('myImg01','myImg15') ){
        document.getElementById('myImg15').style.left = '-90px'     
        document.getElementById('myCounter').innerHTML ++
-       document.getElementById('myCounterP').innerHTML == 100
+       document.getElementById('myCounterP').innerHTML =+ 100
    }
   if ( myHitOther('myBullet01','myImg16') ){
       clearInterval(myGun01)
