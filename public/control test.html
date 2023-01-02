@@ -1,4 +1,4 @@
-Version 2.5.5
+Version 2.5.7
    
 <head> 
    <h4> sardine cans: 
@@ -47,7 +47,7 @@ onkeydown="{
            
      if (myKey == 'D') {
       if (gravityDirection == 'down' || gravityDirection == 'up') {
-    document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 2   
+    document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 4.5   
     facingDirectionH = 'right'
     checkFacingDirection()
     console.log()
@@ -61,7 +61,7 @@ onkeydown="{
    }                                                                                                             // right movement gun
    if (myKey == 'A') {
       if (gravityDirection == 'down' || gravityDirection == 'up') {
-    document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 2  
+    document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 4.5  
     facingDirectionH = 'left'
     checkFacingDirection()
     myCheckHitFloor()
