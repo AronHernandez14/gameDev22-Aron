@@ -1,4 +1,4 @@
-Version 2.5.4
+Version 2.5.5
    
 <head> 
    <h4> sardine cans: 
@@ -17,7 +17,7 @@ onkeydown="{
    let myKey = event.key
    //let myKey = String.toLowerCase(event.key)
            
-   if (myKey == 'd' || myKey == 'D') {
+   if (myKey == 'd') {
       if (gravityDirection == 'down' || gravityDirection == 'up') {
     document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 9   
     facingDirectionH = 'right'
@@ -30,8 +30,8 @@ onkeydown="{
       myIsOnScreen()
      myCheckHit()   
    }
-   }                                                                                                             // right movement
-   if (myKey == 'a' || myKey == 'A') {
+   }                                                                                                             // right movement normal
+   if (myKey == 'a') {
       if (gravityDirection == 'down' || gravityDirection == 'up') {
     document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 9  
     facingDirectionH = 'left'
@@ -43,7 +43,36 @@ onkeydown="{
       myIsOnScreen()   
      myCheckHit()     
    }
-   }                                                                                                             //left movement
+   }                                                                                                             //left movement gun
+           
+     if (myKey == 'D') {
+      if (gravityDirection == 'down' || gravityDirection == 'up') {
+    document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 2   
+    facingDirectionH = 'right'
+    checkFacingDirection()
+    console.log()
+    myCheckHitFloor()
+      myCheckHitRoof()
+      checkGravityDown()                                
+      checkGravityUp()
+      myIsOnScreen()
+     myCheckHit()   
+   }
+   }                                                                                                             // right movement gun
+   if (myKey == 'A') {
+      if (gravityDirection == 'down' || gravityDirection == 'up') {
+    document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 2  
+    facingDirectionH = 'left'
+    checkFacingDirection()
+    myCheckHitFloor()
+      myCheckHitRoof()
+      checkGravityDown()
+      checkGravityUp()
+      myIsOnScreen()   
+     myCheckHit()     
+   }
+   }                                                                                                             //left movement normal         
+           
    if (myKey == 'w' || myKey == 'W') {
       if ((myGravity == 0 ) &&
          (gravityDirection == 'down')) {
@@ -112,7 +141,6 @@ if (myShooting == 2){
   clearInterval(myGun02)
   myGun02 = setInterval(function(){
      document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) - 2
-     document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 2
      myCheckHit() 
       checkFacingDirection()      
      checkFacingDirectionBullet()      
@@ -126,7 +154,6 @@ if (myShooting == 1){
   clearInterval(myGun01)
   myGun01 = setInterval(function(){
      document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) - 2
-     document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 2
      myCheckHit() 
       checkFacingDirection()      
      checkFacingDirectionBullet()      
