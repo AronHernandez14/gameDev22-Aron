@@ -1,4 +1,4 @@
-Version 2.6.9
+Version 2.7.0
   
 
 <head> 
@@ -119,7 +119,6 @@ if (myShooting == 2){
   document.getElementById('myBullet02').style.top  = document.getElementById('myImg01').style.top           
   clearInterval(myGun02)
   myGun02 = setInterval(function(){
-              document.getElementById('myCounterP').innerHTML -- 1
      document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) + 3
      myCheckHit() 
       checkFacingDirection()      
@@ -129,6 +128,7 @@ if (myShooting == 2){
   // Bullet Number 1
 if (myShooting == 1){
   myShooting += 1
+  document.getElementById('myCounterP').innerHTML -= 1
   document.getElementById('myBullet01').style.left = document.getElementById('myImg01').style.left
   document.getElementById('myBullet01').style.top  = document.getElementById('myImg01').style.top            
   clearInterval(myGun01)
