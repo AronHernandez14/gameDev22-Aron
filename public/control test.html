@@ -1,4 +1,4 @@
-Version 2.6.1
+Version 2.6.2
    
 <head> 
    <h4> sardine cans: 
@@ -101,7 +101,7 @@ onkeydown="{
      myIsOnScreen()     
     myCheckHit()     
    }                                                                                                         //down movement
-      if (myKey == '' || myKeyDown == 'D'){
+      if (myKey == '' || myKeyUp == 'D'){
 if (myShooting > 2 ){myShooting = 1}
   // Bullet Number 2
 if (myShooting == 2){
@@ -131,7 +131,7 @@ if (myShooting == 1){
   } 
   }    
            
-      if (myKey == '' || myKeyDown == 'A'){
+      if (myKey == '' || myKeyUp == 'A'){
 if (myShooting > 2 ){myShooting = 1}
   // Bullet Number 2
 if (myShooting == 2){
