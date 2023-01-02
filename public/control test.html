@@ -1,4 +1,4 @@
-Version 2.5.7
+Version 2.5.8
    
 <head> 
    <h4> sardine cans: 
@@ -19,7 +19,7 @@ onkeydown="{
            
    if (myKey == 'd') {
       if (gravityDirection == 'down' || gravityDirection == 'up') {
-    document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 9   
+    document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 8 
     facingDirectionH = 'right'
     checkFacingDirection()
     console.log()
@@ -33,7 +33,7 @@ onkeydown="{
    }                                                                                                             // right movement normal
    if (myKey == 'a') {
       if (gravityDirection == 'down' || gravityDirection == 'up') {
-    document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 9  
+    document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 8  
     facingDirectionH = 'left'
     checkFacingDirection()
     myCheckHitFloor()
@@ -47,7 +47,7 @@ onkeydown="{
            
      if (myKey == 'D') {
       if (gravityDirection == 'down' || gravityDirection == 'up') {
-    document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 4.5   
+    document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 4  
     facingDirectionH = 'right'
     checkFacingDirection()
     console.log()
@@ -61,7 +61,7 @@ onkeydown="{
    }                                                                                                             // right movement gun
    if (myKey == 'A') {
       if (gravityDirection == 'down' || gravityDirection == 'up') {
-    document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 4.5  
+    document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 4 
     facingDirectionH = 'left'
     checkFacingDirection()
     myCheckHitFloor()
