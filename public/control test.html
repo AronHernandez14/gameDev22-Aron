@@ -1,4 +1,4 @@
-Version 2.4.7
+Version 2.4.8
    
 <head> 
    <h4> sardine cans: 
@@ -29,7 +29,6 @@ onkeydown="{
       checkGravityUp()
       myIsOnScreen()
      myCheckHit()   
-           myStandStill()
    }
    }                                                                                                             // right movement
    if (myKey == 'a' || myKey == 'A') {
@@ -43,7 +42,6 @@ onkeydown="{
       checkGravityUp()
       myIsOnScreen()   
      myCheckHit()     
-           myStandStill()
    }
    }                                                                                                             //left movement
    if (myKey == 'w' || myKey == 'W') {
@@ -59,7 +57,6 @@ onkeydown="{
       myCheckHitRoof()
       myIsOnScreen()  
      myCheckHit()  
-           myStandStill()
    }                                                                                                        //up movement
    if (myKey == 's' || myKey == 'S') {
     if ((myGravity == 0) &&
@@ -74,7 +71,6 @@ onkeydown="{
       myCheckHitRoof()
      myIsOnScreen()     
     myCheckHit()     
-           myStandStill()
    }                                                                                                         //down movement
       if (myKey == 'k' || myKey == 'D'){
 if (myShooting > 2 ){myShooting = 1}
@@ -356,13 +352,7 @@ if (parseInt(document.getElementById('myImg02').style.left) < 0 ) {
  if (parseInt(document.getElementById('myImg01').style.top) < 0 ) {  
      document.getElementById('myImg01').style.top = '0px'
    }                    
-}
-
-function myStandStill(){
-    (onkeyup == 'a' || onkeyup == 'A' || (onkeyup == 'd' || onkeyup == 'D'){
-      let src="img/Madeline standing ..gif" ==  src="img/Madeline Walk Left.gif"
-     else src="img/Madeline Walk Left.gif"  ==  src="img/Madeline standing ..gif"
-  }             
+}         
 </script>
 
 
