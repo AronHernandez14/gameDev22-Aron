@@ -1,4 +1,4 @@
-Version 2.8.0
+Version 2.8.1
   
 
 <head> 
@@ -110,11 +110,12 @@ onkeydown="{
      myIsOnScreen()     
     myCheckHit()     
    }                                                                                                         //down movement
-      if (myKey == '' || myKey == 'D')(document.getElementById('myCounterP').innerHTML < 0){
+      if (myKey == '' || myKey == 'D'){
 if (myShooting > 2 ){myShooting = 1}
   // Bullet Number 2
 if (myShooting == 2){
   myShooting += 1
+  document.getElementById('myCounterP').innerHTML < 0
   document.getElementById('myBullet02').style.left = document.getElementById('myImg01').style.left
   document.getElementById('myBullet02').style.top  = document.getElementById('myImg01').style.top           
   clearInterval(myGun02)
@@ -141,11 +142,12 @@ if (myShooting == 1){
   } 
   }    
            
-      if (myKey == '' || myKey == 'A')(document.getElementById('myCounterP').innerHTML < 0){
+      if (myKey == '' || myKey == 'A'){
 if (myShooting > 2 ){myShooting = 1}
   // Bullet Number 2
 if (myShooting == 2){
   myShooting += 1
+  document.getElementById('myCounterP').innerHTML < 0
   document.getElementById('myBullet02').style.left = document.getElementById('myImg01').style.left
   document.getElementById('myBullet02').style.top  = document.getElementById('myImg01').style.top           
   clearInterval(myGun02)
