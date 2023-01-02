@@ -1,4 +1,4 @@
-Version 2.7.0
+Version 2.7.2
   
 
 <head> 
@@ -159,6 +159,7 @@ if (myShooting == 2){
   // Bullet Number 1
 if (myShooting == 1){
   myShooting += 1   
+  document.getElementById('myCounterP').innerHTML -= 1           
   document.getElementById('myBullet01').style.left = document.getElementById('myImg01').style.left
   document.getElementById('myBullet01').style.top  = document.getElementById('myImg01').style.top            
   clearInterval(myGun01)
@@ -231,11 +232,13 @@ function myCheckHit(){
     }
       if ( myHitOther('myImg01','myImg14') ){
        document.getElementById('myImg14').style.left = '-90px' 
-       document.getElementById('myCounter').innerHTML ++  
+       document.getElementById('myCounter').innerHTML ++ 
+       document.getElementById('myCounterP').innerHTML += 100
     }
       if ( myHitOther('myImg01','myImg15') ){
        document.getElementById('myImg15').style.left = '-90px'     
        document.getElementById('myCounter').innerHTML ++
+       document.getElementById('myCounterP').innerHTML += 100
    }
   if ( myHitOther('myBullet01','myImg16') ){
       clearInterval(myGun01)
