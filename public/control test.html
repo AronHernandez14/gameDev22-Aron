@@ -1,4 +1,4 @@
-Version 3.0.1
+Version 3.0.2
   
  
 <head> 
@@ -250,6 +250,10 @@ if (myShooting == 1){
    let myGun01
    let myGun02
    let myShooting = 1
+   let mySound2 = new Audio('')
+   let mySound3 = new Audio('')
+   let mySound4 = new Audio(' https://michaelcedrone.github.io/gamedevmike/public/mixkit-fairy-arcade-sparkle-866.wav')
+ 
 
    // global functions here
 function myHitOther(my1,my2){
@@ -286,11 +290,13 @@ function myCheckHit(){
           location = 'Proof-level-2-draft-uploaded.html'  // go to your next level   
     }
       if ( myHitOther('myImg01','myImg14') ){
+       mySound4.play()
        document.getElementById('myImg14').style.left = '-90px' 
        document.getElementById('myCounter').innerHTML ++ 
        document.getElementById('myCounterP').innerHTML =+ 100
     }
       if ( myHitOther('myImg01','myImg15') ){
+       mySound4.play()
        document.getElementById('myImg15').style.left = '-90px'     
        document.getElementById('myCounter').innerHTML ++
        document.getElementById('myCounterP').innerHTML =+ 100
