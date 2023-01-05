@@ -1,4 +1,4 @@
-Version 3.2.5
+Version 3.2.7
 <head> 
    <h4> Health: 
  <div id="myCounterH">100</div>   
@@ -106,7 +106,7 @@ onkeydown="{
      myIsOnScreen()     
     myCheckHit()     
    }                                                                                                         //down movement
-      if (myKey == '' || myKey == 'D'){
+      if (myKey == '' || myKeyUp == 'D'){
 if (myShooting > 2 ){myShooting = 1}
   // Bullet Number 2
 if (myShooting == 2){
@@ -138,7 +138,7 @@ if (myShooting == 1){
   } 
   }    
            
-      if (myKey == '' || myKey == 'A'){
+      if (myKey == '' || myKeyUp == 'A'){
 if (myShooting > 2 ){myShooting = 1}
   // Bullet Number 2
 if (myShooting == 2){
