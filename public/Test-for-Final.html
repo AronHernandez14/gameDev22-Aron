@@ -1,23 +1,258 @@
-Version 0.6.1
+Version 3.2.3
+<head> 
+   <h4> Health: 
+ <div id="myCounterH">100</div>   
+        Power: 
+ <div id="myCounterP">100</div>   
+        sardine cans: 
+ <div id="myCounter">0</div>   
+    </h4>   
+</head>
+<style>
+body{ 
+  color: white;
+}
+ #canvas {
+         border: 1px solid black;
+     } 
+</style>
 
-<body id="myBody" style="background repeat: no-repeat; background-size: cover" background="bioshock like game background-Sheet.jpeg">
-      
-<h1 align=center></h1>
-      
- <script>
- [0].onresize = function() {myFunction()};
-       
-var x = 0;
-function myFunction() {
-  var txt = x += 1;
-      
-      </script>     
- <script>       
-       
+<body id="myBody" style="background-repeat:repeat; background-size: cover" background="img/Blank wall.png"
+onkeydown="{
+   let myKey = event.key
+   //let myKey = String.toLowerCase(event.key)
+           
+   if (myKey == 'd') {
+      if (gravityDirection == 'down' || gravityDirection == 'up') {
+    document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 8 
+    facingDirectionH = 'right'
+    checkFacingDirection()
+    console.log()
+    myCheckHitFloor()
+      myCheckHitRoof()
+      checkGravityDown()                                
+      checkGravityUp()
+      myIsOnScreen()
+     myCheckHit()   
+   }
+   }                                                                                                             // right movement normal
+   if (myKey == 'a') {
+      if (gravityDirection == 'down' || gravityDirection == 'up') {
+    document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 8  
+    facingDirectionH = 'left'
+    checkFacingDirection()
+    myCheckHitFloor()
+      myCheckHitRoof()
+      checkGravityDown()
+      checkGravityUp()
+      myIsOnScreen()   
+     myCheckHit()     
+   }
+   }                                                                                                             //left movement gun
+           
+     if (myKey == 'D') {
+      if (gravityDirection == 'down' || gravityDirection == 'up') {
+    document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 4  
+    facingDirectionH = 'right'
+    checkFacingDirection()
+    console.log()
+    myCheckHitFloor()
+      myCheckHitRoof()
+      checkGravityDown()                                
+      checkGravityUp()
+      myIsOnScreen()
+     myCheckHit()   
+   }
+   }                                                                                                             // right movement gun
+   if (myKey == 'A') {
+      if (gravityDirection == 'down' || gravityDirection == 'up') {
+    document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 4 
+    facingDirectionH = 'left'
+    checkFacingDirection()
+    myCheckHitFloor()
+      myCheckHitRoof()
+      checkGravityDown()
+      checkGravityUp()
+      myIsOnScreen()   
+     myCheckHit()     
+   }
+   }                                                                                                             //left movement normal         
+           
+   if (myKey == 'w' || myKey == 'W') {
+      if ((myGravity == 0 ) &&
+         (gravityDirection == 'down')) {
+         gravityDirection = 'up'
+         document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 3
+         startupGravityUp()
+         facingDirectionV = 'up'
+         checkFacingDirection()
+      }
+    myCheckHitFloor()
+      myCheckHitRoof()
+      myIsOnScreen()  
+     myCheckHit()  
+   }                                                                                                        //up movement
+   if (myKey == 's' || myKey == 'S') {
+    if ((myGravity == 0) &&
+       (gravityDirection == 'up')) {
+      gravityDirection = 'down'
+      document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 3 
+      startupGravityDown()
+      facingDirectionV = 'down'
+      checkFacingDirection()
+    }
+    myCheckHitFloor()
+      myCheckHitRoof()
+     myIsOnScreen()     
+    myCheckHit()     
+   }                                                                                                         //down movement
+      if (myKey == '' || myKey == 'D'){
+if (myShooting > 2 ){myShooting = 1}
+  // Bullet Number 2
+if (myShooting == 2){
+  myShooting += 1
+  document.getElementById('myCounterP').innerHTML > 0
+  document.getElementById('myBullet02').style.left = document.getElementById('myImg01').style.left
+  document.getElementById('myBullet02').style.top  = document.getElementById('myImg01').style.top           
+  clearInterval(myGun02)
+  myGun02 = setInterval(function(){
+     document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) + 4
+     myCheckHit() 
+      checkFacingDirection()      
+     checkFacingDirectionBullet()      
+  }, 1) 
+}
+  // Bullet Number 1
+if (myShooting == 1){
+  myShooting += 1
+  document.getElementById('myCounterP').innerHTML -= 1
+  document.getElementById('myBullet01').style.left = document.getElementById('myImg01').style.left
+  document.getElementById('myBullet01').style.top  = document.getElementById('myImg01').style.top            
+  clearInterval(myGun01)
+  myGun01 = setInterval(function(){
+     document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) + 4
+     myCheckHit() 
+      checkFacingDirection()      
+     checkFacingDirectionBullet()      
+  }, 1)  
+  } 
+  }    
+           
+      if (myKey == '' || myKey == 'A'){
+if (myShooting > 2 ){myShooting = 1}
+  // Bullet Number 2
+if (myShooting == 2){
+  myShooting += 1
+  document.getElementById('myCounterP').innerHTML > 0
+  document.getElementById('myBullet02').style.left = document.getElementById('myImg01').style.left
+  document.getElementById('myBullet02').style.top  = document.getElementById('myImg01').style.top           
+  clearInterval(myGun02)
+  myGun02 = setInterval(function(){
+     document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) - 4
+     myCheckHit() 
+      checkFacingDirection()      
+     checkFacingDirectionBullet()      
+  }, 1) 
+}
+  // Bullet Number 1
+if (myShooting == 1){
+  myShooting += 1   
+  document.getElementById('myCounterP').innerHTML > 0        
+  document.getElementById('myCounterP').innerHTML -= 1           
+  document.getElementById('myBullet01').style.left = document.getElementById('myImg01').style.left
+  document.getElementById('myBullet01').style.top  = document.getElementById('myImg01').style.top            
+  clearInterval(myGun01)
+  myGun01 = setInterval(function(){
+     document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) - 4
+     myCheckHit() 
+      checkFacingDirection()      
+     checkFacingDirectionBullet()      
+  }, 1)  
+ } 
+}    
+           
+      if (myKey == '' || myKey == 'D'){
+if (myShooting > 2 ){myShooting = 1}
+  // Bullet Number 2
+if (myShooting == 2){
+  myShooting += 1
+  document.getElementById('myCounterP').innerHTML < 0        
+  clearInterval(myGun02)
+  myGun02 = setInterval(function(){
+     myCheckHit() 
+      checkFacingDirection()      
+     checkFacingDirectionBullet()      
+  }, 1) 
+}
+  // Bullet Number 1
+if (myShooting == 1){
+  myShooting += 1
+  document.getElementById('myCounterP').innerHTML < 0         
+  document.getElementById('myCounterP').innerHTML -= 1           
+  clearInterval(myGun01)
+  myGun01 = setInterval(function(){
+     myCheckHit() 
+      checkFacingDirection()      
+     checkFacingDirectionBullet()      
+  }, 1)  
+  } 
+  }    
+           
+      if (myKey == '' || myKey == 'A'){
+if (myShooting > 2 ){myShooting = 1}
+  // Bullet Number 2
+if (myShooting == 2){
+  myShooting += 1
+  document.getElementById('myCounterP').innerHTML < 0     
+  clearInterval(myGun02)
+  myGun02 = setInterval(function(){
+     myCheckHit() 
+      checkFacingDirection()      
+     checkFacingDirectionBullet()      
+  }, 1) 
+}
+  // Bullet Number 1
+if (myShooting == 1){
+  myShooting += 1   
+  document.getElementById('myCounterP').innerHTML < 0          
+  document.getElementById('myCounterP').innerHTML -= 1                     
+  clearInterval(myGun01)
+  myGun01 = setInterval(function(){
+     myCheckHit() 
+      checkFacingDirection()      
+     checkFacingDirectionBullet()      
+  }, 1)  
+ } 
+}                                     
+           
+}">    
+
+<body onload="{
+   gravityDirection = 'down'
+   myGravity = 1
+   gravity()        
+   this.style.display='none'
+   document.getElementById('').style.display='none'
+   }"></h1>   
+   
+<script>
    // global variables here
    let myGlobalX = 0
+   let myGravity = 0
    let myClock
-
+   let myClock2 = 0
+   let myInterval = 0;
+   let backgroundAuto = 'off'
+   let gravityDirection = 'none'
+   let facingDirectionV = 'down'
+   let facingDirectionH = 'right'
+   let myGun01
+   let myGun02
+   let myShooting = 1
+   let mySound2 = new Audio('')
+   let mySound3 = new Audio('')
+   let mySound4 = new Audio(' https://michaelcedrone.github.io/gamedevmike/public/mixkit-fairy-arcade-sparkle-866.wav')
+ 
 
    // global functions here
 function myHitOther(my1,my2){
@@ -36,8 +271,7 @@ function myHitOther(my1,my2){
        return true
    }
 }
-
-
+   
 function myCheckHit(){
      console.log(document.getElementById('myImg01').style.left + " : " + document.getElementById('myImg01').style.top)
    if ( myHitOther('myImg01','myImg02') ){
@@ -45,54 +279,156 @@ function myCheckHit(){
       document.getElementById('myImg01').style.left = '0px'
    }
    if ( myHitOther('myImg01','myImg07') ){
-         alert('you lose')
-        document.getElementById('myImg01').style.left = '0px'
+         alert('You died')
+        document.getElementById('myImg01').style.top = '0px'
+       location = 'control test.html'  // retry  '  // retry 
    }
       if ( myHitOther('myImg01','myImg09') ){
           alert('next level')  
           document.getElementById('myImg01').style.left = '0px'
-          location = 'Proof-level-2-draft-uploaded.html'  // go to your next level
+          location = 'Proof-level-2-draft-uploaded.html'  // go to your next level   
+    }
+      if ( myHitOther('myImg01','myImg14') ){
+       mySound4.play()
+       document.getElementById('myImg14').style.left = '-90px' 
+       document.getElementById('myCounter').innerHTML ++ 
+       document.getElementById('myCounterP').innerHTML =+ 100
+    }
+      if ( myHitOther('myImg01','myImg15') ){
+       mySound4.play()
+       document.getElementById('myImg15').style.left = '-90px'     
+       document.getElementById('myCounter').innerHTML ++
+       document.getElementById('myCounterP').innerHTML =+ 100
    }
+  if ( myHitOther('myBullet01','myImg16') ){
+      clearInterval(myGun01)
+      document.getElementById('myBullet01').style.left = '-2000px'
+      document.all.myText01.value = 'You shot myImg16'  
+   }   
+   
+   if ( myHitOther('myBullet02','myImg16') ){
+      clearInterval(myGun02)
+      document.getElementById('myBullet02').style.left = '-2000px'
+      document.all.myText01.value = 'You shot myImg16' 
+   }
+   if ( myHitOther('myBullet01','myImg06') ){
+      clearInterval(myGun01)
+      document.getElementById('myBullet01').style.left = '-2000px'     
+   }   
+   if ( myHitOther('myBullet02','myImg06') ){
+      clearInterval(myGun02)
+      document.getElementById('myBullet02').style.left = '-2000px' 
+   }
+}
+function myCheckHitFloor(){
+ if ( myHitOther('myImg01','myImg03') ){
+       //document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 1 + 'px'
+       myGravity = 0
+  } 
+}        
+   function myCheckHitRoof(){
+   if ( myHitOther('myImg01','myImg05') ){
+       //document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 1 + 'px'
+       myGravity = 0
+   }
+   }
+   function startupGravityDown(){
+   clearInterval(myClock2)
+   myClock2 = setInterval(function(){
+      myCheckHitFloor();
+      myCheckHitRoof();
+      myGravity += 0.07
+      document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + myGravity + 'px'
+      if (myGravity >= 1){
+         clearInterval(myClock2)
+         myGravity = 1
+         gravity()
+      }
+   }, 2)
+   }
+   function startupGravityUp(){
+   clearInterval(myClock2)
+   myClock2 = setInterval(function(){
+      myCheckHitFloor();
+      myCheckHitRoof();
+      myGravity -= 0.07
+      document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + myGravity + 'px'
+      if (myGravity <= -1){
+         clearInterval(myClock2)
+         myGravity = -1
+         gravity()
+      }
+   }, 2)
+   }
+function gravity(){
+   clearInterval(myClock2)
+   myClock2 = setInterval(function(){
+      myCheckHitFloor();
+      myCheckHitRoof();
+      document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + myGravity + 'px'
+  }, 2)
+}
 
-
-   // more if statements here like the above
-
-
-
-}  // end of myCheckHit()
-
-
-</script>
-
-<img id="myImg01" style="position:absolute; width:34px; height:96px; top:500px; left:200px;"  src="img/Madeline Walk.gif">
-<img id="myImg02" style="position:absolute; width:70px; height:90px; top:600px; left:1000px;" src="red-photos-1172010.jpg">
-<img id="myImg03" style="position:absolute; width:1920px; height:1px; top:899px; left:0px;" src="red-photos-1172010.jpg">
-<img id="myImg04" style="position:absolute; width:1px; height:900px; top:0px; left:0px;" src="red-photos-1172010.jpg">
-<img id="myImg05" style="position:absolute; width:1920px; height:1px; top:0px; left:0px;" src="red-photos-1172010.jpg">
-<img id="myImg06" style="position:absolute; width:1px; height:969px; top:0px; left:1919px;" src="red-photos-1172010.jpg">
-<img id="myImg07" style="position:absolute; width:70px; height:90px; top:500px; left:500px;"  src="red-photos-1172010.jpg">
-<img id="myImg09" style="position:absolute; width:80px; height:80px; top:600px; left:1600px;" src="red-photos-1172010.jpg">
-<img id="myImg10" style="position:absolute; width:1920px; height:1px; top:0px; left:0px;" src="red-photos-1172010.jpg">
-<img id="myImg11" style="position:absolute; width:80px; height:100px; top:700px; left:200px;" src="img/Invisible Wall.gif">
-      
-      
- <input type=button value="Start Game" onclick="{
-  clearInterval(myClock)
-  let myTemp = '0px'
-  myClock = setInterval(function(){
-      myGlobalX -= 5
-      myTemp =  myGlobalX + 'px 0px'
-      document.getElementById('myBody').style.backgroundPosition = myTemp
-  },)                                            
-}">
-     
- <script>  
-      
-   let myInterval
- 
+function checkGravityDown(){
+   if ((myHitOther('myImg01','myImg03') != true) &&
+      (gravityDirection == 'down')){
+         startupGravityDown()
+   }
+}
+function checkGravityUp(){
+   if ((myHitOther('myImg01','myImg05') != true) &&
+      (gravityDirection == 'up')){
+         startupGravityUp()
+   }
+}     
+function checkFacingDirection(){
+   if ((facingDirectionV == 'down') &&
+      (facingDirectionH == 'left')){
+      const scale = document.getElementById('myImg01')
+      scale.style.transform = 'scale(1, 1)'
+   }
+   if ((facingDirectionV == 'down') &&
+      (facingDirectionH == 'right')){
+      const scale = document.getElementById('myImg01')
+      scale.style.transform = 'scale(-1, 1)'
+   }
+   if ((facingDirectionV == 'up') &&
+      (facingDirectionH == 'left')){
+      const scale = document.getElementById('myImg01')
+      scale.style.transform = 'scale(1, -1)'
+   }
+   if ((facingDirectionV == 'up') &&
+      (facingDirectionH == 'right')){
+         const scale = document.getElementById('myImg01')
+      scale.style.transform = 'scale(-1, -1)'
+   }
+}
+function checkFacingDirectionBullet(){
+  if ((facingDirectionV == 'down') &&
+      (facingDirectionH == 'left')){
+      const scale = document.getElementById('myBullet01')
+      scale.style.transform = 'scale(1, 1)'
+   }
+   if ((facingDirectionV == 'down') &&
+      (facingDirectionH == 'right')){
+      const scale = document.getElementById('myBullet01')
+      scale.style.transform = 'scale(-1, 1)'
+   }
+   if ((facingDirectionV == 'up') &&
+      (facingDirectionH == 'left')){
+      const scale = document.getElementById('myBullet01')
+      scale.style.transform = 'scale(1, -1)'
+   }
+   if ((facingDirectionV == 'up') &&
+      (facingDirectionH == 'right')){
+      const scale = document.getElementById('myBullet01')
+      scale.style.transform = 'scale(-1, -1)'
+   }
+}   
+   
 function myIsOnScreen(){
- if (parseInt(document.getElementById('myImg01').style.left)  > 1820 ) {    //1820
-     document.getElementById('myImg01').style.left = '1819px'
+ if (parseInt(document.getElementById('myImg01').style.left)  > 1890 ) {    //1890
+     document.getElementById('myImg01').style.left = '1889px'
    }   
  if (parseInt(document.getElementById('myImg01').style.top) > 803 ) {    //803
      document.getElementById('myImg01').style.top = '803px'
@@ -117,89 +453,29 @@ if (parseInt(document.getElementById('myImg02').style.left) < 0 ) {
    }   
  if (parseInt(document.getElementById('myImg01').style.top) < 0 ) {  
      document.getElementById('myImg01').style.top = '0px'
-   }                  
-}
+   }                    
+}         
 </script>
 
-<body onkeydown="{
-     let myKey = event.key
- //  let myKey = String.toLowerCase(event.key)
-   if (myKey == 'd' || myKey == 'ArrowRight') {
-      clearInterval(myInterval)
-      myInterval = setInterval(function(){
-         document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 1
-                 myCheckHit()
-         myIsOnScreen()
-      } ,1)
-   }
-   if (myKey == 'a' || myKey == 'ArrowLeft') {
-      clearInterval(myInterval)
-      myInterval = setInterval(function(){
-         document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 1
-                 myCheckHit()
-         myIsOnScreen()
-      } ,1)
-   }
-   if (myKey == 'w' || myKey == 'ArrowUp') {
-      clearInterval(myInterval)
-      myInterval = setInterval(function(){
-         document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 1
-                 myCheckHit()
-         myIsOnScreen()
-      } ,1)
-   }
-   if (myKey == 's' || myKey == 'ArrowDown') {
-      clearInterval(myInterval)
-      myInterval = setInterval(function(){
-         document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 1
-                 myCheckHit()
-         myIsOnScreen()
-      } ,1)
-   }  
-                 
-}">    
-        
-
-<body onkeyup="{
-     let myKey = event.key
- //  let myKey = String.toLowerCase(event.key)
-   if (myKey == 'd' || myKey == 'ArrowRight') {
-      clearInterval(myInterval)
-      myInterval = setInterval(function(){
-         document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 0
-                 myCheckHit()
-         myIsOnScreen()
-      } ,0)
-   }
-   if (myKey == 'a' || myKey == 'ArrowLeft') {
-      clearInterval(myInterval)
-      myInterval = setInterval(function(){
-         document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 0
-                 myCheckHit()
-         myIsOnScreen()
-      } ,0)
-   }
-   if (myKey == 'w' || myKey == 'ArrowUp') {
-      clearInterval(myInterval)
-      myInterval = setInterval(function(){
-         document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 0
-                 myCheckHit()
-         myIsOnScreen()
-      } ,0)
-   }
-   if (myKey == 's' || myKey == 'ArrowDown') {
-      clearInterval(myInterval)
-      myInterval = setInterval(function(){
-         document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 0
-                 myCheckHit()
-         myIsOnScreen()
-      } ,0)
-   }  
-                 
-               
-}">    
-    
+<img id="myImg01" style="position:absolute; width:34px; height:96px; top:700px; left:50px;"  src="img/Madeline Walk Left.gif">
+<img id="myImg02" style="position:absolute; width:70px; height:90px; top:600px; left:1000px;" src="red-photos-1172010.jpg">
+<img id="myImg03" style="position:absolute; width:1920px; height:1px; top:899px; left:0px;" src="red-photos-1172010.jpg">
+<img id="myImg04" style="position:absolute; width:1px; height:900px; top:0px; left:0px;" src="red-photos-1172010.jpg">
+<img id="myImg05" style="position:absolute; width:1920px; height:1px; top:0px; left:0px;" src="red-photos-1172010.jpg">
+<img id="myImg06" style="position:absolute; width:1px; height:969px; top:0px; left:1919px;" src="red-photos-1172010.jpg">  
  
-      
-      
- </script>
+<img id="myImg09" style="position:absolute; width:80px; height:80px; top:600px; left:1600px;" src="red-photos-1172010.jpg">
+<img id="myImg10" style="position:absolute; width:1920px; height:1px; top:-20px; left:0px;" src="red-photos-1172010.jpg">
+<img id="myImg11" style="position:absolute; width:1920px; height:80px; top:820px; left:0px;" src="img/railguard long .png">
+<img id="myImg12" style="position:absolute; width:1920px; height:80px; top:520px; left:0px;" src="img/railguard long .png">
+<img id="myImg14" style="position:absolute; width:12px; height:20px; top:410px; left:200px;" src="img/Can.png">
+<img id="myImg07" style="position:absolute; width:70px; height:90px; top:500px; left:500px;"  src="img/electric tunnel.gif">   
+<img id="myImg15" style="position:absolute; width:12px; height:20px; top:820px; left:400px;" src="img/Can.png">  
+<img id="myImg16" style="position:absolute; width:34px; height:96px; top:800px; left:750px;" src="img/Female sprite4.png">    
+<img id="myImg08" style="position:absolute; width:120px; height:220px; top:0px; left:0px; opacity:0.7;" src="img/Interface.png">   
+<img id="myBullet01" style="position:absolute; width:32px; height:32px; left: -80px; top:0px; opacity:0.9;" src="img/ElectroBall.gif"> 
+<img id="myBullet02" style="position:absolute; width:32px; height:32px; left: -80px; top:0px; opacity:0.9;" src="img/ElectroBall.gif">  
+<img id="myBullet03" style="position:absolute; width:32px; height:32px; left: -80px; top:0px;" src="img/SolarFlare.gif"> 
+<img id="myBullet04" style="position:absolute; width:32px; height:32px; left: -80px; top:0px;" src="img/SolarFlare.gif">  
+<img id="myBullet05" style="position:absolute; width:32px; height:32px; left: -80px; top:0px;" src="img/WinterWonderland.gif"> 
+<img id="myBullet06" style="position:absolute; width:32px; height:32px; left: -80px; top:0px;" src="img/WinterWonderland.gif">     
