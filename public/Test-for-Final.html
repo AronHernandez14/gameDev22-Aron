@@ -1,4 +1,4 @@
-Version 3.3.6
+Version 3.3.7
 <head> 
    <h4> Health: 
  <div id="myCounterH">100</div>   
@@ -109,8 +109,7 @@ onkeydown="{
       if (myKey == '' || myKey == 'D'){
 if (myShooting > 2 ){myShooting = 1}
   // Bullet Number 2
-if (myShooting == 2){
-  mySound1.play()        
+if (myShooting == 2){        
   myShooting += 1
   document.getElementById('myCounterP').innerHTML > 0
   document.getElementById('myBullet02').style.left = document.getElementById('myImg01').style.left
@@ -143,7 +142,8 @@ if (myShooting == 1){
       if (myKey == '' || myKey == 'A'){
 if (myShooting > 2 ){myShooting = 1}
   // Bullet Number 2
-if (myShooting == 2){        
+if (myShooting == 2){   
+  mySound1.play()         
   myShooting += 1
   document.getElementById('myCounterP').innerHTML > 0
   document.getElementById('myBullet02').style.left = document.getElementById('myImg01').style.left
