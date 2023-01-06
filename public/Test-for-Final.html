@@ -1,4 +1,4 @@
-Version 3.3.8
+Version 3.3.9
 <head> 
    <h4> Health: 
  <div id="myCounterH">100</div>   
@@ -25,6 +25,7 @@ onkeydown="{
    if (myKey == 'd') {
       if (gravityDirection == 'down' || gravityDirection == 'up') {
     document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 8 
+    document.getElementById('myImg18').style.left = parseInt(document.getElementById('myImg01').style.left) + 8        
     facingDirectionH = 'right'
     checkFacingDirection()
     console.log()
@@ -39,6 +40,7 @@ onkeydown="{
    if (myKey == 'a') {
       if (gravityDirection == 'down' || gravityDirection == 'up') {
     document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 8  
+    document.getElementById('myImg18').style.left = parseInt(document.getElementById('myImg01').style.left) - 8             
     facingDirectionH = 'left'
     checkFacingDirection()
     myCheckHitFloor()
@@ -53,6 +55,7 @@ onkeydown="{
      if (myKey == 'D') {
       if (gravityDirection == 'down' || gravityDirection == 'up') {
     document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 4  
+    document.getElementById('myImg18').style.left = parseInt(document.getElementById('myImg01').style.left) + 4  
     facingDirectionH = 'right'
     checkFacingDirection()
     console.log()
@@ -67,6 +70,7 @@ onkeydown="{
    if (myKey == 'A') {
       if (gravityDirection == 'down' || gravityDirection == 'up') {
     document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 4 
+    document.getElementById('myImg18').style.left = parseInt(document.getElementById('myImg01').style.left) - 4            
     facingDirectionH = 'left'
     checkFacingDirection()
     myCheckHitFloor()
@@ -83,6 +87,7 @@ onkeydown="{
          (gravityDirection == 'down')) {
          gravityDirection = 'up'
          document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 3
+         document.getElementById('myImg18').style.top = parseInt(document.getElementById('myImg18').style.top) - 3           
          startupGravityUp()
          facingDirectionV = 'up'
          checkFacingDirection()
@@ -97,6 +102,7 @@ onkeydown="{
        (gravityDirection == 'up')) {
       gravityDirection = 'down'
       document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 3 
+      document.getElementById('myImg18').style.top = parseInt(document.getElementById('myImg01').style.top) + 3            
       startupGravityDown()
       facingDirectionV = 'down'
       checkFacingDirection()
@@ -480,4 +486,5 @@ if (parseInt(document.getElementById('myImg02').style.left) < 0 ) {
 <img id="myBullet03" style="position:absolute; width:32px; height:32px; left: -80px; top:0px;" src="img/SolarFlare.gif"> 
 <img id="myBullet04" style="position:absolute; width:32px; height:32px; left: -80px; top:0px;" src="img/SolarFlare.gif">  
 <img id="myBullet05" style="position:absolute; width:32px; height:32px; left: -80px; top:0px;" src="img/WinterWonderland.gif"> 
-<img id="myBullet06" style="position:absolute; width:32px; height:32px; left: -80px; top:0px;" src="img/WinterWonderland.gif">     
+<img id="myBullet06" style="position:absolute; width:32px; height:32px; left: -80px; top:0px;" src="img/WinterWonderland.gif">  
+<img id="myImg18"style="position:absolute; width:34px; height:96px; top:700px; left:50px;"  src="img/Madeline standing ..gif">
