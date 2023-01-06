@@ -1,4 +1,4 @@
-Version 3.2.9
+Version 3.3.0
 <head> 
    <h4> Health: 
  <div id="myCounterH">100</div>   
@@ -110,6 +110,7 @@ onkeydown="{
 if (myShooting > 2 ){myShooting = 1}
   // Bullet Number 2
 if (myShooting == 2){
+  mySound1.play()        
   myShooting += 1
   document.getElementById('myCounterP').innerHTML > 0
   document.getElementById('myBullet02').style.left = document.getElementById('myImg01').style.left
@@ -124,6 +125,7 @@ if (myShooting == 2){
 }
   // Bullet Number 1
 if (myShooting == 1){
+  mySound1.play()         
   myShooting += 1
   document.getElementById('myCounterP').innerHTML -= 1
   document.getElementById('myBullet01').style.left = document.getElementById('myImg01').style.left
@@ -142,6 +144,7 @@ if (myShooting == 1){
 if (myShooting > 2 ){myShooting = 1}
   // Bullet Number 2
 if (myShooting == 2){
+  mySound1.play()         
   myShooting += 1
   document.getElementById('myCounterP').innerHTML > 0
   document.getElementById('myBullet02').style.left = document.getElementById('myImg01').style.left
@@ -156,6 +159,7 @@ if (myShooting == 2){
 }
   // Bullet Number 1
 if (myShooting == 1){
+  mySound1.play()         
   myShooting += 1   
   document.getElementById('myCounterP').innerHTML > 0        
   document.getElementById('myCounterP').innerHTML -= 1           
@@ -175,7 +179,8 @@ if (myShooting == 1){
 if (myShooting > 2 ){myShooting = 1}
   // Bullet Number 2
 if (myShooting == 2){
-  myShooting += 1
+  mySound1.play()         
+  myShooting += 1      
   document.getElementById('myCounterP').innerHTML < 0        
   clearInterval(myGun02)
   myGun02 = setInterval(function(){
@@ -186,7 +191,8 @@ if (myShooting == 2){
 }
   // Bullet Number 1
 if (myShooting == 1){
-  myShooting += 1
+  mySound1.play()         
+  myShooting += 1         
   document.getElementById('myCounterP').innerHTML < 0         
   document.getElementById('myCounterP').innerHTML -= 1           
   clearInterval(myGun01)
@@ -202,6 +208,7 @@ if (myShooting == 1){
 if (myShooting > 2 ){myShooting = 1}
   // Bullet Number 2
 if (myShooting == 2){
+  mySound1.play()         
   myShooting += 1
   document.getElementById('myCounterP').innerHTML < 0     
   clearInterval(myGun02)
@@ -213,6 +220,7 @@ if (myShooting == 2){
 }
   // Bullet Number 1
 if (myShooting == 1){
+  mySound1.play()         
   myShooting += 1   
   document.getElementById('myCounterP').innerHTML < 0          
   document.getElementById('myCounterP').innerHTML -= 1                     
@@ -249,7 +257,7 @@ if (myShooting == 1){
    let myGun01
    let myGun02
    let myShooting = 1
-   let mySound2 = new Audio('')
+   let mySound1 = new Audio('Electricity sound effect Thx for 900k.mp3')
    let mySound3 = new Audio('')
    let mySound4 = new Audio(' https://michaelcedrone.github.io/gamedevmike/public/mixkit-fairy-arcade-sparkle-866.wav')
  
