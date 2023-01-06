@@ -1,4 +1,4 @@
-Version 3.4.1
+Version 3.4.2
 <head> 
    <h4> Health: 
  <div id="myCounterH">100</div>   
@@ -367,6 +367,7 @@ function myCheckHitFloor(){
       myCheckHitRoof();
       myGravity += 0.07
       document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + myGravity + 'px'
+      document.getElementById('myImg18').style.top = parseInt(document.getElementById('myImg18').style.top) + myGravity + 'px'
       if (myGravity >= 1){
          clearInterval(myClock2)
          myGravity = 1
@@ -381,6 +382,7 @@ function myCheckHitFloor(){
       myCheckHitRoof();
       myGravity -= 0.07
       document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + myGravity + 'px'
+      document.getElementById('myImg18').style.top = parseInt(document.getElementById('myImg18').style.top) + myGravity + 'px'
       if (myGravity <= -1){
          clearInterval(myClock2)
          myGravity = -1
@@ -394,6 +396,7 @@ function gravity(){
       myCheckHitFloor();
       myCheckHitRoof();
       document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + myGravity + 'px'
+      document.getElementById('myImg18').style.top = parseInt(document.getElementById('myImg18').style.top) + myGravity + 'px'
   }, 2)
 }
 
