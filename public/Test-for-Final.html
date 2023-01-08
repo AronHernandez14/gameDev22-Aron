@@ -1,4 +1,4 @@
-Version 3.5.1
+Version 3.5.2
 <head> 
    <h4> Health: 
  <div id="myCounterH">100</div>   
@@ -448,12 +448,12 @@ function checkFacingDirectionBullet(){
    if ((facingDirectionV == 'up') &&
       (facingDirectionH == 'left')){
       const scale = document.getElementById('myBullet01')
-      scale.style.transform = 'scale(-1, -1)'
+      scale.style.transform = 'scale(1, -1)'
    }
    if ((facingDirectionV == 'up') &&
       (facingDirectionH == 'right')){
       const scale = document.getElementById('myBullet01')
-      scale.style.transform = 'scale(1, -1)'
+      scale.style.transform = 'scale(-1, -1)'
    }
 }   
    
