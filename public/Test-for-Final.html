@@ -1,4 +1,4 @@
-Version 3.4.4
+Version 3.4.5
 <head> 
    <h4> Health: 
  <div id="myCounterH">100</div>   
@@ -415,25 +415,45 @@ function checkGravityUp(){
 function checkFacingDirection(){
    if ((facingDirectionV == 'down') &&
       (facingDirectionH == 'left')){
-      const scale = document.getElementById('myImg01')
+      const scale = document.getElementById('myImg01')       //left gravity down madeline walking
       scale.style.transform = 'scale(1, 1)'
    }
    if ((facingDirectionV == 'down') &&
       (facingDirectionH == 'right')){
-      const scale = document.getElementById('myImg01')
+      const scale = document.getElementById('myImg01')      //right gravity down madeline walking 
       scale.style.transform = 'scale(-1, 1)'
    }
    if ((facingDirectionV == 'up') &&
       (facingDirectionH == 'left')){
-      const scale = document.getElementById('myImg01')
+      const scale = document.getElementById('myImg01')     //left gravity up madeline walking
       scale.style.transform = 'scale(1, -1)'
    }
    if ((facingDirectionV == 'up') &&
       (facingDirectionH == 'right')){
-         const scale = document.getElementById('myImg01')
+      const scale = document.getElementById('myImg01')    //right gravity up madeline walking
+      scale.style.transform = 'scale(1, 1)'
+   }  
+if ((facingDirectionV == 'down') &&
+      (facingDirectionH == 'left')){
+      const scale = document.getElementById('myImg18')       //left gravity down madeline standing
       scale.style.transform = 'scale(-1, -1)'
    }
-}
+   if ((facingDirectionV == 'down') &&
+      (facingDirectionH == 'right')){
+      const scale = document.getElementById('myImg18')      //right gravity down madeline standing
+      scale.style.transform = 'scale(-1, 1)'
+   }
+   if ((facingDirectionV == 'up') &&
+      (facingDirectionH == 'left')){
+      const scale = document.getElementById('myImg18')     //left gravity up madeline standing
+      scale.style.transform = 'scale(1, -1)'
+   }
+   if ((facingDirectionV == 'up') &&
+      (facingDirectionH == 'right')){
+      const scale = document.getElementById('myImg18')    //right gravity up madeline standing
+      scale.style.transform = 'scale(-1, -1)'
+   }
+}   
 function checkFacingDirectionBullet(){
   if ((facingDirectionV == 'down') &&
       (facingDirectionH == 'left')){
