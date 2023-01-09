@@ -1,4 +1,4 @@
-Version 3.7.1
+Version 3.7.2
 <head> 
    <h4> Health: 
  <div id="myCounterH">100</div>   
@@ -94,8 +94,8 @@ onkeydown="{
       if ((myGravity == 0 ) &&
          (gravityDirection == 'down')) {
          gravityDirection = 'up'
-         document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 3
-         document.getElementById('myImg18').style.top = parseInt(document.getElementById('myImg18').style.top) - 3 
+         document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 6
+         document.getElementById('myImg18').style.top = parseInt(document.getElementById('myImg18').style.top) - 6 
          document.getElementById('myImg01').style.visibility='visible';    
          document.getElementById('myImg18').style.visibility='hidden';     
          startupGravityUp()
@@ -111,8 +111,8 @@ onkeydown="{
     if ((myGravity == 0) &&
        (gravityDirection == 'up')) {
       gravityDirection = 'down'
-      document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 3 
-      document.getElementById('myImg18').style.top = parseInt(document.getElementById('myImg01').style.top) + 3  
+      document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 6
+      document.getElementById('myImg18').style.top = parseInt(document.getElementById('myImg01').style.top) + 6  
       document.getElementById('myImg01').style.visibility='visible';    
       document.getElementById('myImg18').style.visibility='hidden';         
       startupGravityDown()
