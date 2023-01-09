@@ -1,4 +1,4 @@
-Version 3.8.7
+Version 3.8.8
 <head> 
    <h4> Health: 
  <div id="myCounterH">100</div>   
@@ -303,8 +303,14 @@ function myCheckHit(){
       document.getElementById('myImg01').style.left = '0px'
    }
    if ( myHitOther('myImg01','myImg07') ){
-      document.getElementById('myCounterH').innerHTML -= 0.2
+      document.getElementById('myCounterH').innerHTML -= 1
    }
+if ( myHitOther('myImg01','myImg20') ){
+      document.getElementById('myCounterH').innerHTML -= 1
+   }
+if ( myHitOther('myImg01','myImg16') ){
+      document.getElementById('myCounterH').innerHTML -= 1
+   }   
       if ( myHitOther('myImg01','myImg09') ){
           alert('next level')  
           document.getElementById('myImg01').style.left = '0px'
