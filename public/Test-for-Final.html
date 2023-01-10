@@ -1,4 +1,4 @@
-Version 3.9.9
+Version 4.0.0
 <head> 
    <h4> Health: 
  <div id="myCounterH">100</div>   
@@ -515,10 +515,11 @@ if (parseInt(document.getElementById('myImg02').style.left) < 0 ) {
    }                    
 } 
 function myGameover(){
-   if document.getElementById('myCounterH').innerHTML == 0 
+   if (document.getElementById('myCounterH').innerHTML =+ 0){ 
    alert('Game Over')
    location = 'Test-for-Final.html'  // You died
    }
+}
 </script>  
    
 <img id="myImg01" style="position:absolute; width:34px; height:96px; top:700px; left:50px;" visibility='visible' src="img/Madeline Left Running.gif">
