@@ -1,4 +1,4 @@
-Version 3.9.3
+Version 3.9.4
 <head> 
    <h4> Health: 
  <div id="myCounterH">100</div>   
@@ -304,13 +304,13 @@ function myCheckHit(){
          document.getElementById('myImg01').style.left = '0px'
    }
       if ( myHitOther('myImg01','myImg07') ){
-         document.getElementById('myCounterH').innerHTML -= 1
+         document.getElementById('myCounterH').innerHTML --
    }
       if ( myHitOther('myImg01','myImg20') ){
-            document.getElementById('myCounterH').innerHTML -= 1
+            document.getElementById('myCounterH').innerHTML --
    }
       if ( myHitOther('myImg01','myImg16') ){
-            document.getElementById('myCounterH').innerHTML -= 1
+            document.getElementById('myCounterH').innerHTML --
    }   
       if ( myHitOther('myImg01','myImg09') ){
           alert('next level')  
@@ -322,12 +322,14 @@ function myCheckHit(){
        document.getElementById('myImg14').style.left = '-90px' 
        document.getElementById('myCounterC').innerHTML ++ 
        document.getElementById('myCounterP').innerHTML =+ 100
+       document.getElementById('myCounterH').innerHTML =+ 100          
     }
       if ( myHitOther('myImg01','myImg15') ){
        mySound4.play()
        document.getElementById('myImg15').style.left = '-90px'     
        document.getElementById('myCounterC').innerHTML ++
        document.getElementById('myCounterP').innerHTML =+ 100
+       document.getElementById('myCounterH').innerHTML =+ 100         
    }
   if ( myHitOther('myBullet01','myImg16') ){
       clearInterval(myGun01)
