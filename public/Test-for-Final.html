@@ -1,4 +1,4 @@
-Version 3.9.7
+Version 3.9.9
 <head> 
    <h4> Health: 
  <div id="myCounterH">100</div>   
@@ -36,7 +36,8 @@ onkeydown="{
       checkGravityDown()                                
       checkGravityUp()
       myIsOnScreen()
-     myCheckHit()   
+     myCheckHit()
+    myGameover()       
    }
    }                                                                                                             // right movement normal
    if (myKey == 'a') {
@@ -52,7 +53,8 @@ onkeydown="{
       checkGravityDown()
       checkGravityUp()
       myIsOnScreen()   
-     myCheckHit()     
+     myCheckHit()
+     myGameover()      
    }
    }                                                                                                             //left movement gun
            
@@ -70,7 +72,8 @@ onkeydown="{
       checkGravityDown()                                
       checkGravityUp()
       myIsOnScreen()
-     myCheckHit()   
+     myCheckHit() 
+     myGameover()      
    }
    }                                                                                                             // right movement gun
    if (myKey == 'A') {
@@ -86,7 +89,8 @@ onkeydown="{
       checkGravityDown()
       checkGravityUp()
       myIsOnScreen()   
-     myCheckHit()     
+     myCheckHit() 
+    myGameover()       
    }
    }                                                                                                             //left movement normal         
            
@@ -105,7 +109,8 @@ onkeydown="{
     myCheckHitFloor()
       myCheckHitRoof()
       myIsOnScreen()  
-     myCheckHit()  
+     myCheckHit()
+     myGameover()      
    }                                                                                                        //up movement
    if (myKey == 's' || myKey == 'S') {
     if ((myGravity == 0) &&
@@ -122,7 +127,8 @@ onkeydown="{
     myCheckHitFloor()
       myCheckHitRoof()
      myIsOnScreen()     
-    myCheckHit()     
+    myCheckHit() 
+    myGameover()       
    }                                                                                                         //down movement
       if (myKey == '' || myKey == 'D'){
 if (myShooting > 2 ){myShooting = 1}
@@ -257,7 +263,6 @@ if (myShooting == 1){
    gravity()        
    this.style.display='none'
    document.getElementById('').style.display='none'
-   document.getElementById('myImg16').style.left = parseInt(document.getElementById('myImg01').style.left) + 4
  }">
    
 <script>
@@ -508,7 +513,12 @@ if (parseInt(document.getElementById('myImg02').style.left) < 0 ) {
  if (parseInt(document.getElementById('myImg01').style.top) < 0 ) {  
      document.getElementById('myImg01').style.top = '0px'
    }                    
-}   
+} 
+function myGameover(){
+   if document.getElementById('myCounterH').innerHTML == 0 
+   alert('Game Over')
+   location = 'Test-for-Final.html'  // You died
+   }
 </script>  
    
 <img id="myImg01" style="position:absolute; width:34px; height:96px; top:700px; left:50px;" visibility='visible' src="img/Madeline Left Running.gif">
