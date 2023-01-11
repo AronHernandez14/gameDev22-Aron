@@ -1,4 +1,4 @@
-Version 4.4.3
+Version 4.4.4
 <head> 
    <h4> Health: 
  <div id="myCounterH">1000</div>   
@@ -38,7 +38,7 @@ onkeydown="{
       myIsOnScreen()
      myCheckHit()
     myGameover()
-    myTeleport()       
+    myTeleport()         
    }
    }                                                                                                             // right movement normal
    if (myKey == 'a') {
@@ -56,7 +56,7 @@ onkeydown="{
       myIsOnScreen()   
      myCheckHit()
      myGameover()  
-     myTeleport()      
+     myTeleport()     
    }
    }                                                                                                             //left movement gun
            
@@ -113,7 +113,7 @@ onkeydown="{
       myIsOnScreen()  
      myCheckHit()
      myGameover() 
-     myTeleport()      
+     myTeleport()        
    }                                                                                                        //up movement
    if (myKey == 's' || myKey == 'S') {
     if ((myGravity == 0) &&
@@ -149,7 +149,8 @@ if (myShooting == 2){
      myCheckHit() 
       checkFacingDirection()      
      checkFacingDirectionBullet()  
-        myAmmoOut()   
+        myAmmoOut() 
+        myEnemies()   
   }, 1) 
 }
   // Bullet Number 1
@@ -168,6 +169,7 @@ if (myShooting == 1){
       checkFacingDirection()      
      checkFacingDirectionBullet()   
            myAmmoOut()
+           myEnemies()
   }, 1)  
   } 
   }    
@@ -188,6 +190,7 @@ if (myShooting == 2){
       checkFacingDirection()      
      checkFacingDirectionBullet()   
            myAmmoOut()
+           myEnemies()
   }, 1) 
 }
   // Bullet Number 1
@@ -206,6 +209,7 @@ if (myShooting == 1){
       checkFacingDirection()      
      checkFacingDirectionBullet()     
            myAmmoOut()
+           myEnemies() 
   }, 1)  
  } 
 }    
@@ -222,6 +226,7 @@ if (myShooting == 2){
       checkFacingDirection()      
      checkFacingDirectionBullet()     
            myAmmoOut()
+           myEnemies()
   }, 1) 
 }
   // Bullet Number 1
@@ -235,6 +240,7 @@ if (myShooting == 1){
       checkFacingDirection()      
      checkFacingDirectionBullet()   
            myAmmoOut()
+           myEnemies()
   }, 1)  
   } 
   }    
@@ -251,6 +257,7 @@ if (myShooting == 2){
       checkFacingDirection()      
      checkFacingDirectionBullet()    
            myAmmoOut()
+           myEnemies()
   }, 1) 
 }
   // Bullet Number 1
@@ -264,6 +271,7 @@ if (myShooting == 1){
       checkFacingDirection()      
      checkFacingDirectionBullet()   
            myAmmoOut()
+           myEnemies()
   }, 1)  
  } 
 }                                               
@@ -324,7 +332,6 @@ if ( myHitOther('myImg01','myImg19') ){
  }
 function myCheckHit(){
      console.log(document.getElementById('myImg01').style.left + " : " + document.getElementById('myImg01').style.top)
-     myEnemies()
       if ( myHitOther('myImg01','myImg02') ){
           alert('you lose')
          document.getElementById('myImg01').style.left = '0px'
