@@ -1,4 +1,4 @@
-Version 4.1.9
+Version 4.2.0
 <head> 
    <h4> Health: 
  <div id="myCounterH">100</div>   
@@ -368,23 +368,15 @@ function myCheckHit(){
    }
 }
 function myCheckHitFloor(){
- if ( myHitOther('myImg01','myImg03') ){
-       //document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 1 + 'px'
-       myGravity = 0
-  } 
-    if ( myHitOther('myImg01','myImg21') ){
+ if ( myHitOther('myImg01','myImg03','myImg21) ){
        //document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 1 + 'px'
        myGravity = 0
   } 
 }        
    function myCheckHitRoof(){
-   if ( myHitOther('myImg01','myImg05') ){
+   if ( myHitOther('myImg01','myImg05','myImg22') ){
        //document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 1 + 'px'
        myGravity = 0
-   }
-   if ( myHitOther('myImg01','myImg22') ){
-       //document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 1 + 'px'
-       myGravity = 0   
    }
    }
    function startupGravityDown(){
