@@ -1,4 +1,4 @@
-Version 4.1.7
+Version 4.1.8
 <head> 
    <h4> Health: 
  <div id="myCounterH">100</div>   
@@ -432,9 +432,17 @@ function checkGravityDown(){
       (gravityDirection == 'down')){
          startupGravityDown()
    }
+   if ((myHitOther('myImg01','myImg21') != true) &&
+      (gravityDirection == 'down')){
+         startupGravityDown()
+   }
 }
 function checkGravityUp(){
    if ((myHitOther('myImg01','myImg05') != true) &&
+      (gravityDirection == 'up')){
+         startupGravityUp()
+   }
+   if ((myHitOther('myImg01','myImg21') != true) &&
       (gravityDirection == 'up')){
          startupGravityUp()
    }
