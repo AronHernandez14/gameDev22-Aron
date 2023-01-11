@@ -1,4 +1,4 @@
-Version 4.4.7
+Version 4.4.8
 <head> 
    <h4> Health: 
  <div id="myCounterH">1000</div>   
@@ -377,6 +377,22 @@ function myCheckHit(){
    if ( myHitOther('myBullet02','myImg06') ){
       clearInterval(myGun02)
       document.getElementById('myBullet02').style.left = '-2000px' 
+   }
+   if ( myHitOther('myBullet01','myImg20') ){
+      clearInterval(myGun02)
+      document.getElementById('myBullet01').style.left = '-2000px' 
+   }
+   if ( myHitOther('myBullet01','myImg20') ){
+      clearInterval(myGun02)
+      document.getElementById('myBullet02').style.left = '-2000px' 
+   }
+   if ( myHitOther('myBullet01','myImg20') ){
+      clearInterval(myGun02)
+      document.getElementById('myImg20').style.left = '-3000px' 
+   }
+   if ( myHitOther('myBullet02','myImg20') ){
+      clearInterval(myGun02)
+      document.getElementById('myImg20').style.left = '-3000px' 
    }
 }
    function startupGravityDown(){
