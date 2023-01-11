@@ -1,4 +1,4 @@
-Version 4.4.2
+Version 4.4.3
 <head> 
    <h4> Health: 
  <div id="myCounterH">1000</div>   
@@ -324,6 +324,7 @@ if ( myHitOther('myImg01','myImg19') ){
  }
 function myCheckHit(){
      console.log(document.getElementById('myImg01').style.left + " : " + document.getElementById('myImg01').style.top)
+     myEnemies()
       if ( myHitOther('myImg01','myImg02') ){
           alert('you lose')
          document.getElementById('myImg01').style.left = '0px'
@@ -558,6 +559,23 @@ function myAmmoOut(){
    document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet02').style.left) - 0
    document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet02').style.left) + 0  
    document.getElementById('myCounterP').innerHTML -= 0   
+   }
+function myEnemies(){
+   if ( ( myHitOther('myBullet01','myImg16') ){
+      clearInterval(myGun01)
+      document.getElementById('myImg20').style.left = '-3000px'    
+   }
+ if ( ( myHitOther('myBullet02','myImg20') ){
+      clearInterval(myGun01)
+      document.getElementById('myImg20').style.left = '-3000px'    
+   }
+   if ( ( myHitOther('myBullet01','myImg16') ){
+      clearInterval(myGun01)
+      document.getElementById('myImg20').style.left = '-3000px'    
+   }
+   if ( ( myHitOther('myBullet01','myImg20') ){
+      clearInterval(myGun01)
+      document.getElementById('myImg20').style.left = '-3000px'    
    }
 }   
    
