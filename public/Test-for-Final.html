@@ -1,4 +1,4 @@
-Version 4.2.7
+Version 4.2.8
 <head> 
    <h4> Health: 
  <div id="myCounterH">100</div>   
@@ -367,18 +367,6 @@ function myCheckHit(){
       document.getElementById('myBullet02').style.left = '-2000px' 
    }
 }
-function myCheckHitFloor(){
- if ( myHitOther('myImg01','myImg03','myImg22') ){
-       //document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 1 + 'px'
-       myGravity = 0
-  } 
-  }        
-   function myCheckHitRoof(){
-   if ( myHitOther('myImg01','myImg05','myImg22') ){
-       //document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 1 + 'px'
-       myGravity = 0
-   }
-   }
    function startupGravityDown(){
    clearInterval(myClock2)
    myClock2 = setInterval(function(){
@@ -420,7 +408,7 @@ function gravity(){
 }
 
 function checkGravityDown(){
-   if ((myHitOther('myImg01','myImg03','myImg22') != true) &&
+   if ((myHitOther('myImg01','myImg03','myImg21') != true) &&
       (gravityDirection == 'down')){
          startupGravityDown()
    }
@@ -430,7 +418,19 @@ function checkGravityUp(){
       (gravityDirection == 'up')){
          startupGravityUp()
    }
-}     
+}   
+function myCheckHitFloor(){
+ if ( myHitOther('myImg01','myImg03','myImg21') ){
+       //document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 1 + 'px'
+       myGravity = 0
+  } 
+  }        
+   function myCheckHitRoof(){
+   if ( myHitOther('myImg01','myImg05','myImg22') ){
+       //document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 1 + 'px'
+       myGravity = 0
+   }
+   }   
 function checkFacingDirection(){
    if ((facingDirectionV == 'down') &&
       (facingDirectionH == 'left')){
@@ -554,7 +554,7 @@ function myAmmoOut(){
 <img id="myImg09" style="position:absolute; width:80px; height:80px; top:600px; left:1600px;" src="red-photos-1172010.jpg">
 <img id="myImg10" style="position:absolute; width:1920px; height:1px; top:-20px; left:0px;" src="red-photos-1172010.jpg">
 <img id="myImg11" style="position:absolute; width:1920px; height:80px; top:820px; left:0px;" src="img/railguard long .png">
-<img id="myImg21" style="position:absolute; width:960px; height:2px; top:599px; left:0px;" src="red-photos-1172010.jpg">
+<img id="myImg21" style="position:absolute; width:960px; height:2px; top:598px; left:0px;" src="red-photos-1172010.jpg">
 <img id="myImg22" style="position:absolute; width:960px; height:2px; top:600px; left:0px;" src="red-photos-1172010.jpg">   
 <img id="myImg12" style="position:absolute; width:960px; height:80px; top:520px; left:0px;" src="img/railguard mid.png">
 <img id="myImg14" style="position:absolute; width:12px; height:20px; top:410px; left:200px;" src="img/Can.png">
