@@ -1,4 +1,4 @@
-Version 4.0.6
+Version 4.0.7
 <head> 
    <h4> Health: 
  <div id="myCounterH">100</div>   
@@ -60,8 +60,8 @@ onkeydown="{
            
      if (myKey == 'D') {
       if (gravityDirection == 'down' || gravityDirection == 'up') {
-    document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 4  
-    document.getElementById('myImg18').style.left = parseInt(document.getElementById('myImg01').style.left) + 4 
+    document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 6  
+    document.getElementById('myImg18').style.left = parseInt(document.getElementById('myImg01').style.left) + 6
     document.getElementById('myImg01').style.visibility='visible';    
     document.getElementById('myImg18').style.visibility='hidden';          
     facingDirectionH = 'right'
@@ -78,8 +78,8 @@ onkeydown="{
    }                                                                                                             // right movement gun
    if (myKey == 'A') {
       if (gravityDirection == 'down' || gravityDirection == 'up') {
-    document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 4 
-    document.getElementById('myImg18').style.left = parseInt(document.getElementById('myImg01').style.left) - 4
+    document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 6 
+    document.getElementById('myImg18').style.left = parseInt(document.getElementById('myImg01').style.left) - 6
     document.getElementById('myImg01').style.visibility='visible';    
     document.getElementById('myImg18').style.visibility='hidden';          
     facingDirectionH = 'left'
