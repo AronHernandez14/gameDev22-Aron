@@ -1,4 +1,4 @@
-Version 4.4.0
+Version 4.4.1
 <head> 
    <h4> Health: 
  <div id="myCounterH">1000</div>   
@@ -37,7 +37,8 @@ onkeydown="{
       checkGravityUp()
       myIsOnScreen()
      myCheckHit()
-    myGameover()       
+    myGameover()
+    myTeleport()       
    }
    }                                                                                                             // right movement normal
    if (myKey == 'a') {
@@ -54,7 +55,8 @@ onkeydown="{
       checkGravityUp()
       myIsOnScreen()   
      myCheckHit()
-     myGameover()      
+     myGameover()  
+     myTeleport()      
    }
    }                                                                                                             //left movement gun
            
@@ -73,6 +75,7 @@ onkeydown="{
       checkGravityUp()
       myIsOnScreen()
      myCheckHit() 
+     myTeleport()      
    }
    }                                                                                                             // right movement gun
    if (myKey == 'A') {
@@ -88,7 +91,8 @@ onkeydown="{
       checkGravityDown()
       checkGravityUp()
       myIsOnScreen()   
-     myCheckHit()      
+     myCheckHit()   
+     myTeleport()
    }
    }                                                                                                             //left movement normal         
            
@@ -108,7 +112,8 @@ onkeydown="{
       myCheckHitRoof()
       myIsOnScreen()  
      myCheckHit()
-     myGameover()      
+     myGameover() 
+     myTeleport()      
    }                                                                                                        //up movement
    if (myKey == 's' || myKey == 'S') {
     if ((myGravity == 0) &&
@@ -126,7 +131,8 @@ onkeydown="{
       myCheckHitRoof()
      myIsOnScreen()     
     myCheckHit() 
-    myGameover()       
+    myGameover()  
+    myTeleport()       
    }                                                                                                         //down movement
       if (myKey == '' || myKey == 'D'){
 if (myShooting > 2 ){myShooting = 1}
@@ -309,10 +315,11 @@ function myHitOther(my1,my2){
 }
  function myTeleport(){
 if ( myHitOther('myImg01','myImg19') ){
-    document.getElementById('myImg01').style.left = '0px'
-    document.getElementById('myImg01').style.left = '0px'
-   <img id="myImg01"style="position:absolute; width:50px; height:50px; top:200px; left:1400px>
-   <img id="myImg18"style="position:absolute; width:50px; height:50px; top:200px; left:1400px>
+    document.getElementById('myImg01').style.left = '1400px'
+    document.getElementById('myImg18').style.left = '1400px'
+    document.getElementById('myImg01').style.top = '200px'
+    document.getElementById('myImg18').style.top = '200px'
+
    } 
  }
 function myCheckHit(){
