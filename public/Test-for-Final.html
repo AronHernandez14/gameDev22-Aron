@@ -1,4 +1,4 @@
-Version 4.1.4
+Version 4.1.6
 <head> 
    <h4> Health: 
  <div id="myCounterH">100</div>   
@@ -372,11 +372,19 @@ function myCheckHitFloor(){
        //document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 1 + 'px'
        myGravity = 0
   } 
+    if ( myHitOther('myImg01','myImg21') ){
+       //document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 1 + 'px'
+       myGravity = 0
+  } 
 }        
    function myCheckHitRoof(){
    if ( myHitOther('myImg01','myImg05') ){
        //document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 1 + 'px'
        myGravity = 0
+   }
+   if ( myHitOther('myImg01','myImg21') ){
+       //document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 1 + 'px'
+       myGravity = 0   
    }
    }
    function startupGravityDown(){
@@ -554,6 +562,7 @@ function myAmmoOut(){
 <img id="myImg09" style="position:absolute; width:80px; height:80px; top:600px; left:1600px;" src="red-photos-1172010.jpg">
 <img id="myImg10" style="position:absolute; width:1920px; height:1px; top:-20px; left:0px;" src="red-photos-1172010.jpg">
 <img id="myImg11" style="position:absolute; width:1920px; height:80px; top:820px; left:0px;" src="img/railguard long .png">
+<img id="myImg21" style="position:absolute; width:960px; height:1px; top:599px; left:1919px;" src="red-photos-1172010.jpg">   
 <img id="myImg12" style="position:absolute; width:960px; height:80px; top:520px; left:0px;" src="img/railguard mid.png">
 <img id="myImg14" style="position:absolute; width:12px; height:20px; top:410px; left:200px;" src="img/Can.png">
 <img id="myImg07" style="position:absolute; width:70px; height:90px; top:500px; left:500px;"  src="img/electric tunnel.gif">   
