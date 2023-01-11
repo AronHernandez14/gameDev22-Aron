@@ -1,4 +1,4 @@
-Version 4.0.4
+Version 4.0.5
 <head> 
    <h4> Health: 
  <div id="myCounterH">100</div>   
@@ -144,7 +144,8 @@ if (myShooting == 2){
      document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) + 4
      myCheckHit() 
       checkFacingDirection()      
-     checkFacingDirectionBullet()      
+     checkFacingDirectionBullet()  
+        myAmmoOut()   
   }, 1) 
 }
   // Bullet Number 1
@@ -161,7 +162,8 @@ if (myShooting == 1){
      document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) + 4
      myCheckHit() 
       checkFacingDirection()      
-     checkFacingDirectionBullet()      
+     checkFacingDirectionBullet()   
+           myAmmoOut()
   }, 1)  
   } 
   }    
@@ -180,7 +182,8 @@ if (myShooting == 2){
      document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) - 4
      myCheckHit() 
       checkFacingDirection()      
-     checkFacingDirectionBullet()      
+     checkFacingDirectionBullet()   
+           myAmmoOut()
   }, 1) 
 }
   // Bullet Number 1
@@ -197,7 +200,8 @@ if (myShooting == 1){
      document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) - 4
      myCheckHit() 
       checkFacingDirection()      
-     checkFacingDirectionBullet()      
+     checkFacingDirectionBullet()     
+           myAmmoOut()
   }, 1)  
  } 
 }    
@@ -212,7 +216,8 @@ if (myShooting == 2){
   myGun02 = setInterval(function(){
      myCheckHit() 
       checkFacingDirection()      
-     checkFacingDirectionBullet()      
+     checkFacingDirectionBullet()     
+           myAmmoOut()
   }, 1) 
 }
   // Bullet Number 1
@@ -224,7 +229,8 @@ if (myShooting == 1){
   myGun01 = setInterval(function(){
      myCheckHit() 
       checkFacingDirection()      
-     checkFacingDirectionBullet()      
+     checkFacingDirectionBullet()   
+           myAmmoOut()
   }, 1)  
   } 
   }    
@@ -239,7 +245,8 @@ if (myShooting == 2){
   myGun02 = setInterval(function(){
      myCheckHit() 
       checkFacingDirection()      
-     checkFacingDirectionBullet()      
+     checkFacingDirectionBullet()    
+           myAmmoOut()
   }, 1) 
 }
   // Bullet Number 1
@@ -251,7 +258,8 @@ if (myShooting == 1){
   myGun01 = setInterval(function(){
      myCheckHit() 
       checkFacingDirection()      
-     checkFacingDirectionBullet()      
+     checkFacingDirectionBullet()   
+           myAmmoOut()
   }, 1)  
  } 
 }                                               
@@ -520,6 +528,15 @@ function myGameover(){
    location = 'Test-for-Final.html'  // You died
    }
 }
+function myAmmoOut(){
+   if (document.getElementById('myCounterP').innerHTML < 0 ){ 
+   document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) - 0 
+   document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) + 0  
+   document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet02').style.left) - 0
+   document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet02').style.left) + 0   
+   }
+}   
+   
 </script>  
    
 <img id="myImg01" style="position:absolute; width:34px; height:96px; top:700px; left:50px;" visibility='visible' src="img/Madeline Left Running.gif">
