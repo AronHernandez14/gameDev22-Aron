@@ -1,4 +1,4 @@
-Version 4.4.9
+Version 4.5.0
 <head> 
    <h4> Health: 
  <div id="myCounterH">1000</div>   
@@ -368,15 +368,14 @@ function myCheckHit(){
    if ( myHitOther('myBullet02','myImg16') ){
       clearInterval(myGun02)
       document.getElementById('myBullet02').style.left = '-2000px'
-      document.all.myText01.value = 'You shot myImg16' 
    }
    if ( myHitOther('myBullet01','myImg06') ){
       clearInterval(myGun01)
-      document.getElementById('myBullet01').style.left = '-2000px'     
+      document.getElementById('myImg06').style.left = '-2000px'     
    }   
    if ( myHitOther('myBullet02','myImg06') ){
       clearInterval(myGun02)
-      document.getElementById('myBullet02').style.left = '-2000px' 
+      document.getElementById('myImg06').style.left = '-2000px' 
    }
    if ( myHitOther('myBullet01','myImg20') ){
       clearInterval(myGun02)
