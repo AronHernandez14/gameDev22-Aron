@@ -1,4 +1,4 @@
-Version 5.1.6
+Version 5.1.7
 <head> 
    <h4> Health: 
  <div id="myCounterH">1000</div>   
@@ -524,19 +524,19 @@ function myAmmoOut(){
    }
 }
 function myMoveIt(){
-   if ( document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) < 8 ){
+   if ( document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) < + 8 ){
     document.getElementById('myImg01').style.visibility='visible';    
     document.getElementById('myImg18').style.visibility='hidden'; 
   } 
-   if ( document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) < 8 ){
+   if ( document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) < - 8 ){
     document.getElementById('myImg01').style.visibility='visible';    
     document.getElementById('myImg18').style.visibility='hidden'; 
   }    
-   if ( document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) > 8 ){
+   if ( document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) > + 8 ){
     document.getElementById('myImg01').style.visibility='hidden';    
     document.getElementById('myImg18').style.visibility='visible'; 
   } 
-   if ( document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) > 8 ){
+   if ( document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) > - 8 ){
     document.getElementById('myImg01').style.visibility='hidden';    
     document.getElementById('myImg18').style.visibility='visible'; 
   }         
