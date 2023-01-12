@@ -1,4 +1,4 @@
-Version 4.7.9
+Version 4.8.0
 <head> 
    <h4> Health: 
  <div id="myCounterH">1000</div>   
@@ -367,19 +367,23 @@ function myCheckHit(){
    }
    if ( myHitOther('myBullet01','myImg06') ){
       clearInterval(myGun01)
-      document.getElementById('myBullet01').style.left = '-2000px'     
+      document.getElementById('myBullet01').style.left = '-2000px'
+      document.getElementById('myCounterE').innerHTML ++
    }   
    if ( myHitOther('myBullet02','myImg06') ){
       clearInterval(myGun02)
       document.getElementById('myBullet02').style.left = '-2000px' 
+      document.getElementById('myCounterE').innerHTML ++
    }
    if ( myHitOther('myBullet01','myImg20') ){
       clearInterval(myGun02)
-      document.getElementById('myImg20').style.left = '-3000px' 
+      document.getElementById('myImg20').style.left = '-3000px'
+      document.getElementById('myCounterE').innerHTML ++
    }
    if ( myHitOther('myBullet02','myImg20') ){
       clearInterval(myGun02)
       document.getElementById('myImg20').style.left = '-3000px' 
+      document.getElementById('myCounterE').innerHTML ++
    }
 }
    function startupGravityDown(){
@@ -594,8 +598,7 @@ function myAmmoOut(){
 <img id="myImg25" style="position:absolute; width:430px; height:80px; top:300px; left:1489px;" src="img/railguard short.png">   
 <img id="myImg14" style="position:absolute; width:12px; height:20px; top:300px; left:200px;" src="img/Can.png">  
 <img id="myImg15" style="position:absolute; width:12px; height:20px; top:820px; left:400px;" src="img/Can.png">      
-<img id="myImg08" style="position:absolute; width:120px; height:220px; top:0px; left:0px; opacity:0.7;" src="img/Interface.png">   
-<img id="myImg18"style="position:absolute; width:34px; height:900x; top:300px; left:50px;" visibility='hidden' src="img/Madeline standing1.gif">  
+<img id="myImg08" style="position:absolute; width:120px; height:220px; top:0px; left:0px; opacity:0.7;" src="img/Interface.png">    
 <img id="myImg24"style="position:absolute; width:150px; height:150px; top:650px; left:0px;" src="">     
 <img id="myBullet01" style="position:absolute; width:32px; height:32px; left: -80px; top:0px; opacity:0.9;" src="img/ElectroBall.gif"> 
 <img id="myBullet02" style="position:absolute; width:32px; height:32px; left: -80px; top:0px; opacity:0.9;" src="img/ElectroBall.gif">  
