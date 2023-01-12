@@ -1,4 +1,4 @@
-Version 4.9.7
+Version 4.9.8
 <head> 
    <h4> Health: 
  <div id="myCounterH">1000</div>   
@@ -21,11 +21,11 @@ body{
 
 <body id="myBody" style="background-repeat:repeat; background-size: cover" background="img/Blank wall.png"
 onkeydown="{
-   let myKeydown || myKeyup= event.key       
-   //let myKeydown = String.toLowerCase(event.key)
+   let myKey = event.key       
+   //let myKey = String.toLowerCase(event.key)
            
            
-   if (myKeydown == 'd') {
+   if (myKey == 'd') {
       if (gravityDirection == 'down' || gravityDirection == 'up') {
     document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 8 
     document.getElementById('myImg18').style.left = parseInt(document.getElementById('myImg01').style.left) + 8 
@@ -44,7 +44,7 @@ onkeydown="{
     myTeleport()         
    }
    }                                                                                                             // right movement normal
-   if (myKeydown == 'a') {
+   if (myKey == 'a') {
       if (gravityDirection == 'down' || gravityDirection == 'up') {
     document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 8  
     document.getElementById('myImg18').style.left = parseInt(document.getElementById('myImg01').style.left) - 8 
@@ -63,7 +63,7 @@ onkeydown="{
    }
    }                                                                                                             //left movement gun
            
-     if (myKeydown == 'D') {
+     if (myKey == 'D') {
       if (gravityDirection == 'down' || gravityDirection == 'up') {
     document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 6  
     document.getElementById('myImg18').style.left = parseInt(document.getElementById('myImg01').style.left) + 6
@@ -81,7 +81,7 @@ onkeydown="{
      myTeleport()      
    }
    }                                                                                                             // right movement gun
-   if (myKeydown == 'A') {
+   if (myKey == 'A') {
       if (gravityDirection == 'down' || gravityDirection == 'up') {
     document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 6 
     document.getElementById('myImg18').style.left = parseInt(document.getElementById('myImg01').style.left) - 6
@@ -99,7 +99,7 @@ onkeydown="{
    }
    }                                                                                                             //left movement normal         
            
-   if (myKeydown == 'w' || myKeydown == 'W') {
+   if (myKey == 'w' || myKey == 'W') {
       if ((myGravity == 0 ) &&
          (gravityDirection == 'down')) {
          gravityDirection = 'up'
@@ -118,7 +118,7 @@ onkeydown="{
      myGameover() 
      myTeleport()        
    }                                                                                                        //up movement
-   if (myKeydown == 's' || myKeydown == 'S') {
+   if (myKey == 's' || myKey == 'S') {
     if ((myGravity == 0) &&
        (gravityDirection == 'up')) {
       gravityDirection = 'down'
@@ -137,7 +137,7 @@ onkeydown="{
     myGameover()  
     myTeleport()       
    }                                                                                                         //down movement
-      if (myKey == '' || myKeydown == 'D'){
+      if (myKey == '' || myKey == 'D'){
 if (myShooting > 2 ){myShooting = 1}
   // Bullet Number 2
 if (myShooting == 2){        
@@ -175,7 +175,7 @@ if (myShooting == 1){
   } 
   }    
            
-      if (myKey == '' || myKeydown == 'A'){
+      if (myKey == '' || myKey == 'A'){
 if (myShooting > 2 ){myShooting = 1}
   // Bullet Number 2
 if (myShooting == 2){            
@@ -205,208 +205,6 @@ if (myShooting == 1){
   clearInterval(myGun01)
   myGun01 = setInterval(function(){
      document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) - 4
-     myCheckHit() 
-      checkFacingDirection()      
-     checkFacingDirectionBullet()     
-           myAmmoOut()
-  }, 1)  
- } 
-}    
-           
-      if (myKey == '' || myKeydown == 'D'){
-if (myShooting > 2 ){myShooting = 1}
-  // Bullet Number 2
-if (myShooting == 2){      
-  myShooting += 1      
-  document.getElementById('myCounterP').innerHTML < 0        
-  clearInterval(myGun02)
-  myGun02 = setInterval(function(){
-      checkFacingDirection()      
-     checkFacingDirectionBullet()     
-           myAmmoOut()
-  }, 1) 
-}
-  // Bullet Number 1
-if (myShooting == 1){         
-  myShooting += 1         
-  document.getElementById('myCounterP').innerHTML < 0         
-  document.getElementById('myCounterP').innerHTML -= 1           
-  clearInterval(myGun01)
-  myGun01 = setInterval(function(){
-      checkFacingDirection()      
-     checkFacingDirectionBullet()   
-           myAmmoOut()
-  }, 1)  
-  } 
-  }    
-           
-      if (myKey == '' || myKeydown == 'A'){
-if (myShooting > 2 ){myShooting = 1}
-  // Bullet Number 2
-if (myShooting == 2){        
-  myShooting += 1
-  document.getElementById('myCounterP').innerHTML < 0     
-  clearInterval(myGun02)
-  myGun02 = setInterval(function(){ 
-      checkFacingDirection()      
-     checkFacingDirectionBullet()    
-           myAmmoOut()
-  }, 1) 
-}
-  // Bullet Number 1
-if (myShooting == 1){        
-  myShooting += 1   
-  document.getElementById('myCounterP').innerHTML < 0          
-  document.getElementById('myCounterP').innerHTML -= 1                     
-  clearInterval(myGun01)
-  myGun01 = setInterval(function(){ 
-      checkFacingDirection()      
-     checkFacingDirectionBullet()   
-           myAmmoOut()
-  }, 1)  
- } 
- }
-}        
-   if (myKeyup == 'd') {
-      if (gravityDirection == 'down' || gravityDirection == 'up') {
-    document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 0 
-    document.getElementById('myImg18').style.left = parseInt(document.getElementById('myImg01').style.left) + 0 
-    document.getElementById('myImg01').style.visibility='hidden';    
-    document.getElementById('myImg18').style.visibility='visible';       
-    facingDirectionH = 'right'
-    checkFacingDirection()
-    console.log()
-    myCheckHitFloor()
-      myCheckHitRoof()
-      checkGravityDown()                                
-      checkGravityUp()
-      myIsOnScreen()
-     myCheckHit()
-    myGameover()
-    myTeleport()         
-   }
-   }                                                                                                             // right movement normal
-   if (myKeyup == 'a') {
-      if (gravityDirection == 'down' || gravityDirection == 'up') {
-    document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 0 
-    document.getElementById('myImg18').style.left = parseInt(document.getElementById('myImg01').style.left) - 0 
-    document.getElementById('myImg01').style.visibility='hidden';    
-    document.getElementById('myImg18').style.visibility='visible';        
-    facingDirectionH = 'left'
-    checkFacingDirection()
-    myCheckHitFloor()
-      myCheckHitRoof()
-      checkGravityDown()
-      checkGravityUp()
-      myIsOnScreen()   
-     myCheckHit()
-     myGameover()  
-     myTeleport()     
-   }
-   }                                                                                                             //left movement gun
-           
-     if (myKeyup == 'D') {
-      if (gravityDirection == 'down' || gravityDirection == 'up') {
-    document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 0  
-    document.getElementById('myImg18').style.left = parseInt(document.getElementById('myImg01').style.left) + 0
-    document.getElementById('myImg01').style.visibility='hidden';    
-    document.getElementById('myImg18').style.visibility='visible';       
-    facingDirectionH = 'right'
-    checkFacingDirection()
-    console.log()
-    myCheckHitFloor()
-      myCheckHitRoof()
-      checkGravityDown()                                
-      checkGravityUp()
-      myIsOnScreen()
-     myCheckHit() 
-     myTeleport()      
-   }
-   }                                                                                                             // right movement gun
-   if (myKeyup == 'A') {
-      if (gravityDirection == 'down' || gravityDirection == 'up') {
-    document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 0
-    document.getElementById('myImg18').style.left = parseInt(document.getElementById('myImg01').style.left) - 0
-    document.getElementById('myImg01').style.visibility='hidden';    
-    document.getElementById('myImg18').style.visibility='visible';         
-    facingDirectionH = 'left'
-    checkFacingDirection()
-    myCheckHitFloor()
-      myCheckHitRoof()
-      checkGravityDown()
-      checkGravityUp()
-      myIsOnScreen()   
-     myCheckHit()   
-     myTeleport()
-   }
-   }                                                                                                             //left movement normal                                                                  
-      if (myKey == '' || myKeyup == 'D'){
-if (myShooting > 2 ){myShooting = 1}
-  // Bullet Number 2
-if (myShooting == 2){        
-  myShooting += 1
-  document.getElementById('myBullet02').style.left = document.getElementById('myImg01').style.left
-  document.getElementById('myBullet02').style.top  = document.getElementById('myImg01').style.top   
-  document.getElementById('myImg01').style.visibility='hidden';    
-  document.getElementById('myImg18').style.visibility='visible';             
-  clearInterval(myGun02)
-  myGun02 = setInterval(function(){
-     document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) + 0
-     myCheckHit() 
-      checkFacingDirection()      
-     checkFacingDirectionBullet()  
-        myAmmoOut()  
-  }, 1) 
-}
-  // Bullet Number 1
-if (myShooting == 1){
-  mySound1.play()         
-  myShooting += 1
-  document.getElementById('myCounterP').innerHTML -= 1          
-  document.getElementById('myBullet01').style.left = document.getElementById('myImg01').style.left
-  document.getElementById('myBullet01').style.top  = document.getElementById('myImg01').style.top  
-  document.getElementById('myImg01').style.visibility='hidden';    
-  document.getElementById('myImg18').style.visibility='visible';            
-  clearInterval(myGun01)
-  myGun01 = setInterval(function(){
-     document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) + 0
-     myCheckHit() 
-      checkFacingDirection()      
-     checkFacingDirectionBullet()   
-           myAmmoOut()
-  }, 1)  
-  } 
-  }    
-           
-      if (myKey == '' || myKeyup == 'A'){
-if (myShooting > 2 ){myShooting = 1}
-  // Bullet Number 2
-if (myShooting == 2){            
-  myShooting += 1
-  document.getElementById('myBullet02').style.left = document.getElementById('myImg01').style.left
-  document.getElementById('myBullet02').style.top  = document.getElementById('myImg01').style.top
-  document.getElementById('myImg01').style.visibility='hidden';    
-  document.getElementById('myImg18').style.visibility='visible';              
-  clearInterval(myGun02)
-  myGun02 = setInterval(function(){
-     document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) - 0
-     myCheckHit() 
-      checkFacingDirection()      
-     checkFacingDirectionBullet()   
-           myAmmoOut()
-  }, 1) 
-}
-  // Bullet Number 1
-if (myShooting == 1){ 
-  mySound1.play()         
-  myShooting += 1         
-  document.getElementById('myCounterP').innerHTML -= 1           
-  document.getElementById('myBullet01').style.left = document.getElementById('myImg01').style.left
-  document.getElementById('myBullet01').style.top  = document.getElementById('myImg01').style.top    
-  document.getElementById('myImg01').style.visibility='hidden';    
-  document.getElementById('myImg18').style.visibility='visible';   
-  myGun01 = setInterval(function(){
-     document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) - 0
      myCheckHit() 
       checkFacingDirection()      
      checkFacingDirectionBullet()     
