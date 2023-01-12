@@ -1,6 +1,15 @@
+version 0.0.2
 
 <h2 align=center>t2a08-canvas by Aron</h2>
 You use loops and variables to make fast fancy drawings <br><br>
+
+<html>
+     <body style="background-color:#331122;">
+     <document body style="background-color:#771122;";>
+     <document body style color="style-color:#113344;";>
+     </body>
+</html>
+
 
 <input type=button value=".lineTo(30,200)" onclick="{
    myContext.beginPath();
@@ -49,6 +58,17 @@ You use loops and variables to make fast fancy drawings <br><br>
    myContext.fillStyle = 'black';
 }"><br><br>
 
+<input type=button value=".createLinearGradient(1, 300, 200, 45)" onclick="{
+   let myGradient = myContext.createLinearGradient(29, 300, 204, 400);
+   myGradient.addColorStop(0, 'red');
+   myGradient.addColorStop(0.5, 'blue');
+   myGradient.addColorStop(1, 'yellow');
+   myContext.fillStyle = myGradient;
+   myContext.fillRect(100, 30, 200, 70);
+   // reset fillstyle
+   myContext.fillStyle = 'black';
+}"><br><br>        
+        
 <input type=button value="clearRect(20, 20, 50, 50)" onclick="{
    myContext.clearRect(20, 20, 50, 50);
 }">
