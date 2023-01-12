@@ -1,4 +1,4 @@
-Version 5.1.1
+Version 5.1.3
 <head> 
    <h4> Health: 
  <div id="myCounterH">1000</div>   
@@ -29,8 +29,8 @@ onkeydown="{
       if (gravityDirection == 'down' || gravityDirection == 'up') {
     document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 8 
     document.getElementById('myImg18').style.left = parseInt(document.getElementById('myImg01').style.left) + 8 
-    document.getElementById('myImg01').style.visibility='visible';    
-    document.getElementById('myImg18').style.visibility='hidden';       
+    document.getElementById('myImg01').style.visibility='hidden';    
+    document.getElementById('myImg18').style.visibility='visible';       
     facingDirectionH = 'right'
     checkFacingDirection()
     console.log()
@@ -42,7 +42,6 @@ onkeydown="{
      myCheckHit()
     myGameover()
     myTeleport()  
-    myStandStill()
        myMoveIt()   
    }
    }                                                                                                             // right movement normal
@@ -50,8 +49,8 @@ onkeydown="{
       if (gravityDirection == 'down' || gravityDirection == 'up') {
     document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 8  
     document.getElementById('myImg18').style.left = parseInt(document.getElementById('myImg01').style.left) - 8 
-    document.getElementById('myImg01').style.visibility='visible';    
-    document.getElementById('myImg18').style.visibility='hidden';          
+    document.getElementById('myImg01').style.visibility='hidden';    
+    document.getElementById('myImg18').style.visibility='visible';          
     facingDirectionH = 'left'
     checkFacingDirection()
     myCheckHitFloor()
@@ -62,7 +61,6 @@ onkeydown="{
      myCheckHit()
      myGameover()  
      myTeleport() 
-    myStandStill()
     myMoveIt()        
    }
    }                                                                                                             //left movement gun
@@ -82,8 +80,7 @@ onkeydown="{
       checkGravityUp()
       myIsOnScreen()
      myCheckHit() 
-     myTeleport()  
-     myStandStill() 
+     myTeleport()   
       myMoveIt()   
    }
    }                                                                                                             // right movement gun
@@ -102,7 +99,6 @@ onkeydown="{
       myIsOnScreen()   
      myCheckHit()   
      myTeleport()
-    myStandStill() 
     myMoveIt()       
    }
    }                                                                                                             //left movement normal         
@@ -113,8 +109,8 @@ onkeydown="{
          gravityDirection = 'up'
          document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 6
          document.getElementById('myImg18').style.top = parseInt(document.getElementById('myImg18').style.top) - 6 
-         document.getElementById('myImg01').style.visibility='visible';    
-         document.getElementById('myImg18').style.visibility='hidden';     
+         document.getElementById('myImg01').style.visibility='hidden';    
+         document.getElementById('myImg18').style.visibility='visible';     
          startupGravityUp()
          facingDirectionV = 'up'
          checkFacingDirection()
@@ -132,8 +128,8 @@ onkeydown="{
       gravityDirection = 'down'
       document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 6
       document.getElementById('myImg18').style.top = parseInt(document.getElementById('myImg01').style.top) + 6  
-      document.getElementById('myImg01').style.visibility='visible';    
-      document.getElementById('myImg18').style.visibility='hidden';         
+      document.getElementById('myImg01').style.visibility='hidden';    
+      document.getElementById('myImg18').style.visibility='visible';         
       startupGravityDown()
       facingDirectionV = 'down'
       checkFacingDirection()
@@ -526,16 +522,6 @@ function myAmmoOut(){
    document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet02').style.left) + 0  
    document.getElementById('myCounterP').innerHTML -= 0   
    }
-}
-function myStandStill(){
-   if ( document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 0 ){
-    document.getElementById('myImg01').style.visibility='hidden';    
-    document.getElementById('myImg18').style.visibility='visible'; 
-  } 
-   if ( document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 0 ){
-    document.getElementById('myImg01').style.visibility='hidden';    
-    document.getElementById('myImg18').style.visibility='visible'; 
-  }      
 }
 function myMoveIt(){
    if ( document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 8 ){
