@@ -1,4 +1,4 @@
-Version 4.9.8
+Version 4.9.9
 <head> 
    <h4> Health: 
  <div id="myCounterH">1000</div>   
@@ -41,7 +41,8 @@ onkeydown="{
       myIsOnScreen()
      myCheckHit()
     myGameover()
-    myTeleport()         
+    myTeleport()  
+    myStandStill()       
    }
    }                                                                                                             // right movement normal
    if (myKey == 'a') {
@@ -59,7 +60,8 @@ onkeydown="{
       myIsOnScreen()   
      myCheckHit()
      myGameover()  
-     myTeleport()     
+     myTeleport() 
+    myStandStill()
    }
    }                                                                                                             //left movement gun
            
@@ -78,7 +80,8 @@ onkeydown="{
       checkGravityUp()
       myIsOnScreen()
      myCheckHit() 
-     myTeleport()      
+     myTeleport()  
+     myStandStill()      
    }
    }                                                                                                             // right movement gun
    if (myKey == 'A') {
@@ -96,6 +99,7 @@ onkeydown="{
       myIsOnScreen()   
      myCheckHit()   
      myTeleport()
+    myStandStill()       
    }
    }                                                                                                             //left movement normal         
            
@@ -116,7 +120,8 @@ onkeydown="{
       myIsOnScreen()  
      myCheckHit()
      myGameover() 
-     myTeleport()        
+     myTeleport() 
+     myStandStill()      
    }                                                                                                        //up movement
    if (myKey == 's' || myKey == 'S') {
     if ((myGravity == 0) &&
@@ -135,7 +140,8 @@ onkeydown="{
      myIsOnScreen()     
     myCheckHit() 
     myGameover()  
-    myTeleport()       
+    myTeleport() 
+    myStandStill()       
    }                                                                                                         //down movement
       if (myKey == '' || myKey == 'D'){
 if (myShooting > 2 ){myShooting = 1}
@@ -518,6 +524,13 @@ function myAmmoOut(){
    document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet02').style.left) + 0  
    document.getElementById('myCounterP').innerHTML -= 0   
    }
+}
+function myStandStill(){
+   if ( document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 0 )
+      ( document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.top) + 0 ){
+    document.getElementById('myImg01').style.visibility='hidden';    
+    document.getElementById('myImg18').style.visibility='visible'; 
+  }     
 }
    
 </script>  
