@@ -1,4 +1,4 @@
-Version 5.2.3
+Version 5.2.5
 <head> 
    <h4> Health: 
  <div id="myCounterH">1000</div>   
@@ -42,7 +42,6 @@ onkeydown="{
      myCheckHit()
     myGameover()
     myTeleport()  
-       myMoveIt()   
    }
    }                                                                                                             // right movement normal
    if (myKey == 'a') {
@@ -60,8 +59,7 @@ onkeydown="{
       myIsOnScreen()   
      myCheckHit()
      myGameover()  
-     myTeleport() 
-    myMoveIt()        
+     myTeleport()   
    }
    }                                                                                                             //left movement gun
            
@@ -80,8 +78,7 @@ onkeydown="{
       checkGravityUp()
       myIsOnScreen()
      myCheckHit() 
-     myTeleport()   
-      myMoveIt()   
+     myTeleport()    
    }
    }                                                                                                             // right movement gun
    if (myKey == 'A') {
@@ -98,8 +95,7 @@ onkeydown="{
       checkGravityUp()
       myIsOnScreen()   
      myCheckHit()   
-     myTeleport()
-    myMoveIt()       
+     myTeleport()   
    }
    }                                                                                                             //left movement normal         
            
@@ -288,7 +284,7 @@ function myCheckHit(){
       if ( myHitOther('myImg01','myImg09') ){
           alert('next level')  
           document.getElementById('myImg01').style.left = '0px'
-          location = 'Proof-level-2-draft-uploaded.html'  // go to your next level   
+          location = 'Test-for-Final02.html'  // go to your next level   
     }
       if ( myHitOther('myImg01','myImg14') ){
        mySound4.play()
@@ -522,18 +518,7 @@ function myAmmoOut(){
    document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet02').style.left) + 0  
    document.getElementById('myCounterP').innerHTML -= 0   
    }
-}
-function myMoveIt(){
-   if ( document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.top) < 0 ){
-    document.getElementById('myImg01').style.visibility='hidden';    
-    document.getElementById('myImg18').style.visibility='visible'; 
-  } 
-   if ( document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) > 0 ){
-    document.getElementById('myImg01').style.visibility='visible';    
-    document.getElementById('myImg18').style.visibility='hidden'; 
-  }         
-}   
-   
+}  
 </script>  
 <img id="myImg19"style="position:absolute; width:50px; height:120px; top:779px; left:50px;" src="img/dooropen.png">  
 <img id="myImg23"style="position:absolute; width:50px; height:120px; top:480px; left:50px;" src="img/doorclose.png">  
