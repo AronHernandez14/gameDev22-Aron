@@ -1,4 +1,4 @@
-Version 4.9.6
+Version 4.9.7
 <head> 
    <h4> Health: 
  <div id="myCounterH">1000</div>   
@@ -21,9 +21,9 @@ body{
 
 <body id="myBody" style="background-repeat:repeat; background-size: cover" background="img/Blank wall.png"
 onkeydown="{
-   let myKeydown = event.key
-   let myKeyup = event.key        
+   let myKeydown || myKeyup= event.key       
    //let myKeydown = String.toLowerCase(event.key)
+           
            
    if (myKeydown == 'd') {
       if (gravityDirection == 'down' || gravityDirection == 'up') {
