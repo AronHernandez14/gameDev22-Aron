@@ -1,4 +1,4 @@
-Version 4.8.0
+Version 4.8.1
 <head> 
    <h4> Health: 
  <div id="myCounterH">1000</div>   
@@ -358,32 +358,33 @@ function myCheckHit(){
        document.getElementById('myCounterH').innerHTML =+ 100         
    }
   if ( myHitOther('myBullet01','myImg16') ){
+      document.getElementById('myCounterE').innerHTML ++
       clearInterval(myGun01)
       document.getElementById('myImg16').style.left = '-2000px'
    }    
    if ( myHitOther('myBullet02','myImg16') ){
+       document.getElementById('myCounterE').innerHTML ++
       clearInterval(myGun02)
       document.getElementById('myImg16').style.left = '-2000px'
    }
    if ( myHitOther('myBullet01','myImg06') ){
       clearInterval(myGun01)
       document.getElementById('myBullet01').style.left = '-2000px'
-      document.getElementById('myCounterE').innerHTML ++
    }   
    if ( myHitOther('myBullet02','myImg06') ){
       clearInterval(myGun02)
       document.getElementById('myBullet02').style.left = '-2000px' 
-      document.getElementById('myCounterE').innerHTML ++
    }
    if ( myHitOther('myBullet01','myImg20') ){
+       document.getElementById('myCounterE').innerHTML ++
       clearInterval(myGun02)
       document.getElementById('myImg20').style.left = '-3000px'
-      document.getElementById('myCounterE').innerHTML ++
    }
    if ( myHitOther('myBullet02','myImg20') ){
+       document.getElementById('myCounterE').innerHTML ++
       clearInterval(myGun02)
       document.getElementById('myImg20').style.left = '-3000px' 
-      document.getElementById('myCounterE').innerHTML ++
+     
    }
 }
    function startupGravityDown(){
