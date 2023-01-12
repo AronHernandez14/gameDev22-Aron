@@ -1,4 +1,4 @@
-Version 4.9.1
+Version 4.9.2
 <head> 
    <h4> Health: 
  <div id="myCounterH">1000</div>   
@@ -8,8 +8,8 @@ Version 4.9.1
  <div id="myCounterC">0</div>
        Enemies Killed:     
  <div id="myCounterE">0</div> 
- <div id="myCounterENEMY1">10</div>    
- <div id="myCounterENEMY2">10</div>     
+ <div id="myCounterENEMY1" visibility="hidden">10</div>    
+ <div id="myCounterENEMY2" visibility="hidden">10</div>     
     </h4>   
 </head>
 <style>
@@ -276,9 +276,7 @@ if (myShooting == 1){
    this.style.display='none'
    document.getElementById('').style.display='none'    
  }">
-   
- <div id="myCounterENEMY1"style="position:absolute; top:-390px; left:-500px; visibility='hidden'" >    
- <div id="myCounterENEMY2"style="position:absolute; top:-390px; left:-500px; visibility='hidden'" >   
+    
 <script>
    // global variables here
    let myGlobalX = 0
