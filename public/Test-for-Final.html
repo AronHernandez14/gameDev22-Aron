@@ -1,4 +1,4 @@
-Version 4.8.6
+Version 4.8.7
 <head> 
    <h4> Health: 
  <div id="myCounterH">1000</div>   
@@ -220,7 +220,6 @@ if (myShooting == 2){
   document.getElementById('myCounterP').innerHTML < 0        
   clearInterval(myGun02)
   myGun02 = setInterval(function(){
-     myCheckHit() 
       checkFacingDirection()      
      checkFacingDirectionBullet()     
            myAmmoOut()
@@ -233,7 +232,6 @@ if (myShooting == 1){
   document.getElementById('myCounterP').innerHTML -= 1           
   clearInterval(myGun01)
   myGun01 = setInterval(function(){
-     myCheckHit() 
       checkFacingDirection()      
      checkFacingDirectionBullet()   
            myAmmoOut()
@@ -248,8 +246,7 @@ if (myShooting == 2){
   myShooting += 1
   document.getElementById('myCounterP').innerHTML < 0     
   clearInterval(myGun02)
-  myGun02 = setInterval(function(){
-     myCheckHit() 
+  myGun02 = setInterval(function(){ 
       checkFacingDirection()      
      checkFacingDirectionBullet()    
            myAmmoOut()
@@ -261,8 +258,7 @@ if (myShooting == 1){
   document.getElementById('myCounterP').innerHTML < 0          
   document.getElementById('myCounterP').innerHTML -= 1                     
   clearInterval(myGun01)
-  myGun01 = setInterval(function(){
-     myCheckHit() 
+  myGun01 = setInterval(function(){ 
       checkFacingDirection()      
      checkFacingDirectionBullet()   
            myAmmoOut()
