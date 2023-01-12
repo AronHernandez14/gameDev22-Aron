@@ -1,3 +1,5 @@
+Version 0.0.2
+
 <h2>t2a09 local-storage name by Aron</h2>
 
 <body onload="{
@@ -6,19 +8,40 @@
       document.getElementById('myText1').value = myStorage 
     }
 }">
+<body onload="{
+   myStorage2 = localStorage.getItem('myStoredText')
+   if(myStorage2  != null){
+      document.getElementById('myText2').value = myStorage2 
+    }
+}">   
+   
 
 <body onunload="{
    localstorage.setItem('myStoredText',document.getElementById('myText1').value)
+   localstorage.setItem('myStoredText',document.getElementById('myText2').value)             
 }">   
 
-Text example: <input id="myText1" type=text size=70 value="" placeholder="Write here to store"><br>
+<input id="myText1" type=text size=70 value="" placeholder="Write here to store"><br>
+   
+<input id="myText1" type=text size=70 value="" placeholder=""><br>   
 
 <input type="button" value="Store Text" onClick="{
    localStorage.setItem('myStoredText', document.getElementById('myText1').value)
    alert(document.getElementById('myText1').value + ' \nHas been stored')
    document.getElementById('myText1').value = ''
 }">
+<input type="button" value="Store Text2" onClick="{
+   localStorage.setItem('myStoredText', document.getElementById('myText2').value)
+   alert(document.getElementById('myText2').value + ' \nHas been stored')
+   document.getElementById('myText2').value = ''
+}">   
+   
 
 <input type="button" value="Retrieve Text" onClick="{
    document.getElementById('myText1').value = localStorage.getItem('myStoredText')
 }"> 
+   
+<input type="button" value="Retrieve Text" onClick="{
+   document.getElementById('myText2').value = localStorage.getItem('myStoredText2')
+}"> 
+   
