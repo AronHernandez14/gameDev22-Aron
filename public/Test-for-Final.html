@@ -1,4 +1,4 @@
-Version 5.1.9
+Version 5.2.0
 <head> 
    <h4> Health: 
  <div id="myCounterH">1000</div>   
@@ -524,11 +524,11 @@ function myAmmoOut(){
    }
 }
 function myMoveIt(){
-   if ( document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) < 0 ){
+   if ( document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.top) < 0 ){
     document.getElementById('myImg01').style.visibility='hidden';    
     document.getElementById('myImg18').style.visibility='visible'; 
   } 
-   if ( document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) < 0 ){
+   if ( document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.top) < 0 ){
     document.getElementById('myImg01').style.visibility='hidden';    
     document.getElementById('myImg18').style.visibility='visible'; 
   }    
