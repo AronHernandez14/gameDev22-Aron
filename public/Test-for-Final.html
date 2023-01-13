@@ -1,4 +1,4 @@
-Version 5.3.3
+Version 5.3.4
 <head> 
    <h4> Health: 
  <div id="myCounterH">1000</div>   
@@ -515,7 +515,7 @@ function myGameover(){
    }
 }
 function myAmmoOut(){
-   if (document.getElementById('myCounterP').innerHTML < 0 ){ 
+   if (document.getElementById('myCounterP').innerHTML < 1 ){ 
    document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myImg01').style.left) - 0 
    document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myImg01').style.left) + 0 
    document.getElementById('myBullet01').style.visibility='hidden'
