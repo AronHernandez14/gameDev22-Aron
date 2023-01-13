@@ -1,4 +1,4 @@
-Version 6.1.0
+Version 6.0.6
 <head> 
    <h4> Health: 
  <div id="myCounterH">1000</div>   
@@ -154,7 +154,7 @@ if (myShooting == 2){
       checkFacingDirection()      
      checkFacingDirectionBullet()  
         myAmmoOut()  
-        myStageClear()
+        myStageClear()   
   }, 1) 
 }
   // Bullet Number 1
@@ -279,6 +279,10 @@ if ( myHitOther('myImg01','myImg23') ){
  }
 function myCheckHit(){
      console.log(document.getElementById('myImg01').style.left + " : " + document.getElementById('myImg01').style.top)
+      if ( myHitOther('myImg01','myImg02') ){
+          alert('you lose')
+         document.getElementById('myImg01').style.left = '0px'
+   }
       if ( myHitOther('myImg01','myImg20') ){
          mySound4.play()
             document.getElementById('myCounterH').innerHTML -= 1
@@ -506,20 +510,8 @@ if (parseInt(document.getElementById('myImg02').style.left) < 0 ) {
    }   
  if (parseInt(document.getElementById('myImg01').style.top) < 0 ) {  
      document.getElementById('myImg01').style.top = '0px'
-   }                                                                   //end of old code
-if (parseInt(document.getElementById('myImg20').style.left) < 0 ) {
-    document.getElementById('myImg20').style.left = '1px'
-   } 
-if (parseInt(document.getElementById('myImg16').style.left)  > 1890 ) {    //1890
-    document.getElementById('myImg16').style.left = '1889px'   
-  } 
-if (parseInt(document.getElementById('myImg16').style.left) < 0 ) {
-    document.getElementById('myImg16').style.left = '1px'
-   } 
-if (parseInt(document.getElementById('myImg20').style.left)  > 1890 ) {    //1890
-    document.getElementById('myImg20').style.left = '1889px'   
-  }    
-}
+   }                    
+} 
 function myGameover(){
    if (document.getElementById('myCounterH').innerHTML < 0 ){ 
    alert('Game Over')
@@ -542,21 +534,8 @@ function myStageClear(){
    document.getElementById('myImg09').style.left = + 1850
    document.getElementById('myImg28').style.left = - 3700        
    document.getElementById('myCounterE').innerHTML = 0   
-   } 
- }  
- function myEnemyProjectiles(){
-   if (document.getElementById('myImg20').style.left = parseInt(document.getElementById('myImg20').style.left) + 4){
-   document.getElementById('myBullet03').style.left = parseInt(document.getElementById('myImg20').style.left) - 4 
-   document.getElementById('myBullet03').style.left = parseInt(document.getElementById('myImg20').style.left) + 4 
-   document.getElementById('myBullet04').style.left = parseInt(document.getElementById('myImg20').style.left) - 4 
-   document.getElementById('myBullet04').style.left = parseInt(document.getElementById('myImg20').style.left) + 4    
    }
- }  
- function myTealMovement(){
-  if (document.getElementById('myCounterE').innerHTML < 100 ){ 
-  document.getElementById('myImg20').style.left = parseInt(document.getElementById('myImg20').style.left) + 4   
-  } 
-}
+ } 
 </script> 
 <img id="myImg34"style="position:absolute; width:40px; height:16px; top:0px; left:960px;" src="img/Gravity generator.gif">    
 <img id="myImg33"style="position:absolute; width:40px; height:16px; top:0px; left:1450px;" src="img/Gravity generator.gif">   
