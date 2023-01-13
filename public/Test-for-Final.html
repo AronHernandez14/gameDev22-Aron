@@ -1,4 +1,4 @@
-Version 5.3.8
+Version 5.3.9
 <head> 
    <h4> Health: 
  <div id="myCounterH">1000</div>   
@@ -220,6 +220,7 @@ if (myShooting == 1){
 
 <body onload="{
    gravityDirection = 'down'
+   mySound3.play()           
    myGravity = 1
    gravity()        
    this.style.display='none'
@@ -241,7 +242,7 @@ if (myShooting == 1){
    let myGun02
    let myShooting = 1
    let mySound1 = new Audio('img/ElectroBall.mp4')
-   let mySound3 = new Audio('')
+   let mySound3 = new Audio('img/Flanagan and Allen Run Rabbit Runwmv.mp3')
    let mySound4 = new Audio(' https://michaelcedrone.github.io/gamedevmike/public/mixkit-fairy-arcade-sparkle-866.wav')
  
 
@@ -523,9 +524,16 @@ function myAmmoOut(){
    document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myImg01').style.left) + 0  
    document.getElementById('myBullet02').style.visibility='hidden'
    document.getElementById('myCounterP').innerHTML = 0   
+   } 
+function myEnemyHealth1(){
+   if (document.getElementById('myENEMY1').innerHTML < 1 ){ 
+
    }
-}  
+ } 
+}
 </script> 
+   
+   
    
 <img id="myImg29"style="position:absolute; width:52px; height:122px; top:779px; left:50px;" src="img/doorclose.png">  
 <img id="myImg30"style="position:absolute; width:50px; height:120px; top:480px; left:50px;" src="img/dooropen.png">   
@@ -561,5 +569,3 @@ function myAmmoOut(){
 <img id="myBullet05" style="position:absolute; width:32px; height:32px; left: -80px; top:0px;" src="img/WinterWonderland.gif"> 
 <img id="myBullet06" style="position:absolute; width:32px; height:32px; left: -80px; top:0px;" src="img/WinterWonderland.gif">  
    
- <div id="myCounterENEMY1" value:'10'</div>    
- <div id="myCounterENEMY2" value:'10'</div>     
