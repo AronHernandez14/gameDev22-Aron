@@ -1,4 +1,4 @@
-Version 6.2.6
+Version 6.2.7
 <head> 
    <h4> Health: 
  <div id="myCounterH">1000</div>   
@@ -430,22 +430,22 @@ function checkFacingDirection(){
    if ((facingDirectionV == 'down') &&
       (facingDirectionH == 'left')){
       const scale = document.getElementById('myImg16')       //left man01 walking
-      scale.style.transform = 'scale(1, 1)'
+      scale.style.transform = 'scale(-1, 1)'
    }
    if ((facingDirectionV == 'down') &&
       (facingDirectionH == 'right')){
       const scale = document.getElementById('myImg16')      //right  man01 walking 
-      scale.style.transform = 'scale(1, 1)'
+      scale.style.transform = 'scale(-1, 1)'
    }
    if ((facingDirectionV == 'down') &&
       (facingDirectionH == 'left')){
       const scale = document.getElementById('myImg20')       //left Teal walking
-      scale.style.transform = 'scale(-1, 1)'
+      scale.style.transform = 'scale(1, 1)'
    }
    if ((facingDirectionV == 'down') &&
       (facingDirectionH == 'right')){
       const scale = document.getElementById('myImg20')      //right Teal walking 
-      scale.style.transform = 'scale(-1, 1)'
+      scale.style.transform = 'scale(1, 1)'
    }
    if ((facingDirectionV == 'up') &&
       (facingDirectionH == 'left')){
