@@ -1,4 +1,4 @@
-Version 6.0.6
+Version 6.0.2
 <head> 
    <h4> Health: 
  <div id="myCounterH">1000</div>   
@@ -532,7 +532,8 @@ function myAmmoOut(){
 function myStageClear(){
    if (document.getElementById('myCounterE').innerHTML < 1 ){
    document.getElementById('myImg09').style.left = + 1850
-   document.getElementById('myImg28').style.left = - 3700        
+   document.getElementById('myImg28').style.left = - 3700   
+   mySound4.play()     
    document.getElementById('myCounterE').innerHTML = 0   
    }
  } 
@@ -550,9 +551,10 @@ function myStageClear(){
 <img id="myImg35"style="position:absolute; width:530px; height:900px; top:0px; left:960px;" src="img/Gravity.png">      
 <img id="myImg20" style="position:absolute; width:36px; height:96px; top:804px; left:400px;" src="img/Teal Walking.gif">    
 <img id="myImg16" style="position:absolute; width:36px; height:100px; top:800px; left:750px;" src="img/Man 01 walking.gif">   
+<img id="myImg02" style="position:absolute; width:70px; height:90px; top:600px; left:1250px;" src="red-photos-1172010.jpg">
 <img id="myImg03" style="position:absolute; width:1920px; height:1px; top:899px; left:0px;" src="red-photos-1172010.jpg">
 <img id="myImg04" style="position:absolute; width:1px; height:900px; top:0px; left:0px;" src="red-photos-1172010.jpg">
-<img id="myImg05" style="position:absolute; width:1920px; height:1px; top:0px; left:0px;" src="img/Gravity.png">
+<img id="myImg05" style="position:absolute; width:1920px; height:1px; top:0px; left:0px;" src="red-photos-1172010.jpg">
 <img id="myImg06" style="position:absolute; width:1px; height:900px; top:0px; left:1919px;" src="red-photos-1172010.jpg">  
 <img id="myImg09" style="position:absolute; width:50px; height:120px; top:260px; left:-1850px;" src="img/dooropen.png">
 <img id="myImg28" style="position:absolute; width:50px; height:120px; top:260px; left:1850px;" src="img/doorclose.png">  
@@ -576,7 +578,7 @@ function myStageClear(){
 <div id="myENEMY1"10 </div>
 <div id="myENEMY2"10 </div>
 
-<h1 align=center><input type=button value="Close "onclick="{
+<h1 align=center><input type=button style="left: 300px; top:310px;" value="Close "onclick="{
    this.style.display='none'
    document.getElementById('myDescription').style.display='none'
    }"></h1>   
