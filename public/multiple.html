@@ -1,50 +1,232 @@
-Version 0.1.2
+Version 5.2.1
+<head> 
+   <h4> Health: 
+ <div id="myCounterH">1000</div>   
+        Power: 
+ <div id="myCounterP">100</div>   
+        Sardine Cans: 
+ <div id="myCounterC">0</div>
+       Enemies Killed:     
+ <div id="myCounterE">0</div>    
+    </h4>   
+</head>
+<style>
+body{ 
+  color: white;
+}
+ #canvas {
+         border: 1px solid black;
+     } 
+</style>
 
-
-<body id="myBody" style="background-repeat:repeat; background-size: 80%" background="myBackground01.jpg"
+<body id="myBody" style="background-repeat:repeat; background-size: cover" background="img/Blank wall.png"
 onkeydown="{
-   let myKey = event.key
+   let myKey = event.key       
    //let myKey = String.toLowerCase(event.key)
-
-   if (myKey == 'd' || myKey == 'ArrowRight') {
+           
+           
+   if (myKey == 'd') {
       if (gravityDirection == 'down' || gravityDirection == 'up') {
-    document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 7
-    facingDirectionH = 'right'         
+    document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 8 
+    document.getElementById('myImg18').style.left = parseInt(document.getElementById('myImg01').style.left) + 8 
+    document.getElementById('myImg01').style.visibility='hidden';    
+    document.getElementById('myImg18').style.visibility='visible';       
+    facingDirectionH = 'right'
     checkFacingDirection()
     console.log()
     myCheckHitFloor()
-      checkGravityDown()
+      myCheckHitRoof()
+      checkGravityDown()                                
+      checkGravityUp()
+      myIsOnScreen()
+     myCheckHit()
+    myGameover()
+    myTeleport()  
+       myMoveIt()   
    }
-   }
-   if (myKey == 'a' || myKey == 'ArrowLeft') {
+   }                                                                                                             // right movement normal
+   if (myKey == 'a') {
       if (gravityDirection == 'down' || gravityDirection == 'up') {
-    document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 7
+    document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 8  
+    document.getElementById('myImg18').style.left = parseInt(document.getElementById('myImg01').style.left) - 8 
+    document.getElementById('myImg01').style.visibility='hidden';    
+    document.getElementById('myImg18').style.visibility='visible';          
     facingDirectionH = 'left'
     checkFacingDirection()
     myCheckHitFloor()
+      myCheckHitRoof()
       checkGravityDown()
+      checkGravityUp()
+      myIsOnScreen()   
+     myCheckHit()
+     myGameover()  
+     myTeleport() 
+    myMoveIt()        
    }
+   }                                                                                                             //left movement gun
+           
+     if (myKey == 'D') {
+      if (gravityDirection == 'down' || gravityDirection == 'up') {
+    document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 6  
+    document.getElementById('myImg18').style.left = parseInt(document.getElementById('myImg01').style.left) + 6
+    document.getElementById('myImg01').style.visibility='visible';    
+    document.getElementById('myImg18').style.visibility='hidden';          
+    facingDirectionH = 'right'
+    checkFacingDirection()
+    console.log()
+    myCheckHitFloor()
+      myCheckHitRoof()
+      checkGravityDown()                                
+      checkGravityUp()
+      myIsOnScreen()
+     myCheckHit() 
+     myTeleport()   
+      myMoveIt()   
    }
-   if (myKey == 's' || myKey == 'ArrowDown') {
+   }                                                                                                             // right movement gun
+   if (myKey == 'A') {
+      if (gravityDirection == 'down' || gravityDirection == 'up') {
+    document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 6 
+    document.getElementById('myImg18').style.left = parseInt(document.getElementById('myImg01').style.left) - 6
+    document.getElementById('myImg01').style.visibility='visible';    
+    document.getElementById('myImg18').style.visibility='hidden';          
+    facingDirectionH = 'left'
+    checkFacingDirection()
+    myCheckHitFloor()
+      myCheckHitRoof()
+      checkGravityDown()
+      checkGravityUp()
+      myIsOnScreen()   
+     myCheckHit()   
+     myTeleport()
+    myMoveIt()       
+   }
+   }                                                                                                             //left movement normal         
+           
+   if (myKey == 'w' || myKey == 'W') {
+      if ((myGravity == 0 ) &&
+         (gravityDirection == 'down')) {
+         gravityDirection = 'up'
+         document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 6
+         document.getElementById('myImg18').style.top = parseInt(document.getElementById('myImg18').style.top) - 6 
+         document.getElementById('myImg01').style.visibility='hidden';    
+         document.getElementById('myImg18').style.visibility='visible';     
+         startupGravityUp()
+         facingDirectionV = 'up'
+         checkFacingDirection()
+      }
+    myCheckHitFloor()
+      myCheckHitRoof()
+      myIsOnScreen()  
+     myCheckHit()
+     myGameover() 
+     myTeleport()    
+   }                                                                                                        //up movement
+   if (myKey == 's' || myKey == 'S') {
     if ((myGravity == 0) &&
        (gravityDirection == 'up')) {
       gravityDirection = 'down'
-      document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 1
+      document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 6
+      document.getElementById('myImg18').style.top = parseInt(document.getElementById('myImg01').style.top) + 6  
+      document.getElementById('myImg01').style.visibility='hidden';    
+      document.getElementById('myImg18').style.visibility='visible';         
       startupGravityDown()
       facingDirectionV = 'down'
       checkFacingDirection()
     }
     myCheckHitFloor()
       myCheckHitRoof()
-   }
+     myIsOnScreen()     
+    myCheckHit() 
+    myGameover()  
+    myTeleport()        
+   }                                                                                                         //down movement
+      if (myKey == '' || myKey == 'D'){
+if (myShooting > 2 ){myShooting = 1}
+  // Bullet Number 2
+if (myShooting == 2){        
+  myShooting += 1
+  document.getElementById('myBullet02').style.left = document.getElementById('myImg01').style.left
+  document.getElementById('myBullet02').style.top  = document.getElementById('myImg01').style.top   
+  document.getElementById('myImg01').style.visibility='visible';    
+  document.getElementById('myImg18').style.visibility='hidden';             
+  clearInterval(myGun02)
+  myGun02 = setInterval(function(){
+     document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) + 4
+     myCheckHit() 
+      checkFacingDirection()      
+     checkFacingDirectionBullet()  
+        myAmmoOut()  
+  }, 1) 
+}
+  // Bullet Number 1
+if (myShooting == 1){
+  mySound1.play()         
+  myShooting += 1
+  document.getElementById('myCounterP').innerHTML -= 1          
+  document.getElementById('myBullet01').style.left = document.getElementById('myImg01').style.left
+  document.getElementById('myBullet01').style.top  = document.getElementById('myImg01').style.top  
+  document.getElementById('myImg01').style.visibility='visible';    
+    document.getElementById('myImg18').style.visibility='hidden';            
+  clearInterval(myGun01)
+  myGun01 = setInterval(function(){
+     document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) + 4
+     myCheckHit() 
+      checkFacingDirection()      
+     checkFacingDirectionBullet()   
+           myAmmoOut()
+  }, 1)  
+  } 
+  }    
            
-}">
+      if (myKey == '' || myKey == 'A'){
+if (myShooting > 2 ){myShooting = 1}
+  // Bullet Number 2
+if (myShooting == 2){            
+  myShooting += 1
+  document.getElementById('myBullet02').style.left = document.getElementById('myImg01').style.left
+  document.getElementById('myBullet02').style.top  = document.getElementById('myImg01').style.top
+  document.getElementById('myImg01').style.visibility='visible';    
+  document.getElementById('myImg18').style.visibility='hidden';             
+  clearInterval(myGun02)
+  myGun02 = setInterval(function(){
+     document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) - 4
+     myCheckHit() 
+      checkFacingDirection()      
+     checkFacingDirectionBullet()   
+           myAmmoOut()
+  }, 1) 
+}
+  // Bullet Number 1
+if (myShooting == 1){ 
+  mySound1.play()         
+  myShooting += 1         
+  document.getElementById('myCounterP').innerHTML -= 1           
+  document.getElementById('myBullet01').style.left = document.getElementById('myImg01').style.left
+  document.getElementById('myBullet01').style.top  = document.getElementById('myImg01').style.top    
+  document.getElementById('myImg01').style.visibility='visible';    
+  document.getElementById('myImg18').style.visibility='hidden';            
+  clearInterval(myGun01)
+  myGun01 = setInterval(function(){
+     document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) - 4
+     myCheckHit() 
+      checkFacingDirection()      
+     checkFacingDirectionBullet()     
+           myAmmoOut()
+  }, 1)  
+ } 
+}    
+}">    
 
-
+<body onload="{
+   gravityDirection = 'down'
+   myGravity = 1
+   gravity()        
+   this.style.display='none'
+   document.getElementById('').style.display='none'    
+ }">
+    
 <script>
-
-
-
    // global variables here
    let myGlobalX = 0
    let myGravity = 0
@@ -55,6 +237,13 @@ onkeydown="{
    let gravityDirection = 'none'
    let facingDirectionV = 'down'
    let facingDirectionH = 'right'
+   let myGun01
+   let myGun02
+   let myShooting = 1
+   let mySound1 = new Audio('img/ElectroBall.mp4')
+   let mySound3 = new Audio('')
+   let mySound4 = new Audio(' https://michaelcedrone.github.io/gamedevmike/public/mixkit-fairy-arcade-sparkle-866.wav')
+ 
 
    // global functions here
 function myHitOther(my1,my2){
@@ -73,20 +262,78 @@ function myHitOther(my1,my2){
        return true
    }
 }
+ function myTeleport(){
+if ( myHitOther('myImg01','myImg19') ){
+    document.getElementById('myImg01').style.left = '50px'
+    document.getElementById('myImg18').style.left = '50px'
+    document.getElementById('myImg01').style.top = '500px'
+    document.getElementById('myImg18').style.top = '500px'
 
-function myCheckHitFloor(){
-   if ( myHitOther('myImg01','myImg03') ){
-       //document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 1 + 'px'
-       myGravity = 0
-  } 
+   } 
+ }
+function myCheckHit(){
+     console.log(document.getElementById('myImg01').style.left + " : " + document.getElementById('myImg01').style.top)
+      if ( myHitOther('myImg01','myImg02') ){
+          alert('you lose')
+         document.getElementById('myImg01').style.left = '0px'
+   }
+      if ( myHitOther('myImg01','myImg20') ){
+         mySound4.play()
+            document.getElementById('myCounterH').innerHTML -= 1
+   }
+      if ( myHitOther('myImg01','myImg16') ){
+         mySound4.play()
+            document.getElementById('myCounterH').innerHTML -= 1
+   }   
+      if ( myHitOther('myImg01','myImg09') ){
+          alert('next level')  
+          document.getElementById('myImg01').style.left = '0px'
+          location = 'Proof-level-2-draft-uploaded.html'  // go to your next level   
+    }
+      if ( myHitOther('myImg01','myImg14') ){
+       mySound4.play()
+       document.getElementById('myImg14').style.left = '-90px' 
+       document.getElementById('myCounterC').innerHTML ++ 
+       document.getElementById('myCounterP').innerHTML =+ 100
+       document.getElementById('myCounterH').innerHTML =+ 1000          
+    }
+      if ( myHitOther('myImg01','myImg15') ){
+       mySound4.play()
+       document.getElementById('myImg15').style.left = '-90px'     
+       document.getElementById('myCounterC').innerHTML ++
+       document.getElementById('myCounterP').innerHTML =+ 100
+       document.getElementById('myCounterH').innerHTML =+ 1000       
+   }
+  if ( myHitOther('myBullet01','myImg16') ){
+      document.getElementById('myCounterE').innerHTML ++
+      clearInterval(myGun01)
+      document.getElementById('myImg16').style.left = '-2000px'
+   }    
+   if ( myHitOther('myBullet02','myImg16') ){
+       document.getElementById('myCounterE').innerHTML ++
+      clearInterval(myGun02)
+      document.getElementById('myImg16').style.left = '-2000px'
+   }
+   if ( myHitOther('myBullet01','myImg06') ){
+      clearInterval(myGun01)
+      document.getElementById('myBullet01').style.left = '-2000px'
+   }   
+   if ( myHitOther('myBullet02','myImg06') ){
+      clearInterval(myGun02)
+      document.getElementById('myBullet02').style.left = '-2000px' 
+   }
+   if ( myHitOther('myBullet01','myImg20') ){
+       document.getElementById('myCounterE').innerHTML ++
+      clearInterval(myGun02)
+      document.getElementById('myImg20').style.left = '-2000px'
+   }
+   if ( myHitOther('myBullet02','myImg20') ){
+       document.getElementById('myCounterE').innerHTML ++
+      clearInterval(myGun02)
+      document.getElementById('myImg20').style.left = '-2000px' 
+     
+   }
 }
-   function myCheckHitRoof(){
-   if ( myHitOther('myImg01','myImg02') ){
-       //document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 1 + 'px'
-       myGravity = 0
-   }
-   }
-
    function startupGravityDown(){
    clearInterval(myClock2)
    myClock2 = setInterval(function(){
@@ -94,6 +341,7 @@ function myCheckHitFloor(){
       myCheckHitRoof();
       myGravity += 0.07
       document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + myGravity + 'px'
+      document.getElementById('myImg18').style.top = parseInt(document.getElementById('myImg18').style.top) + myGravity + 'px'
       if (myGravity >= 1){
          clearInterval(myClock2)
          myGravity = 1
@@ -108,6 +356,7 @@ function myCheckHitFloor(){
       myCheckHitRoof();
       myGravity -= 0.07
       document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + myGravity + 'px'
+      document.getElementById('myImg18').style.top = parseInt(document.getElementById('myImg18').style.top) + myGravity + 'px'
       if (myGravity <= -1){
          clearInterval(myClock2)
          myGravity = -1
@@ -121,81 +370,215 @@ function gravity(){
       myCheckHitFloor();
       myCheckHitRoof();
       document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + myGravity + 'px'
+      document.getElementById('myImg18').style.top = parseInt(document.getElementById('myImg18').style.top) + myGravity + 'px'
   }, 2)
 }
 
 function checkGravityDown(){
-   if ((myHitOther('myImg01','myImg03') != true) &&
+   if ((myHitOther('myImg01','myImg03','myImg21','myImg26') != true) &&
       (gravityDirection == 'down')){
          startupGravityDown()
    }
 }
 function checkGravityUp(){
-   if ((myHitOther('myImg01','myImg02') != true) &&
+   if ((myHitOther('myImg01','myImg05','myImg22','myImg27') != true) &&
       (gravityDirection == 'up')){
          startupGravityUp()
    }
-}
+}   
+function myCheckHitFloor(){
+ if ( myHitOther('myImg01','myImg03') ){
+       //document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 1 + 'px'
+       myGravity = 0
+  } 
+ if ( myHitOther('myImg01','myImg21') ){
+       //document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 1 + 'px'
+       myGravity = 0
+  }   
+    if ( myHitOther('myImg01','myImg26') ){
+       //document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 1 + 'px'
+       myGravity = 0
+  }   
+  }        
+   function myCheckHitRoof(){
+   if ( myHitOther('myImg01','myImg05') ){
+       //document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 1 + 'px'
+       myGravity = 0
+   }
+  if ( myHitOther('myImg01','myImg22') ){
+       //document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 1 + 'px'
+       myGravity = 0
+   }  
+  if ( myHitOther('myImg01','myImg27') ){
+       //document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 1 + 'px'
+       myGravity = 0
+   }       
+   }   
 function checkFacingDirection(){
    if ((facingDirectionV == 'down') &&
       (facingDirectionH == 'left')){
-      const scale = document.getElementById('myImg01')
+      const scale = document.getElementById('myImg01')       //left gravity down madeline walking
       scale.style.transform = 'scale(1, 1)'
    }
    if ((facingDirectionV == 'down') &&
       (facingDirectionH == 'right')){
-      const scale = document.getElementById('myImg01')
+      const scale = document.getElementById('myImg01')      //right gravity down madeline walking 
       scale.style.transform = 'scale(-1, 1)'
    }
    if ((facingDirectionV == 'up') &&
       (facingDirectionH == 'left')){
-      const scale = document.getElementById('myImg01')
+      const scale = document.getElementById('myImg01')     //left gravity up madeline walking
       scale.style.transform = 'scale(1, -1)'
    }
    if ((facingDirectionV == 'up') &&
       (facingDirectionH == 'right')){
-         const scale = document.getElementById('myImg01')
+      const scale = document.getElementById('myImg01')    //right gravity up madeline walking
       scale.style.transform = 'scale(-1, -1)'
+   }  
+if ((facingDirectionV == 'down') &&
+      (facingDirectionH == 'left')){
+      const scale = document.getElementById('myImg18')       //left gravity down madeline standing
+      scale.style.transform = 'scale(1, 1)'
+   }
+   if ((facingDirectionV == 'down') &&
+      (facingDirectionH == 'right')){
+      const scale = document.getElementById('myImg18')      //right gravity down madeline standing
+      scale.style.transform = 'scale(-1, 1)'
+   }
+   if ((facingDirectionV == 'up') &&
+      (facingDirectionH == 'left')){
+      const scale = document.getElementById('myImg18')     //left gravity up madeline standing
+      scale.style.transform = 'scale(1, -1)'
+   }
+   if ((facingDirectionV == 'up') &&
+      (facingDirectionH == 'right')){
+      const scale = document.getElementById('myImg18')    //right gravity up madeline standing
+      scale.style.transform = 'scale(-1, -1)'
+   }     
+}   
+function checkFacingDirectionBullet(){
+  if ((facingDirectionV == 'down') &&
+      (facingDirectionH == 'left')){
+      const scale = document.getElementById('myBullet01')
+      scale.style.transform = 'scale(1, 1)'
+   }
+   if ((facingDirectionV == 'down') &&
+      (facingDirectionH == 'right')){
+      const scale = document.getElementById('myBullet01')
+      scale.style.transform = 'scale(-1, 1)'
+   }
+   if ((facingDirectionV == 'up') &&
+      (facingDirectionH == 'left')){
+      const scale = document.getElementById('myBullet01')
+      scale.style.transform = 'scale(1, -1)'
+   }
+   if ((facingDirectionV == 'up') &&
+      (facingDirectionH == 'right')){
+      const scale = document.getElementById('myBullet01')
+      scale.style.transform = 'scale(1, 1)'
+   }
+}   
+   
+function myIsOnScreen(){
+ if (parseInt(document.getElementById('myImg01').style.left)  > 1890 ) {    //1890
+     document.getElementById('myImg01').style.left = '1889px'
+   }   
+ if (parseInt(document.getElementById('myImg01').style.top) > 803 ) {    //803
+     document.getElementById('myImg01').style.top = '803px'
+   }  
+if (parseInt(document.getElementById('myImg01').style.left) < 0 ) {
+     document.getElementById('myImg01').style.left = '1px'
+   }   
+ if (parseInt(document.getElementById('myImg01').style.top) < 0 ) {
+     document.getElementById('myImg01').style.top = '1px'
+   } 
+  if (parseInt(document.getElementById('myImg02').style.left)  > 1820 ) {    //1820
+     document.getElementById('myImg02').style.left = '1px'
+   }   
+ if (parseInt(document.getElementById('myImg02').style.top) > 800 ) {    //800
+     document.getElementById('myImg02').style.top = '799px'
+   }  
+if (parseInt(document.getElementById('myImg02').style.left) < 0 ) {
+     document.getElementById('myImg02').style.left = '1819px'
+   }   
+ if (parseInt(document.getElementById('myImg02').style.top) < 0 ) {
+     document.getElementById('myImg02').style.top = '1px'
+   }   
+ if (parseInt(document.getElementById('myImg01').style.top) < 0 ) {  
+     document.getElementById('myImg01').style.top = '0px'
+   }                    
+} 
+function myGameover(){
+   if (document.getElementById('myCounterH').innerHTML < 0 ){ 
+   alert('Game Over')
+   location = 'Test-for-Final.html'  // You died
    }
 }
-</script>
-
-
-<img id="myImg01" style="position:absolute; width:34px; height:96px; top:250px; left:475px;"  src="img/Madeline Walk Left.gif">
-<img id="myImg02" style="position:absolute; width:750px; height:30px; top:100px; left:100px;" src="myImage01.jpg">
-<img id="myImg03" style="position:absolute; width:750px; height:30px; top:500px; left:100px;" src="myImage01.jpg">
-
-<input type=button value="Start/Stop Auto Background" onclick="{
-   if (backgroundAuto == 'off') {
-      backgroundAuto = 'on'
-  clearInterval(myClock)
-  let myTemp = '100px 0px'
-  myClock = setInterval(function(){
-      myGlobalX -= 1
-      myTemp =  myGlobalX + 'px 0px'
-      document.getElementById('myBody').style.backgroundPosition = myTemp
-  }, 10)
- } else {
-      (backgroundAuto == 'on') 
-      backgroundAuto = 'off'
-      clearInterval(myClock)
+function myAmmoOut(){
+   if (document.getElementById('myCounterP').innerHTML < 0 ){ 
+   document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) - 0 
+   document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) + 0  
+   document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet02').style.left) - 0
+   document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet02').style.left) + 0  
+   document.getElementById('myCounterP').innerHTML -= 0   
    }
-}"><br><br><br><br><br><br><br><br><br>
-
-<h1 align=center><input type=button value="Start"onclick="{
-   gravityDirection = 'down'
-   myGravity = 1
-   gravity()
-   this.style.display='none'
-   document.getElementById('myDescription').style.display='none'
-   }"></h1>
-<textarea readonly id='myDescription' style="position:absolute; width:575px; height:150px; top:250px; left:225px;">
-A and the Left Arrow move your character to the left.
-D and the Right Arrow move your character to the right.
-S and the Down Arrow swap the gravity to pull your character down.
-You can only swap the gravity if your character is on solid ground.
-Falling to the bottom or the top of the screen will result in a game over.
-Touching the spikes will also result in a game over.
-Get to the ? to win.
-</textarea>
-
+}
+function myMoveIt(){
+   if ( document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.top) < 0 ){
+    document.getElementById('myImg01').style.visibility='hidden';    
+    document.getElementById('myImg18').style.visibility='visible'; 
+  } 
+   if ( document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.top) < 0 ){
+    document.getElementById('myImg01').style.visibility='hidden';    
+    document.getElementById('myImg18').style.visibility='visible'; 
+  }         
+}   
+   
+</script>  
+<img id="myImg19"style="position:absolute; width:50px; height:120px; top:779px; left:50px;" src="img/dooropen.png">  
+<img id="myImg23"style="position:absolute; width:50px; height:120px; top:480px; left:50px;" src="img/doorclose.png">  
+<img id="myImg18"style="position:absolute; width:34px; height:960x; top:300px; left:50px;" visibility='hidden' src="img/Madeline standing1.gif">     
+<img id="myImg01" style="position:absolute; width:34px; height:96px; top:300px; left:50px;" visibility='visible' src="img/Madeline Left Running.gif">
+<img id="myImg20" style="position:absolute; width:36px; height:96px; top:804px; left:400px;" src="img/Teal Walking.gif">    
+<img id="myImg16" style="position:absolute; width:36px; height:100px; top:800px; left:750px;" src="img/Man 01 walking.gif">   
+<img id="myImg02" style="position:absolute; width:70px; height:90px; top:600px; left:1250px;" src="red-photos-1172010.jpg">
+<img id="myImg03" style="position:absolute; width:1920px; height:1px; top:899px; left:0px;" src="red-photos-1172010.jpg">
+<img id="myImg04" style="position:absolute; width:1px; height:900px; top:0px; left:0px;" src="red-photos-1172010.jpg">
+<img id="myImg05" style="position:absolute; width:1920px; height:1px; top:0px; left:0px;" src="red-photos-1172010.jpg">
+<img id="myImg06" style="position:absolute; width:1px; height:900px; top:0px; left:1919px;" src="red-photos-1172010.jpg">  
+<img id="myImg09" style="position:absolute; width:50px; height:120px; top:260px; left:1850px;" src="img/dooropen.png">
+<img id="myImg10" style="position:absolute; width:1920px; height:1px; top:-20px; left:0px;" src="red-photos-1172010.jpg">
+<img id="myImg11" style="position:absolute; width:1920px; height:80px; top:820px; left:0px;" src="img/railguard long .png">
+<img id="myImg21" style="position:absolute; width:960px; height:2px; top:598px; left:0px;" src="red-photos-1172010.jpg">
+<img id="myImg22" style="position:absolute; width:960px; height:2px; top:598px; left:0px;" src="red-photos-1172010.jpg">   
+<img id="myImg12" style="position:absolute; width:960px; height:80px; top:520px; left:0px;" src="img/railguard mid.png">
+<img id="myImg26" style="position:absolute; width:430px; height:1px; top:379px; left:1489px;" src="red-photos-1172010.jpg">    
+<img id="myImg27" style="position:absolute; width:430px; height:1px; top:379px; left:1489px;" src="red-photos-1172010.jpg">     
+<img id="myImg25" style="position:absolute; width:430px; height:80px; top:300px; left:1489px;" src="img/railguard short.png">   
+<img id="myImg14" style="position:absolute; width:12px; height:20px; top:300px; left:200px;" src="img/Can.png">  
+<img id="myImg15" style="position:absolute; width:12px; height:20px; top:820px; left:400px;" src="img/Can.png">      
+<img id="myImg08" style="position:absolute; width:120px; height:220px; top:0px; left:0px; opacity:0.7;" src="img/Interface.png">    
+<img id="myImg24"style="position:absolute; width:150px; height:150px; top:650px; left:0px;" src="">     
+<img id="myBullet01" style="position:absolute; width:32px; height:32px; left: -80px; top:0px; opacity:0.9;" src="img/ElectroBall.gif"> 
+<img id="myBullet02" style="position:absolute; width:32px; height:32px; left: -80px; top:0px; opacity:0.9;" src="img/ElectroBall.gif">  
+<img id="myBullet03" style="position:absolute; width:32px; height:32px; left: -80px; top:0px;" src="img/SolarFlare.gif"> 
+<img id="myBullet04" style="position:absolute; width:32px; height:32px; left: -80px; top:0px;" src="img/SolarFlare.gif">  
+<img id="myBullet05" style="position:absolute; width:32px; height:32px; left: -80px; top:0px;" src="img/WinterWonderland.gif"> 
+<img id="myBullet06" style="position:absolute; width:32px; height:32px; left: -80px; top:0px;" src="img/WinterWonderland.gif">  
+   
+ <div id="myCounterENEMY1" visibility="hidden">10</div>    
+ <div id="myCounterENEMY2" visibility="hidden">10</div>     
+Footer
+© 2023 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+A
