@@ -1,4 +1,4 @@
-Version 6.5.9
+Version 6.6.0
 <head> 
    <h4> Health: 
  <div id="myCounterH">1000</div>   
@@ -154,7 +154,8 @@ if (myShooting == 2){
       checkFacingDirection()      
      checkFacingDirectionBullet()  
         myAmmoOut()  
-        myStageClear()   
+        myStageClear() 
+        myStageClearHidden()   
   }, 1) 
 }
   // Bullet Number 1
@@ -175,6 +176,7 @@ if (myShooting == 1){
      checkFacingDirectionBullet()   
            myAmmoOut()
            myStageClear()
+          myStageClearHidden() 
   }, 1)  
   } 
   }    
@@ -197,6 +199,7 @@ if (myShooting == 2){
      checkFacingDirectionBullet()   
            myAmmoOut()
            myStageClear()
+         myStageClearHidden()  
   }, 1) 
 }
   // Bullet Number 1
@@ -217,6 +220,7 @@ if (myShooting == 1){
      checkFacingDirectionBullet()     
            myAmmoOut()
            myStageClear()
+       myStageClearHidden()    
   }, 1)  
  } 
 }                
