@@ -1,4 +1,4 @@
-Version 5.4.2
+Version 5.4.3
 <head> 
    <h4> Health: 
  <div id="myCounterH">1000</div>   
@@ -278,8 +278,8 @@ function myCheckHit(){
          document.getElementById('myImg01').style.left = '0px'
    }
       if ( myHitOther('myImg01','myImg20') ){
-         mySound4.play()
          mySound3.play()
+         mySound4.play()
             document.getElementById('myCounterH').innerHTML -= 1
    }
       if ( myHitOther('myImg01','myImg16') ){
