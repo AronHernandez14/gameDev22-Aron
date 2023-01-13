@@ -1,4 +1,4 @@
-Version 5.0.7
+Version 5.0.8
 <head> 
    <h4> Health: 
  <div id="myCounterH">1000</div>   
@@ -29,8 +29,7 @@ onkeydown="{
       if (gravityDirection == 'down' || gravityDirection == 'up') {
     document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 8 
     document.getElementById('myImg18').style.left = parseInt(document.getElementById('myImg01').style.left) + 8 
-    document.getElementById('myImg01').style.visibility='visible';    
-    document.getElementById('myImg18').style.visibility='hidden';       
+    document.getElementById('myImg01').style.visibility='visible';          
     facingDirectionH = 'right'
     checkFacingDirection()
     console.log()
@@ -49,8 +48,7 @@ onkeydown="{
       if (gravityDirection == 'down' || gravityDirection == 'up') {
     document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 8  
     document.getElementById('myImg18').style.left = parseInt(document.getElementById('myImg01').style.left) - 8 
-    document.getElementById('myImg01').style.visibility='visible';    
-    document.getElementById('myImg18').style.visibility='hidden';          
+    document.getElementById('myImg01').style.visibility='visible';            
     facingDirectionH = 'left'
     checkFacingDirection()
     myCheckHitFloor()
@@ -70,8 +68,7 @@ onkeydown="{
       if (gravityDirection == 'down' || gravityDirection == 'up') {
     document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 6  
     document.getElementById('myImg18').style.left = parseInt(document.getElementById('myImg01').style.left) + 6
-    document.getElementById('myImg01').style.visibility='visible';    
-    document.getElementById('myImg18').style.visibility='hidden';          
+    document.getElementById('myImg01').style.visibility='visible';           
     facingDirectionH = 'right'
     checkFacingDirection()
     console.log()
@@ -90,8 +87,7 @@ onkeydown="{
       if (gravityDirection == 'down' || gravityDirection == 'up') {
     document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 6 
     document.getElementById('myImg18').style.left = parseInt(document.getElementById('myImg01').style.left) - 6
-    document.getElementById('myImg01').style.visibility='visible';    
-    document.getElementById('myImg18').style.visibility='hidden';          
+    document.getElementById('myImg01').style.visibility='visible';            
     facingDirectionH = 'left'
     checkFacingDirection()
     myCheckHitFloor()
@@ -112,8 +108,7 @@ onkeydown="{
          gravityDirection = 'up'
          document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 6
          document.getElementById('myImg18').style.top = parseInt(document.getElementById('myImg18').style.top) - 6 
-         document.getElementById('myImg01').style.visibility='visible';    
-         document.getElementById('myImg18').style.visibility='hidden';     
+         document.getElementById('myImg01').style.visibility='visible';     
          startupGravityUp()
          facingDirectionV = 'up'
          checkFacingDirection()
@@ -131,8 +126,7 @@ onkeydown="{
       gravityDirection = 'down'
       document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 6
       document.getElementById('myImg18').style.top = parseInt(document.getElementById('myImg01').style.top) + 6  
-      document.getElementById('myImg01').style.visibility='visible';    
-      document.getElementById('myImg18').style.visibility='hidden';         
+      document.getElementById('myImg01').style.visibility='visible';           
       startupGravityDown()
       facingDirectionV = 'down'
       checkFacingDirection()
@@ -151,8 +145,7 @@ if (myShooting == 2){
   myShooting += 1
   document.getElementById('myBullet02').style.left = document.getElementById('myImg01').style.left
   document.getElementById('myBullet02').style.top  = document.getElementById('myImg01').style.top   
-  document.getElementById('myImg01').style.visibility='visible';    
-  document.getElementById('myImg18').style.visibility='hidden';             
+  document.getElementById('myImg01').style.visibility='visible';              
   clearInterval(myGun02)
   myGun02 = setInterval(function(){
      document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) + 4
@@ -169,8 +162,7 @@ if (myShooting == 1){
   document.getElementById('myCounterP').innerHTML -= 1          
   document.getElementById('myBullet01').style.left = document.getElementById('myImg01').style.left
   document.getElementById('myBullet01').style.top  = document.getElementById('myImg01').style.top  
-  document.getElementById('myImg01').style.visibility='visible';    
-    document.getElementById('myImg18').style.visibility='hidden';            
+  document.getElementById('myImg01').style.visibility='visible';              
   clearInterval(myGun01)
   myGun01 = setInterval(function(){
      document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) + 4
@@ -189,8 +181,7 @@ if (myShooting == 2){
   myShooting += 1
   document.getElementById('myBullet02').style.left = document.getElementById('myImg01').style.left
   document.getElementById('myBullet02').style.top  = document.getElementById('myImg01').style.top
-  document.getElementById('myImg01').style.visibility='visible';    
-  document.getElementById('myImg18').style.visibility='hidden';             
+  document.getElementById('myImg01').style.visibility='visible';                
   clearInterval(myGun02)
   myGun02 = setInterval(function(){
      document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) - 4
@@ -207,8 +198,7 @@ if (myShooting == 1){
   document.getElementById('myCounterP').innerHTML -= 1           
   document.getElementById('myBullet01').style.left = document.getElementById('myImg01').style.left
   document.getElementById('myBullet01').style.top  = document.getElementById('myImg01').style.top    
-  document.getElementById('myImg01').style.visibility='visible';    
-  document.getElementById('myImg18').style.visibility='hidden';            
+  document.getElementById('myImg01').style.visibility='visible';          
   clearInterval(myGun01)
   myGun01 = setInterval(function(){
      document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) - 4
@@ -268,10 +258,7 @@ function myHitOther(my1,my2){
  function myTeleport(){
 if ( myHitOther('myImg01','myImg19') ){
     document.getElementById('myImg01').style.left = '50px'
-    document.getElementById('myImg18').style.left = '50px'
     document.getElementById('myImg01').style.top = '500px'
-    document.getElementById('myImg18').style.top = '500px'
-
    } 
  }
 function myCheckHit(){
@@ -344,8 +331,6 @@ function myCheckHit(){
       myCheckHitRoof();
       myGravity += 0.07
       document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + myGravity + 'px'
-      document.getElementById('myImg18').style.top = parseInt(document.getElementById('myImg18').style.top) + myGravity + 'px'
-      if (myGravity >= 1){
          clearInterval(myClock2)
          myGravity = 1
          gravity()
@@ -359,7 +344,6 @@ function myCheckHit(){
       myCheckHitRoof();
       myGravity -= 0.07
       document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + myGravity + 'px'
-      document.getElementById('myImg18').style.top = parseInt(document.getElementById('myImg18').style.top) + myGravity + 'px'
       if (myGravity <= -1){
          clearInterval(myClock2)
          myGravity = -1
@@ -373,7 +357,6 @@ function gravity(){
       myCheckHitFloor();
       myCheckHitRoof();
       document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + myGravity + 'px'
-      document.getElementById('myImg18').style.top = parseInt(document.getElementById('myImg18').style.top) + myGravity + 'px'
   }, 2)
 }
 
@@ -526,26 +509,6 @@ function myAmmoOut(){
    document.getElementById('myCounterP').innerHTML -= 0   
    }
 }
-function myStandStill(){
-   if ( document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 0 ){
-    document.getElementById('myImg01').style.visibility='hidden';    
-    document.getElementById('myImg18').style.visibility='visible'; 
-  } 
-   if ( document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 0 ){
-    document.getElementById('myImg01').style.visibility='hidden';    
-    document.getElementById('myImg18').style.visibility='visible'; 
-  }      
-}
-function myMoveIt(){
-   if ( document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 8 ){
-    document.getElementById('myImg01').style.visibility='visible';    
-    document.getElementById('myImg18').style.visibility='hidden'; 
-  }     
-  if ( document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 8 ){
-    document.getElementById('myImg01').style.visibility='visible';    
-    document.getElementById('myImg18').style.visibility='hidden'; 
-  }      
-}   
    
    
 </script>  
