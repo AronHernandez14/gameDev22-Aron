@@ -1,4 +1,4 @@
-Version 6.1.3
+Version 6.1.4
 <head> 
    <h4> Health: 
  <div id="myCounterH">1000</div>   
@@ -28,8 +28,7 @@ onkeydown="{
    if (myKey == 'd') {
       if (gravityDirection == 'down' || gravityDirection == 'up') {
     document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 8 
-    document.getElementById('myImg18').style.left = parseInt(document.getElementById('myImg01').style.left) + 8 
-    document.getElementById('myImg18').style.left = parseInt(document.getElementById('myImg01').style.left) - 6       
+    document.getElementById('myImg18').style.left = parseInt(document.getElementById('myImg01').style.left) + 8    
     document.getElementById('myImg01').style.visibility='visible';    
     document.getElementById('myImg18').style.visibility='hidden';       
     facingDirectionH = 'right'
@@ -43,13 +42,13 @@ onkeydown="{
      myCheckHit()
     myGameover()
     myTeleport()  
+        document.getElementById('myImg18').style.left = parseInt(document.getElementById('myImg01').style.left) - 6        
    }
    }                                                                                                             // right movement normal
    if (myKey == 'a') {
       if (gravityDirection == 'down' || gravityDirection == 'up') {
     document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 8  
-    document.getElementById('myImg18').style.left = parseInt(document.getElementById('myImg01').style.left) - 8
-    document.getElementById('myImg18').style.left = parseInt(document.getElementById('myImg01').style.left) + 6       
+    document.getElementById('myImg18').style.left = parseInt(document.getElementById('myImg01').style.left) - 8   
     document.getElementById('myImg01').style.visibility='visible';    
     document.getElementById('myImg18').style.visibility='hidden';          
     facingDirectionH = 'left'
@@ -61,7 +60,8 @@ onkeydown="{
       myIsOnScreen()   
      myCheckHit()
      myGameover()  
-     myTeleport()   
+     myTeleport()  
+    document.getElementById('myImg18').style.left = parseInt(document.getElementById('myImg01').style.left) + 6               
    }
    }                                                                                                             //left movement gun
            
@@ -356,7 +356,8 @@ function myCheckHit(){
       myCheckHitFloor();
       myCheckHitRoof();
       myGravity -= 0.07
-      document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + myGravity + 'px'    
+      document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + myGravity + 'px' 
+      document.getElementById('myImg18').style.top = parseInt(document.getElementById('myImg18').style.top) + myGravity + 'px' 
       if (myGravity <= -1){
          clearInterval(myClock2)
          myGravity = -1
@@ -395,12 +396,12 @@ function myCheckHitFloor(){
  if ( myHitOther('myImg01','myImg21') ){
        //document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 1 + 'px'
        myGravity = 0
-  }   
-    if ( myHitOther('myImg01','myImg26') ){
+ }   
+ if ( myHitOther('myImg01','myImg26') ){
        //document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 1 + 'px'
        myGravity = 0
   }        
-  }        
+ }        
    function myCheckHitRoof(){
    if ( myHitOther('myImg01','myImg05') ){
        //document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 1 + 'px'
@@ -414,8 +415,8 @@ function myCheckHitFloor(){
        //document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 1 + 'px'
        myGravity = 0
    }       
-   }   
-function checkFacingDirection(){
+ }   
+    function checkFacingDirection(){
    if ((facingDirectionV == 'down') &&
       (facingDirectionH == 'left')){
       const scale = document.getElementById('myImg01')       //left gravity down madeline walking
