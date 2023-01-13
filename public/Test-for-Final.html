@@ -1,4 +1,4 @@
-Version 5.8.9
+Version 5.9.0
 <head> 
    <h4> Health: 
  <div id="myCounterH">1000</div>   
@@ -154,6 +154,7 @@ if (myShooting == 2){
       checkFacingDirection()      
      checkFacingDirectionBullet()  
         myAmmoOut()  
+        myStageClear()   
   }, 1) 
 }
   // Bullet Number 1
@@ -173,6 +174,7 @@ if (myShooting == 1){
       checkFacingDirection()      
      checkFacingDirectionBullet()   
            myAmmoOut()
+           myStageClear()
   }, 1)  
   } 
   }    
@@ -194,6 +196,7 @@ if (myShooting == 2){
       checkFacingDirection()      
      checkFacingDirectionBullet()   
            myAmmoOut()
+           myStageClear()
   }, 1) 
 }
   // Bullet Number 1
@@ -213,6 +216,7 @@ if (myShooting == 1){
       checkFacingDirection()      
      checkFacingDirectionBullet()     
            myAmmoOut()
+           myStageClear()
   }, 1)  
  } 
 }    
@@ -523,7 +527,8 @@ function myAmmoOut(){
    document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myImg01').style.left) + 0  
    document.getElementById('myBullet02').style.visibility='hidden'
    document.getElementById('myCounterP').innerHTML = 0   
-   } 
+   }
+ }
 function myStageClear(){
    if (document.getElementById('myCounterE').innerHTML < 1 ){
    document.getElementById('myImg09').style.left = + 3700
@@ -532,7 +537,6 @@ function myStageClear(){
    document.getElementById('myCounterE').innerHTML = 0   
    }
  } 
-}
 </script> 
 <img id="myImg32"style="position:absolute; width:10px; height:600px; top:300px; left:950px;" src="img/pillar.png">    
 <img id="myImg31"style="position:absolute; width:10px; height:600px; top:300px; left:1490px;" src="img/pillar.png">    
