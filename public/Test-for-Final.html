@@ -1,4 +1,4 @@
-Version 6.0.6
+Version 6.0.7
 <head> 
    <h4> Health: 
  <div id="myCounterH">1000</div>   
@@ -310,8 +310,7 @@ function myCheckHit(){
        document.getElementById('myCounterP').innerHTML =+ 100
        document.getElementById('myCounterH').innerHTML =+ 1000       
    }
-  if ( myHitOther('myBullet01','myImg16') ){
-     
+  if ( myHitOther('myBullet01','myImg16') ){  
       document.getElementById('myCounterE').innerHTML --
       document.getElementById('myImg16').style.left = '-2000px'
    }    
@@ -431,22 +430,22 @@ function checkFacingDirection(){
    }
    if ((facingDirectionV == 'down') &&
       (facingDirectionH == 'left')){
-      const scale = document.getElementById('myImg01')       //left man01 walking
+      const scale = document.getElementById('myImg16')       //left man01 walking
       scale.style.transform = 'scale(1, 1)'
    }
    if ((facingDirectionV == 'down') &&
       (facingDirectionH == 'right')){
-      const scale = document.getElementById('myImg01')      //right  man01 walking 
+      const scale = document.getElementById('myImg16')      //right  man01 walking 
       scale.style.transform = 'scale(-1, 1)'
    }
    if ((facingDirectionV == 'down') &&
       (facingDirectionH == 'left')){
-      const scale = document.getElementById('myImg01')       //left Teal walking
+      const scale = document.getElementById('myImg20')       //left Teal walking
       scale.style.transform = 'scale(1, 1)'
    }
    if ((facingDirectionV == 'down') &&
       (facingDirectionH == 'right')){
-      const scale = document.getElementById('myImg01')      //right Teal walking 
+      const scale = document.getElementById('myImg20')      //right Teal walking 
       scale.style.transform = 'scale(-1, 1)'
    }
    if ((facingDirectionV == 'up') &&
