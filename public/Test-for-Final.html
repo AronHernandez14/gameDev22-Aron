@@ -1,4 +1,4 @@
-Version 6.1.1
+Version 6.1.2
 <head> 
    <h4> Health: 
  <div id="myCounterH">1000</div>   
@@ -341,8 +341,6 @@ function myCheckHit(){
       myGravity += 0.07
       document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + myGravity + 'px'
       document.getElementById('myImg18').style.top = parseInt(document.getElementById('myImg18').style.top) + myGravity + 'px'
-      document.getElementById('myImg20').style.top = parseInt(document.getElementById('myImg20').style.top) + myGravity + 'px' 
-      document.getElementById('myImg16').style.top = parseInt(document.getElementById('myImg16').style.top) + myGravity + 'px'
       if (myGravity >= 1){
          clearInterval(myClock2)
          myGravity = 1
@@ -356,10 +354,7 @@ function myCheckHit(){
       myCheckHitFloor();
       myCheckHitRoof();
       myGravity -= 0.07
-      document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + myGravity + 'px'
-      document.getElementById('myImg18').style.top = parseInt(document.getElementById('myImg18').style.top) + myGravity + 'px'
-      document.getElementById('myImg20').style.top = parseInt(document.getElementById('myImg20').style.top) + myGravity + 'px' 
-      document.getElementById('myImg16').style.top = parseInt(document.getElementById('myImg16').style.top) + myGravity + 'px'
+      document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + myGravity + 'px'    
       if (myGravity <= -1){
          clearInterval(myClock2)
          myGravity = -1
@@ -374,8 +369,6 @@ function gravity(){
       myCheckHitFloor();
       myCheckHitRoof();
       document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + myGravity + 'px'
-      document.getElementById('myImg20').style.top = parseInt(document.getElementById('myImg20').style.top) + myGravity + 'px' 
-      document.getElementById('myImg16').style.top = parseInt(document.getElementById('myImg16').style.top) + myGravity + 'px'
       document.getElementById('myImg18').style.top = parseInt(document.getElementById('myImg18').style.top) + myGravity + 'px'
   }, 2)
 }
@@ -402,30 +395,6 @@ function myCheckHitFloor(){
        myGravity = 0
   }   
     if ( myHitOther('myImg01','myImg26') ){
-       //document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 1 + 'px'
-       myGravity = 0
-  }   
- if ( myHitOther('myImg20','myImg03') ){
-       //document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 1 + 'px'
-       myGravity = 0
-  } 
- if ( myHitOther('myImg20','myImg21') ){
-       //document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 1 + 'px'
-       myGravity = 0
-  }   
-    if ( myHitOther('myImg20','myImg26') ){
-       //document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 1 + 'px'
-       myGravity = 0
-  }  
- if ( myHitOther('myImg16','myImg03') ){
-       //document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 1 + 'px'
-       myGravity = 0
-  } 
- if ( myHitOther('myImg16','myImg21') ){
-       //document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 1 + 'px'
-       myGravity = 0
-  }   
-    if ( myHitOther('myImg16','myImg26') ){
        //document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 1 + 'px'
        myGravity = 0
   }        
@@ -493,16 +462,6 @@ if ((facingDirectionV == 'down') &&
    if ((facingDirectionV == 'down') &&
       (facingDirectionH == 'right')){
       const scale = document.getElementById('myImg20')      //right Teal walking 
-      scale.style.transform = 'scale(-1, 1)'
-   }
-      if ((facingDirectionV == 'down') &&
-      (facingDirectionH == 'left')){
-      const scale = document.getElementById('myImg16')       //left MAN01 walking
-      scale.style.transform = 'scale(1, 1)'
-   }
-   if ((facingDirectionV == 'down') &&
-      (facingDirectionH == 'right')){
-      const scale = document.getElementById('myImg16')      //right MAN01 walking 
       scale.style.transform = 'scale(-1, 1)'
    }
 }   
