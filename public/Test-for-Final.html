@@ -1,4 +1,4 @@
-Version 5.6.8
+Version 5.6.9
 <head> 
    <h4> Health: 
  <div id="myCounterH">1000</div>   
@@ -307,6 +307,7 @@ function myCheckHit(){
        document.getElementById('myCounterH').innerHTML =+ 1000       
    }
   if ( myHitOther('myBullet01','myImg16') ){
+     
       document.getElementById('myCounterE').innerHTML ++
       document.getElementById('myImg16').style.left = '-2000px'
    }    
@@ -565,4 +566,12 @@ function myEnemyHealth1(){
 <img id="myBullet04" style="position:absolute; width:32px; height:32px; left: -80px; top:0px;" src="img/SolarFlare.gif">  
 <img id="myBullet05" style="position:absolute; width:32px; height:32px; left: -80px; top:0px;" src="img/WinterWonderland.gif"> 
 <img id="myBullet06" style="position:absolute; width:32px; height:32px; left: -80px; top:0px;" src="img/WinterWonderland.gif">  
-   
+<div id="myENEMY1"10 </div>
+<div id="myENEMY2"10 </div>
+<h1 align=center><input type=button value="Close"onclick="{
+   this.style.display='none'
+   document.getElementById('myDescription').style.display='none'
+   }"></h1>
+<textarea readonly id='myDescription' style="position:absolute; width:100px; height:100px; top:325px; left:400px;">
+Use A to go left and D to go Right
+</textarea>
