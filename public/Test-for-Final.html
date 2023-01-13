@@ -1,4 +1,4 @@
-Version 5.7.2
+Version 5.7.4
 <head> 
    <h4> Health: 
  <div id="myCounterH">1000</div>   
@@ -321,7 +321,6 @@ function myCheckHit(){
    }   
    if ( myHitOther('myBullet02','myImg06') ){
       clearInterval(myGun02)
-      clearInterval(myGun01)
       document.getElementById('myBullet02').style.left = '-2000px' 
    }
    if ( myHitOther('myBullet01','myImg20') ){
@@ -525,9 +524,11 @@ function myAmmoOut(){
    document.getElementById('myBullet02').style.visibility='hidden'
    document.getElementById('myCounterP').innerHTML = 0   
    } 
-function myEnemyHealth1(){
-   if (document.getElementById('myENEMY1').innerHTML < 1 ){ 
-
+function myStageClear(){
+   if (document.getElementById('myCounterE').innerHTML > 1 ){
+   document.getElementById('myImg09').style.left = '+3700px'
+   mySound4.play()
+   document.getElementById('myCounterE').innerHTML = 2      
    }
  } 
 }
@@ -547,7 +548,7 @@ function myEnemyHealth1(){
 <img id="myImg04" style="position:absolute; width:1px; height:900px; top:0px; left:0px;" src="red-photos-1172010.jpg">
 <img id="myImg05" style="position:absolute; width:1920px; height:1px; top:0px; left:0px;" src="red-photos-1172010.jpg">
 <img id="myImg06" style="position:absolute; width:1px; height:900px; top:0px; left:1919px;" src="red-photos-1172010.jpg">  
-<img id="myImg09" style="position:absolute; width:50px; height:120px; top:260px; left:1850px;" src="img/dooropen.png">
+<img id="myImg09" style="position:absolute; width:50px; height:120px; top:260px; left:-1850px;" src="img/dooropen.png">
 <img id="myImg28" style="position:absolute; width:50px; height:120px; top:260px; left:1850px;" src="img/doorclose.png">  
 <img id="myImg10" style="position:absolute; width:1920px; height:1px; top:-20px; left:0px;" src="red-photos-1172010.jpg">
 <img id="myImg11" style="position:absolute; width:1920px; height:80px; top:820px; left:0px;" src="img/railguard long .png">
@@ -568,7 +569,7 @@ function myEnemyHealth1(){
 <img id="myBullet06" style="position:absolute; width:32px; height:32px; left: -80px; top:0px;" src="img/WinterWonderland.gif">  
 <div id="myENEMY1"10 </div>
 <div id="myENEMY2"10 </div>
-<h1><input type=button style="position:absolute; left: 80px; top:410px value="Close"onclick="{
+<h1><input type=button style="left: 80px; top:410px;" value="Close "onclick="{
    this.style.display='none'
    document.getElementById('myDescription').style.display='none'
    }"></h1>
