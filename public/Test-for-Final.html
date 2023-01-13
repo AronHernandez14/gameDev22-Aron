@@ -219,127 +219,7 @@ if (myShooting == 1){
            myStageClear()
   }, 1)  
  } 
-}    
-     if (facingDirectionH == 'right'){
-if (myShooting2 > 4 ){myShooting2 = 3}
-  // Bullet Number 4
-if (myShooting2 == 4){        
-  myShooting2 += 3
-  document.getElementById('myBullet04').style.left = document.getElementById('myImg20').style.left
-  document.getElementById('myBullet04').style.top  = document.getElementById('myImg20').style.top           
-  clearInterval(myGun04)
-  myGun04 = setInterval(function(){
-     document.getElementById('myBullet04').style.left = parseInt(document.getElementById('myBullet04').style.left) + 4     
-     myCheckHitMe() 
-      checkFacingDirection()      
-     checkFacingDirectionBullet()  
-  }, 1) 
-}
-  // Bullet Number 3
-if (myShooting2 == 3){
-  mySound1.play()         
-  myShooting2 += 3      
-  document.getElementById('myBullet03').style.left = document.getElementById('myImg20').style.left
-  document.getElementById('myBullet03').style.top  = document.getElementById('myImg20').style.top                  
-  clearInterval(myGun03)
-  myGun03 = setInterval(function(){
-     document.getElementById('myBullet03').style.left = parseInt(document.getElementById('myBullet03').style.left) + 4        
-     myCheckHitMe() 
-      checkFacingDirection()      
-     checkFacingDirectionBullet()   
-  }, 1)  
-  } 
-  }    
-    if (facingDirectionH == 'right'){
-if (myShooting3 > 6 ){myShooting3 = 5}
-  // Bullet Number 6
-if (myShooting3 == 6){        
-  myShooting += 5
-  document.getElementById('myBullet06').style.left = document.getElementById('myImg16').style.left
-  document.getElementById('myBullet06').style.top  = document.getElementById('myImg16').style.top           
-  clearInterval(myGun06)
-  myGun04 = setInterval(function(){
-     document.getElementById('myBullet06').style.left = parseInt(document.getElementById('myBullet06').style.left) + 4     
-     myCheckHitMe() 
-      checkFacingDirection()      
-     checkFacingDirectionBullet()  
-  }, 1) 
-}
-  // Bullet Number 5
-if (myShooting3 == 5){
-  mySound1.play()         
-  myShooting3 += 5     
-  document.getElementById('myBullet05').style.left = document.getElementById('myImg16').style.left
-  document.getElementById('myBullet05').style.top  = document.getElementById('myImg16').style.top                  
-  clearInterval(myGun05)
-  myGun03 = setInterval(function(){
-     document.getElementById('myBullet05').style.left = parseInt(document.getElementById('myBullet05').style.left) + 4        
-     myCheckHitMe() 
-      checkFacingDirection()      
-     checkFacingDirectionBullet()   
-  }, 1)  
-  } 
-  }    
-     if (facingDirectionH == 'left'){
-if (myShooting2 > 4 ){myShooting2 = 3}
-  // Bullet Number 4
-if (myShooting2 == 4){        
-  myShooting2 += 3
-  document.getElementById('myBullet04').style.left = document.getElementById('myImg20').style.left
-  document.getElementById('myBullet04').style.top  = document.getElementById('myImg20').style.top           
-  clearInterval(myGun04)
-  myGun04 = setInterval(function(){
-     document.getElementById('myBullet04').style.left = parseInt(document.getElementById('myBullet04').style.left) - 4     
-     myCheckHitMe() 
-      checkFacingDirection()      
-     checkFacingDirectionBullet()  
-  }, 1) 
-}
-  // Bullet Number 3
-if (myShooting2 == 3){
-  mySound1.play()         
-  myShooting2 += 3     
-  document.getElementById('myBullet03').style.left = document.getElementById('myImg20').style.left
-  document.getElementById('myBullet03').style.top  = document.getElementById('myImg20').style.top                  
-  clearInterval(myGun03)
-  myGun03 = setInterval(function(){
-     document.getElementById('myBullet03').style.left = parseInt(document.getElementById('myBullet03').style.left) - 4        
-     myCheckHitMe() 
-      checkFacingDirection()      
-     checkFacingDirectionBullet()   
-  }, 1)  
-  } 
-  }    
-    if (facingDirectionH == 'left'){
-if (myShooting3 > 6 ){myShooting3 = 5}
-  // Bullet Number 6
-if (myShooting3 == 6){        
-  myShooting3 += 5
-  document.getElementById('myBullet06').style.left = document.getElementById('myImg16').style.left
-  document.getElementById('myBullet06').style.top  = document.getElementById('myImg16').style.top           
-  clearInterval(myGun06)
-  myGun04 = setInterval(function(){
-     document.getElementById('myBullet06').style.left = parseInt(document.getElementById('myBullet06').style.left) - 4     
-     myCheckHitMe() 
-      checkFacingDirection()      
-     checkFacingDirectionBullet()  
-  }, 1) 
-}
-  // Bullet Number 5
-if (myShooting3 == 5){
-  mySound1.play()         
-  myShooting3 += 5      
-  document.getElementById('myBullet05').style.left = document.getElementById('myImg16').style.left
-  document.getElementById('myBullet05').style.top  = document.getElementById('myImg16').style.top                  
-  clearInterval(myGun05)
-  myGun03 = setInterval(function(){
-     document.getElementById('myBullet05').style.left = parseInt(document.getElementById('myBullet05').style.left) - 4        
-     myCheckHitMe() 
-      checkFacingDirection()      
-     checkFacingDirectionBullet()   
-  }, 1)  
-  } 
-  }             
+}                
 }">    
 
 <body onload="{
@@ -363,13 +243,7 @@ if (myShooting3 == 5){
    let facingDirectionH = 'right'
    let myGun01
    let myGun02
-   let mtGun03
-   let myGun04
-   let myGun05
-   let myGun06
    let myShooting = 1
-   let myShooting2 = 3
-   let myShooting2 = 5
    let mySound1 = new Audio('img/ElectroBall.mp4')
    let mySound3 = new Audio('img/Flanagan and Allen Run Rabbit Runwmv.mp4')
    let mySound4 = new Audio('img/Undertale sound effect - talking damage (128 kbps).mp4')
