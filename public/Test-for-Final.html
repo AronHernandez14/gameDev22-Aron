@@ -1,4 +1,4 @@
-Version 5.3.1
+Version 5.3.2
 <head> 
    <h4> Health: 
  <div id="myCounterH">1000</div>   
@@ -149,6 +149,7 @@ if (myShooting == 2){
   clearInterval(myGun02)
   myGun02 = setInterval(function(){
      document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) + 4
+     document.getElementById('myBullet02').style.visibility='visible';        
      myCheckHit() 
       checkFacingDirection()      
      checkFacingDirectionBullet()  
@@ -167,6 +168,7 @@ if (myShooting == 1){
   clearInterval(myGun01)
   myGun01 = setInterval(function(){
      document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) + 4
+     document.getElementById('myBullet01').style.visibility='visible';         
      myCheckHit() 
       checkFacingDirection()      
      checkFacingDirectionBullet()   
@@ -187,6 +189,7 @@ if (myShooting == 2){
   clearInterval(myGun02)
   myGun02 = setInterval(function(){
      document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) - 4
+     document.getElementById('myBullet02').style.visibility='visible';        
      myCheckHit() 
       checkFacingDirection()      
      checkFacingDirectionBullet()   
@@ -205,6 +208,7 @@ if (myShooting == 1){
   clearInterval(myGun01)
   myGun01 = setInterval(function(){
      document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) - 4
+     document.getElementById('myBullet01').style.visibility='visible';     
      myCheckHit() 
       checkFacingDirection()      
      checkFacingDirectionBullet()     
