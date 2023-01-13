@@ -1,4 +1,4 @@
-Version 5.2.7
+Version 6.3.2
 <head> 
    <h4> Health: 
  <div id="myCounterH">1000</div>   
@@ -7,7 +7,7 @@ Version 5.2.7
         Sardine Cans: 
  <div id="myCounterC">0</div>
        Enemies Killed:     
- <div id="myCounterE">0</div>    
+ <div id="myCounterE">2</div>    
     </h4>   
 </head>
 <style>
@@ -143,16 +143,18 @@ if (myShooting > 2 ){myShooting = 1}
 if (myShooting == 2){        
   myShooting += 1
   document.getElementById('myBullet02').style.left = document.getElementById('myImg01').style.left
-  document.getElementById('myBullet02').style.top  = document.getElementById('myImg01').style.top   
+  document.getElementById('myBullet02').style.top  = document.getElementById('myImg01').style.top  
   document.getElementById('myImg01').style.visibility='visible';    
   document.getElementById('myImg18').style.visibility='hidden';             
   clearInterval(myGun02)
   myGun02 = setInterval(function(){
-     document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) + 4
+     document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) + 4  
+     document.getElementById('myBullet02').style.visibility='visible';        
      myCheckHit() 
       checkFacingDirection()      
      checkFacingDirectionBullet()  
         myAmmoOut()  
+        myStageClear()   
   }, 1) 
 }
   // Bullet Number 1
@@ -161,16 +163,18 @@ if (myShooting == 1){
   myShooting += 1
   document.getElementById('myCounterP').innerHTML -= 1          
   document.getElementById('myBullet01').style.left = document.getElementById('myImg01').style.left
-  document.getElementById('myBullet01').style.top  = document.getElementById('myImg01').style.top  
+  document.getElementById('myBullet01').style.top  = document.getElementById('myImg01').style.top       
   document.getElementById('myImg01').style.visibility='visible';    
     document.getElementById('myImg18').style.visibility='hidden';            
   clearInterval(myGun01)
   myGun01 = setInterval(function(){
      document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) + 4
+     document.getElementById('myBullet01').style.visibility='visible';         
      myCheckHit() 
       checkFacingDirection()      
      checkFacingDirectionBullet()   
            myAmmoOut()
+           myStageClear()
   }, 1)  
   } 
   }    
@@ -186,11 +190,13 @@ if (myShooting == 2){
   document.getElementById('myImg18').style.visibility='hidden';             
   clearInterval(myGun02)
   myGun02 = setInterval(function(){
-     document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) - 4
+     document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) - 4 
+     document.getElementById('myBullet02').style.visibility='visible';        
      myCheckHit() 
       checkFacingDirection()      
      checkFacingDirectionBullet()   
            myAmmoOut()
+           myStageClear()
   }, 1) 
 }
   // Bullet Number 1
@@ -199,27 +205,30 @@ if (myShooting == 1){
   myShooting += 1         
   document.getElementById('myCounterP').innerHTML -= 1           
   document.getElementById('myBullet01').style.left = document.getElementById('myImg01').style.left
-  document.getElementById('myBullet01').style.top  = document.getElementById('myImg01').style.top    
+  document.getElementById('myBullet01').style.top  = document.getElementById('myImg01').style.top             
   document.getElementById('myImg01').style.visibility='visible';    
   document.getElementById('myImg18').style.visibility='hidden';            
   clearInterval(myGun01)
   myGun01 = setInterval(function(){
      document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) - 4
+     document.getElementById('myBullet01').style.visibility='visible';     
      myCheckHit() 
       checkFacingDirection()      
      checkFacingDirectionBullet()     
            myAmmoOut()
+           myStageClear()
   }, 1)  
  } 
-}    
+}                
 }">    
 
 <body onload="{
-   gravityDirection = 'down'
+   gravityDirection = 'down'        
    myGravity = 1
    gravity()        
    this.style.display='none'
    document.getElementById('').style.display='none'    
+   document.getElementById('myImg36').style.left = '-3000px'           
  }">
     
 <script>
@@ -237,8 +246,8 @@ if (myShooting == 1){
    let myGun02
    let myShooting = 1
    let mySound1 = new Audio('img/ElectroBall.mp4')
-   let mySound3 = new Audio('')
-   let mySound4 = new Audio(' https://michaelcedrone.github.io/gamedevmike/public/mixkit-fairy-arcade-sparkle-866.wav')
+   let mySound3 = new Audio('img/Flanagan and Allen Run Rabbit Runwmv.mp4')
+   let mySound4 = new Audio('img/Undertale sound effect - talking damage (128 kbps).mp4')
  
 
    // global functions here
@@ -264,8 +273,10 @@ if ( myHitOther('myImg01','myImg19') ){
     document.getElementById('myImg18').style.left = '50px'
     document.getElementById('myImg01').style.top = '500px'
     document.getElementById('myImg18').style.top = '500px'
-
    } 
+if ( myHitOther('myImg01','myImg23') ){
+    mySound3.play()  
+   }
  }
 function myCheckHit(){
      console.log(document.getElementById('myImg01').style.left + " : " + document.getElementById('myImg01').style.top)
@@ -282,9 +293,9 @@ function myCheckHit(){
             document.getElementById('myCounterH').innerHTML -= 1
    }   
       if ( myHitOther('myImg01','myImg09') ){
-          alert('You Win! Try again?')  
+          alert('next level')  
           document.getElementById('myImg01').style.left = '0px'
-          location = 'Test-for-Final.html'  // go to your next level   
+          location = 'Test-for-Final03.html'  // go to your next level   
     }
       if ( myHitOther('myImg01','myImg14') ){
        mySound4.play()
@@ -300,14 +311,12 @@ function myCheckHit(){
        document.getElementById('myCounterP').innerHTML =+ 100
        document.getElementById('myCounterH').innerHTML =+ 1000       
    }
-  if ( myHitOther('myBullet01','myImg16') ){
-      document.getElementById('myCounterE').innerHTML ++
-      clearInterval(myGun01)
+  if ( myHitOther('myBullet01','myImg16') ){  
+      document.getElementById('myCounterE').innerHTML --
       document.getElementById('myImg16').style.left = '-2000px'
    }    
    if ( myHitOther('myBullet02','myImg16') ){
-       document.getElementById('myCounterE').innerHTML ++
-      clearInterval(myGun02)
+       document.getElementById('myCounterE').innerHTML --
       document.getElementById('myImg16').style.left = '-2000px'
    }
    if ( myHitOther('myBullet01','myImg06') ){
@@ -319,15 +328,12 @@ function myCheckHit(){
       document.getElementById('myBullet02').style.left = '-2000px' 
    }
    if ( myHitOther('myBullet01','myImg20') ){
-       document.getElementById('myCounterE').innerHTML ++
-      clearInterval(myGun02)
+       document.getElementById('myCounterE').innerHTML --
       document.getElementById('myImg20').style.left = '-2000px'
    }
    if ( myHitOther('myBullet02','myImg20') ){
-       document.getElementById('myCounterE').innerHTML ++
-      clearInterval(myGun02)
-      document.getElementById('myImg20').style.left = '-2000px' 
-     
+       document.getElementById('myCounterE').innerHTML --
+      document.getElementById('myImg20').style.left = '-2000px'    
    }
 }
    function startupGravityDown(){
@@ -362,6 +368,7 @@ function myCheckHit(){
    }
 function gravity(){
    clearInterval(myClock2)
+   mySound3.play()
    myClock2 = setInterval(function(){
       myCheckHitFloor();
       myCheckHitRoof();
@@ -420,6 +427,26 @@ function checkFacingDirection(){
       (facingDirectionH == 'right')){
       const scale = document.getElementById('myImg01')      //right gravity down madeline walking 
       scale.style.transform = 'scale(-1, 1)'
+   }
+   if ((facingDirectionV == 'down') &&
+      (facingDirectionH == 'left')){
+      const scale = document.getElementById('myImg16')       //left man01 walking
+      scale.style.transform = 'scale(-1, 1)'
+   }
+   if ((facingDirectionV == 'down') &&
+      (facingDirectionH == 'right')){
+      const scale = document.getElementById('myImg16')      //right  man01 walking 
+      scale.style.transform = 'scale(-1, 1)'
+   }
+   if ((facingDirectionV == 'down') &&
+      (facingDirectionH == 'left')){
+      const scale = document.getElementById('myImg20')       //left Teal walking
+      scale.style.transform = 'scale(1, 1)'
+   }
+   if ((facingDirectionV == 'down') &&
+      (facingDirectionH == 'right')){
+      const scale = document.getElementById('myImg20')      //right Teal walking 
+      scale.style.transform = 'scale(1, 1)'
    }
    if ((facingDirectionV == 'up') &&
       (facingDirectionH == 'left')){
@@ -488,18 +515,6 @@ if (parseInt(document.getElementById('myImg01').style.left) < 0 ) {
  if (parseInt(document.getElementById('myImg01').style.top) < 0 ) {
      document.getElementById('myImg01').style.top = '1px'
    } 
-  if (parseInt(document.getElementById('myImg02').style.left)  > 1820 ) {    //1820
-     document.getElementById('myImg02').style.left = '1px'
-   }   
- if (parseInt(document.getElementById('myImg02').style.top) > 800 ) {    //800
-     document.getElementById('myImg02').style.top = '799px'
-   }  
-if (parseInt(document.getElementById('myImg02').style.left) < 0 ) {
-     document.getElementById('myImg02').style.left = '1819px'
-   }   
- if (parseInt(document.getElementById('myImg02').style.top) < 0 ) {
-     document.getElementById('myImg02').style.top = '1px'
-   }   
  if (parseInt(document.getElementById('myImg01').style.top) < 0 ) {  
      document.getElementById('myImg01').style.top = '0px'
    }                    
@@ -511,45 +526,61 @@ function myGameover(){
    }
 }
 function myAmmoOut(){
-   if (document.getElementById('myCounterP').innerHTML > 0 ){ 
-   document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) - 0 
-   document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) + 0  
-   document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet02').style.left) - 0
-   document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet02').style.left) + 0  
-   document.getElementById('myCounterP').innerHTML -= 0   
+   if (document.getElementById('myCounterP').innerHTML < 1 ){ 
+   document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myImg01').style.left) - 0 
+   document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myImg01').style.left) + 0 
+   document.getElementById('myBullet01').style.visibility='hidden'
+   document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myImg01').style.left) - 0
+   document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myImg01').style.left) + 0  
+   document.getElementById('myBullet02').style.visibility='hidden'
+   document.getElementById('myCounterP').innerHTML = 0   
    }
-}  
-</script>  
-<img id="myImg19"style="position:absolute; width:50px; height:120px; top:779px; left:50px;" src="img/dooropen.png">  
-<img id="myImg23"style="position:absolute; width:50px; height:120px; top:480px; left:50px;" src="img/doorclose.png">  
+ }
+function myStageClear(){
+   if (document.getElementById('myCounterE').innerHTML < 1 ){
+   document.getElementById('myImg09').style.left = + 960
+   document.getElementById('myImg28').style.left = - 3700  
+   mySound4.play()     
+   document.getElementById('myCounterE').innerHTML = 0   
+   }
+ } 
+   
+   
+</script>      
+<img id="myImg34"style="position:absolute; width:40px; height:16px; top:0px; left:960px;" src="img/Gravity generator.gif">    
+<img id="myImg33"style="position:absolute; width:40px; height:16px; top:0px; left:1450px;" src="img/Gravity generator.gif">   
+<img id="myImg32"style="position:absolute; width:10px; height:600px; top:300px; left:95px;" src="img/pillar.png">    
+<img id="myImg31"style="position:absolute; width:10px; height:600px; top:300px; left:1490px;" src="img/pillar.png">    
+<img id="myImg29"style="position:absolute; width:50px; height:120px; top:779px; left:960px;" src="img/doorclose.png">  
+<img id="myImg30"style="position:absolute; width:50px; height:120px; top:480px; left:960px;" src="img/dooropen.png">   
+<img id="myImg23"style="position:absolute; width:50px; height:120px; top:480px; left:960px;" src="img/doorclose.png">    
+<img id="myImg19"style="position:absolute; width:50px; height:120px; top:779px; left:960px;" src="img/dooropen.png">  
 <img id="myImg18"style="position:absolute; width:34px; height:960x; top:300px; left:50px;" visibility='hidden' src="img/Madeline standing1.gif">     
 <img id="myImg01" style="position:absolute; width:34px; height:96px; top:300px; left:50px;" visibility='visible' src="img/Madeline Left Running.gif">
-<img id="myImg20" style="position:absolute; width:36px; height:96px; top:804px; left:400px;" src="img/Teal Walking.gif">    
-<img id="myImg16" style="position:absolute; width:36px; height:100px; top:800px; left:750px;" src="img/Man 01 walking.gif">   
-<img id="myImg02" style="position:absolute; width:70px; height:90px; top:600px; left:1250px;" src="red-photos-1172010.jpg">
+<img id="myImg35"style="position:absolute; width:530px; height:900px; top:0px; left:960px;" src="img/Gravity.png">      
+<img id="myImg20" style="position:absolute; width:36px; height:96px; top:283px; left:1700px;" src="img/Teal Walking.gif">    
+<img id="myImg16" style="position:absolute; width:36px; height:100px; top:800px; left:750px;" src="img/Man 01 walking.gif">  
+<img id="myImg02" style="position:absolute; width:70px; height:90px; top:600px; left:-1250px;" src="red-photos-1172010.jpg">   
 <img id="myImg03" style="position:absolute; width:1920px; height:1px; top:899px; left:0px;" src="red-photos-1172010.jpg">
 <img id="myImg04" style="position:absolute; width:1px; height:900px; top:0px; left:0px;" src="red-photos-1172010.jpg">
 <img id="myImg05" style="position:absolute; width:1920px; height:1px; top:0px; left:0px;" src="red-photos-1172010.jpg">
 <img id="myImg06" style="position:absolute; width:1px; height:900px; top:0px; left:1919px;" src="red-photos-1172010.jpg">  
-<img id="myImg09" style="position:absolute; width:50px; height:120px; top:260px; left:1850px;" src="img/dooropen.png">
+<img id="myImg09" style="position:absolute; width:50px; height:120px; top:260px; left:-960px;" src="img/dooropen.png">
+<img id="myImg28" style="position:absolute; width:50px; height:120px; top:260px; left:960px;" src="img/doorclose.png">  
 <img id="myImg10" style="position:absolute; width:1920px; height:1px; top:-20px; left:0px;" src="red-photos-1172010.jpg">
-<img id="myImg11" style="position:absolute; width:1920px; height:80px; top:820px; left:0px;" src="img/railguard long .png">
+<img id="myImg11" style="position:absolute; width:1920px; height:80px; top:820px; left:960px;" src="img/railguard long .png">
 <img id="myImg21" style="position:absolute; width:960px; height:2px; top:598px; left:0px;" src="red-photos-1172010.jpg">
 <img id="myImg22" style="position:absolute; width:960px; height:2px; top:598px; left:0px;" src="red-photos-1172010.jpg">   
 <img id="myImg12" style="position:absolute; width:960px; height:80px; top:520px; left:0px;" src="img/railguard mid.png">
 <img id="myImg26" style="position:absolute; width:430px; height:1px; top:379px; left:1489px;" src="red-photos-1172010.jpg">    
 <img id="myImg27" style="position:absolute; width:430px; height:1px; top:379px; left:1489px;" src="red-photos-1172010.jpg">     
-<img id="myImg25" style="position:absolute; width:430px; height:80px; top:300px; left:1489px;" src="img/railguard short.png">   
+<img id="myImg25" style="position:absolute; width:430px; height:80px; top:300px; left:960px;" src="img/railguard short.png">   
 <img id="myImg14" style="position:absolute; width:12px; height:20px; top:300px; left:200px;" src="img/Can.png">  
 <img id="myImg15" style="position:absolute; width:12px; height:20px; top:820px; left:400px;" src="img/Can.png">      
-<img id="myImg08" style="position:absolute; width:120px; height:220px; top:0px; left:0px; opacity:0.7;" src="img/Interface.png">    
-<img id="myImg24"style="position:absolute; width:150px; height:150px; top:650px; left:0px;" src="">     
+<img id="myImg08" style="position:absolute; width:120px; height:220px; top:0px; left:0px; opacity:0.7;" src="img/Interface.png">         
 <img id="myBullet01" style="position:absolute; width:32px; height:32px; left: -80px; top:0px; opacity:0.9;" src="img/ElectroBall.gif"> 
 <img id="myBullet02" style="position:absolute; width:32px; height:32px; left: -80px; top:0px; opacity:0.9;" src="img/ElectroBall.gif">  
-<img id="myBullet03" style="position:absolute; width:32px; height:32px; left: -80px; top:0px;" src="img/SolarFlare.gif"> 
-<img id="myBullet04" style="position:absolute; width:32px; height:32px; left: -80px; top:0px;" src="img/SolarFlare.gif">  
-<img id="myBullet05" style="position:absolute; width:32px; height:32px; left: -80px; top:0px;" src="img/WinterWonderland.gif"> 
-<img id="myBullet06" style="position:absolute; width:32px; height:32px; left: -80px; top:0px;" src="img/WinterWonderland.gif">  
-   
- <div id="myCounterENEMY1" visibility="hidden">10</div>    
- <div id="myCounterENEMY2" visibility="hidden">10</div>     
+<img id="myBullet03" style="position:absolute; width:32px; height:12px; left: -80px; top:0px;" src="img/SolarFlare.gif"> 
+<img id="myBullet04" style="position:absolute; width:32px; height:12px; left: -80px; top:0px;" src="img/SolarFlare.gif">  
+<img id="myBullet05" style="position:absolute; width:32px; height:10px; left: -80px; top:0px;" src="img/WinterWonderland.gif"> 
+<img id="myBullet06" style="position:absolute; width:32px; height:10px; left: -80px; top:0px;" src="img/WinterWonderland.gif">          
