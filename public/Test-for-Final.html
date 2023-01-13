@@ -1,4 +1,4 @@
-Version 5.8.3
+Version 5.8.4
 <head> 
    <h4> Health: 
  <div id="myCounterH">1000</div>   
@@ -525,9 +525,9 @@ function myAmmoOut(){
    document.getElementById('myCounterP').innerHTML = 0   
    } 
 function myStageClear(){
-   if (document.getElementById('myCounterE').innerHTML > 1 ){
-   document.getElementById('myImg09').style.left = '+3700px'
-   document.getElementById('myImg28').style.left = '-3700px'   
+   if (document.getElementById('myCounterE').innerHTML < 3 ){
+   document.getElementById('myImg09').style.left = + 3700
+   document.getElementById('myImg28').style.left = - 3700   
    mySound4.play()
    document.getElementById('myCounterE').innerHTML = 2      
    }
