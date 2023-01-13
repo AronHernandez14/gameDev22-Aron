@@ -1,4 +1,4 @@
-Version 6.1.6
+Version 6.1.0
 <head> 
    <h4> Health: 
  <div id="myCounterH">1000</div>   
@@ -28,7 +28,7 @@ onkeydown="{
    if (myKey == 'd') {
       if (gravityDirection == 'down' || gravityDirection == 'up') {
     document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) + 8 
-    document.getElementById('myImg18').style.left = parseInt(document.getElementById('myImg01').style.left) + 8    
+    document.getElementById('myImg18').style.left = parseInt(document.getElementById('myImg01').style.left) + 8 
     document.getElementById('myImg01').style.visibility='visible';    
     document.getElementById('myImg18').style.visibility='hidden';       
     facingDirectionH = 'right'
@@ -42,13 +42,12 @@ onkeydown="{
      myCheckHit()
     myGameover()
     myTeleport()  
-        document.getElementById('myImg18').style.left = parseInt(document.getElementById('myImg01').style.left) - 6        
    }
    }                                                                                                             // right movement normal
    if (myKey == 'a') {
       if (gravityDirection == 'down' || gravityDirection == 'up') {
     document.getElementById('myImg01').style.left = parseInt(document.getElementById('myImg01').style.left) - 8  
-    document.getElementById('myImg18').style.left = parseInt(document.getElementById('myImg01').style.left) - 8   
+    document.getElementById('myImg18').style.left = parseInt(document.getElementById('myImg01').style.left) - 8 
     document.getElementById('myImg01').style.visibility='visible';    
     document.getElementById('myImg18').style.visibility='hidden';          
     facingDirectionH = 'left'
@@ -60,8 +59,7 @@ onkeydown="{
       myIsOnScreen()   
      myCheckHit()
      myGameover()  
-     myTeleport()  
-    document.getElementById('myImg18').style.left = parseInt(document.getElementById('myImg01').style.left) + 6               
+     myTeleport()   
    }
    }                                                                                                             //left movement gun
            
@@ -248,7 +246,7 @@ if (myShooting == 1){
    let myShooting = 1
    let mySound1 = new Audio('img/ElectroBall.mp4')
    let mySound3 = new Audio('img/Flanagan and Allen Run Rabbit Runwmv.mp4')
-   let mySound4 = new Audio('img/Undertale sound effect - talking damage (128 kbps).mp4')
+   let mySound4 = new Audio(' https://michaelcedrone.github.io/gamedevmike/public/mixkit-fairy-arcade-sparkle-866.wav')
  
 
    // global functions here
@@ -356,8 +354,8 @@ function myCheckHit(){
       myCheckHitFloor();
       myCheckHitRoof();
       myGravity -= 0.07
-      document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + myGravity + 'px' 
-      document.getElementById('myImg18').style.top = parseInt(document.getElementById('myImg18').style.top) + myGravity + 'px' 
+      document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + myGravity + 'px'
+      document.getElementById('myImg18').style.top = parseInt(document.getElementById('myImg18').style.top) + myGravity + 'px'
       if (myGravity <= -1){
          clearInterval(myClock2)
          myGravity = -1
@@ -396,12 +394,12 @@ function myCheckHitFloor(){
  if ( myHitOther('myImg01','myImg21') ){
        //document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 1 + 'px'
        myGravity = 0
- }   
- if ( myHitOther('myImg01','myImg26') ){
+  }   
+    if ( myHitOther('myImg01','myImg26') ){
        //document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) - 1 + 'px'
        myGravity = 0
+  }   
   }        
- }        
    function myCheckHitRoof(){
    if ( myHitOther('myImg01','myImg05') ){
        //document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 1 + 'px'
@@ -415,8 +413,8 @@ function myCheckHitFloor(){
        //document.getElementById('myImg01').style.top = parseInt(document.getElementById('myImg01').style.top) + 1 + 'px'
        myGravity = 0
    }       
- }   
-    function checkFacingDirection(){
+   }   
+function checkFacingDirection(){
    if ((facingDirectionV == 'down') &&
       (facingDirectionH == 'left')){
       const scale = document.getElementById('myImg01')       //left gravity down madeline walking
@@ -456,12 +454,12 @@ if ((facingDirectionV == 'down') &&
       (facingDirectionH == 'right')){
       const scale = document.getElementById('myImg18')    //right gravity up madeline standing
       scale.style.transform = 'scale(-1, -1)'
-   }
+   }     
 }   
 function checkFacingDirectionBullet(){
   if ((facingDirectionV == 'down') &&
       (facingDirectionH == 'left')){
-      const scale = document.getElementById('myBullet01')     
+      const scale = document.getElementById('myBullet01')
       scale.style.transform = 'scale(1, 1)'
    }
    if ((facingDirectionV == 'down') &&
@@ -508,7 +506,19 @@ if (parseInt(document.getElementById('myImg02').style.left) < 0 ) {
    }   
  if (parseInt(document.getElementById('myImg01').style.top) < 0 ) {  
      document.getElementById('myImg01').style.top = '0px'
-   }                                                                   //end of old code 
+   }                                                                   //end of old code
+if (parseInt(document.getElementById('myImg20').style.left) < 0 ) {
+    document.getElementById('myImg20').style.left = '1px'
+   } 
+if (parseInt(document.getElementById('myImg16').style.left)  > 1890 ) {    //1890
+    document.getElementById('myImg16').style.left = '1889px'   
+  } 
+if (parseInt(document.getElementById('myImg16').style.left) < 0 ) {
+    document.getElementById('myImg16').style.left = '1px'
+   } 
+if (parseInt(document.getElementById('myImg20').style.left)  > 1890 ) {    //1890
+    document.getElementById('myImg20').style.left = '1889px'   
+  }    
 }
 function myGameover(){
    if (document.getElementById('myCounterH').innerHTML < 0 ){ 
@@ -534,6 +544,19 @@ function myStageClear(){
    document.getElementById('myCounterE').innerHTML = 0   
    } 
  }  
+ function myEnemyProjectiles(){
+   if (document.getElementById('myImg20').style.left = parseInt(document.getElementById('myImg20').style.left) + 4){
+   document.getElementById('myBullet03').style.left = parseInt(document.getElementById('myImg20').style.left) - 4 
+   document.getElementById('myBullet03').style.left = parseInt(document.getElementById('myImg20').style.left) + 4 
+   document.getElementById('myBullet04').style.left = parseInt(document.getElementById('myImg20').style.left) - 4 
+   document.getElementById('myBullet04').style.left = parseInt(document.getElementById('myImg20').style.left) + 4    
+   }
+ }  
+ function myTealMovement(){
+  if (document.getElementById('myCounterE').innerHTML < 100 ){ 
+  document.getElementById('myImg20').style.left = parseInt(document.getElementById('myImg20').style.left) + 4   
+  } 
+}
 </script> 
 <img id="myImg34"style="position:absolute; width:40px; height:16px; top:0px; left:960px;" src="img/Gravity generator.gif">    
 <img id="myImg33"style="position:absolute; width:40px; height:16px; top:0px; left:1450px;" src="img/Gravity generator.gif">   
@@ -571,7 +594,9 @@ function myStageClear(){
 <img id="myBullet04" style="position:absolute; width:32px; height:32px; left: -80px; top:0px;" src="img/SolarFlare.gif">  
 <img id="myBullet05" style="position:absolute; width:32px; height:32px; left: -80px; top:0px;" src="img/WinterWonderland.gif"> 
 <img id="myBullet06" style="position:absolute; width:32px; height:32px; left: -80px; top:0px;" src="img/WinterWonderland.gif">  
-   
+<div id="myENEMY1"10 </div>
+<div id="myENEMY2"10 </div>
+
 <h1 align=center><input type=button value="Close "onclick="{
    this.style.display='none'
    document.getElementById('myDescription').style.display='none'
