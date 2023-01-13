@@ -1,4 +1,4 @@
-Version 5.2.9
+Version 5.3.0
 <head> 
    <h4> Health: 
  <div id="myCounterH">1000</div>   
@@ -512,10 +512,10 @@ function myGameover(){
 }
 function myAmmoOut(){
    if (document.getElementById('myCounterP').innerHTML < 0 ){ 
-   document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) - 0 
-   document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myBullet01').style.left) + 0  
-   document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) - 0
-   document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myBullet02').style.left) + 0  
+   document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myImg01').style.left) - 0 
+   document.getElementById('myBullet01').style.left = parseInt(document.getElementById('myImg01').style.left) + 0  
+   document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myImg01').style.left) - 0
+   document.getElementById('myBullet02').style.left = parseInt(document.getElementById('myImg01').style.left) + 0  
    document.getElementById('myCounterP').innerHTML + 0   
    }
 }  
