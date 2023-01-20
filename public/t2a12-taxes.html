@@ -10,7 +10,9 @@
 
 <h4> 15% taxes value</h4>
 
-<input id="myNum01" type=number value="0.15" ><br>
+<input id="myNum01" type=number value="$/hour" ><br>
+<input id="myNum21" type=number value="hour/day" ><br>          
+<input id="myNum31" type=number value="30%" ><br>          
 
 <input type=button value="fifteen percent" onclick="{
     let myIn01 = parseFloat(document.getElementById('myNum01').value)
@@ -20,19 +22,5 @@
 }"><br>
 
 <div id="myDiv01">...</div>
-       
-<h4> 5% taxes value</h4>
-
-<input id="myNum02" type=number value="0.5" ><br>
-
-<input type=button value="five percent" onclick="{
-    let myIn02 = parseFloat(document.getElementById('myNum02').value)
-    let myAnswer = myIn02 * myIn02
-    document.getElementById('myDiv02').innerHTML = 
-      myIn02 + ' squared = ' + myAnswer
-}"><br>
-
-<div id="myDiv02">...</div>
-          
           
        
